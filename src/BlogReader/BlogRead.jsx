@@ -305,7 +305,13 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
     setShowShareMenu(false);
   };
 
-  if (loading) return <Loader theme={theme} />;
+  if (loading) {
+    return (
+      <div className="irada-widget irada-blogs-page" data-theme={theme}>
+        <Loader theme={theme} />
+      </div>
+    );
+  }
 
   if (!blog) {
     return (
