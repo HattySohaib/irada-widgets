@@ -110,7 +110,8 @@ const processContentWithIds = (content, toc) => {
   return tempDiv.innerHTML;
 };
 
-function BlogRead({ theme, apiKey, apiEndpoint }) {
+function BlogRead({ theme, apiKey }) {
+  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
   const { slug } = useParams();
   const location = useLocation();
 

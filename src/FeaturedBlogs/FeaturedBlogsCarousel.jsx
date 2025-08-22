@@ -21,7 +21,8 @@ const formatNumber = (num) => {
   return num.toString();
 };
 
-const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
+const FeaturedBlogsCarousel = ({ theme, apiKey }) => {
+  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);

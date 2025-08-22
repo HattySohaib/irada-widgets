@@ -6,10 +6,10 @@ import "../App.css";
 function Blogs({
   apiKey,
   theme,
-  apiEndpoint,
   heading = "Discover Our Blog",
   subheading = "Explore insights, tutorials, and stories from our community",
 }) {
+  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [blogs, setBlogs] = useState([]);

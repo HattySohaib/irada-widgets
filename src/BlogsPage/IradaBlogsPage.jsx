@@ -7,11 +7,12 @@ import "../App.css";
 function IradaBlogsPage({
   apiKey,
   theme = "light",
-  apiEndpoint = "https://bloggestapi.sohaibaftab.me",
   heading = "Discover Our Blog",
   subheading = "Explore insights, tutorials, and stories from our community",
 }) {
   if (!apiKey) return <div>API key is required</div>;
+
+  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
 
   return (
     <Routes>

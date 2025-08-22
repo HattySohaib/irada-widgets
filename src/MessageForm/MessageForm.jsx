@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const MessageForm = ({
   theme = "light",
   apiKey,
-  apiEndpoint,
   heading = "Get in Touch",
   subheading = "Send us a message and we'll get back to you as soon as possible.",
   placeholderName = "Your name",
@@ -13,6 +12,7 @@ const MessageForm = ({
   onSuccess,
   onError,
 }) => {
+  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
