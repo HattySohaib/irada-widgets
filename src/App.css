@@ -532,6 +532,7 @@
 }
 
 .irada-widget .ir-publish-info {
+    color: var(--irada-text-secondary);
     font-size: var(--irada-font-size-sm);
     opacity: 0.8;
 }
