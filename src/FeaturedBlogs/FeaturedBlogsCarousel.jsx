@@ -130,11 +130,17 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
 
   if (loading) {
     return (
-      <div className="irada-widget irada-featured-carousel" data-theme={theme}>
-        <div className="carousel-container">
-          <div className="carousel-container">
-            <div className="loading-skeleton">
-              <div className="skeleton-card" style={{ height: "400px" }}></div>
+      <div
+        className="irada-widget ir-irada-featured-carousel"
+        data-theme={theme}
+      >
+        <div className="ir-carousel-container">
+          <div className="ir-carousel-container">
+            <div className="ir-loading-skeleton">
+              <div
+                className="ir-skeleton-card"
+                style={{ height: "400px" }}
+              ></div>
             </div>
           </div>
         </div>
@@ -144,9 +150,12 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
 
   if (!blogs || blogs.length === 0) {
     return (
-      <div className="irada-widget irada-featured-carousel" data-theme={theme}>
-        <div className="carousel-container">
-          <div className="carousel-container">
+      <div
+        className="irada-widget ir-irada-featured-carousel"
+        data-theme={theme}
+      >
+        <div className="ir-carousel-container">
+          <div className="ir-carousel-container">
             <div style={{ padding: "2rem", textAlign: "center" }}>
               <p>No featured blogs available.</p>
             </div>
@@ -157,10 +166,10 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
   }
 
   return (
-    <div className="irada-widget irada-featured-carousel" data-theme={theme}>
-      <div className="carousel-container">
+    <div className="irada-widget ir-irada-featured-carousel" data-theme={theme}>
+      <div className="ir-carousel-container">
         <div
-          className="carousel"
+          className="ir-carousel"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -168,19 +177,19 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
           onMouseLeave={handleMouseLeave}
         >
           <div
-            className="carousel-inner"
+            className="ir-carousel-inner"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {blogs.map((blog, index) => (
-              <div className="carousel-item" key={blog._id || index}>
+              <div className="ir-carousel-item" key={blog._id || index}>
                 <FeaturedBlogSlide blog={blog} />
               </div>
             ))}
           </div>
 
           {blogs.length > 1 && (
-            <div className="carousel-controls">
-              <button className="carousel-control prev" onClick={prevSlide}>
+            <div className="ir-carousel-controls">
+              <button className="ir-carousel-control prev" onClick={prevSlide}>
                 <svg
                   width="20"
                   height="20"
@@ -192,7 +201,7 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
                   <polyline points="15,18 9,12 15,6"></polyline>
                 </svg>
               </button>
-              <button className="carousel-control next" onClick={nextSlide}>
+              <button className="ir-carousel-control next" onClick={nextSlide}>
                 <svg
                   width="20"
                   height="20"
@@ -209,11 +218,11 @@ const FeaturedBlogsCarousel = ({ theme, apiKey, apiEndpoint }) => {
         </div>
 
         {blogs.length > 1 && (
-          <div className="carousel-pagination">
+          <div className="ir-carousel-pagination">
             {blogs.map((_, index) => (
               <button
                 key={index}
-                className={`carousel-dot ${
+                className={`ir-carousel-dot ${
                   index === currentIndex ? "active" : ""
                 }`}
                 onClick={() => goToSlide(index)}
@@ -235,8 +244,8 @@ const FeaturedBlogSlide = ({ blog }) => {
   };
 
   return (
-    <Link to={`/blogs/blog/${blog.slug}`} className="featured-blog-slide">
-      <div className="featured-blog-image">
+    <Link to={`/blogs/blog/${blog.slug}`} className="ir-featured-blog-slide">
+      <div className="ir-featured-blog-image">
         {isLoading && (
           <GhostLoader width="100%" height="100%" radius="0" theme="dark" />
         )}
@@ -246,18 +255,18 @@ const FeaturedBlogSlide = ({ blog }) => {
           src={blog.banner}
           alt={blog.title}
         />
-        <div className="featured-blog-overlay" />
+        <div className="ir-featured-blog-overlay" />
       </div>
 
-      <div className="featured-blog-content">
-        <div className="featured-blog-badges">
-          <div className="featured-category-badge">{blog.category}</div>
+      <div className="ir-featured-blog-content">
+        <div className="ir-featured-blog-badges">
+          <div className="ir-featured-category-badge">{blog.category}</div>
           {blog.tags && blog.tags.length > 0 && (
             <>
-              <span className="featured-badge-separator">•</span>
-              <div className="featured-blog-tags">
+              <span className="ir-featured-badge-separator">•</span>
+              <div className="ir-featured-blog-tags">
                 {blog.tags.slice(0, 3).map((tag, index) => (
-                  <span key={index} className="featured-blog-tag">
+                  <span key={index} className="ir-featured-blog-tag">
                     {tag}
                   </span>
                 ))}
@@ -266,19 +275,19 @@ const FeaturedBlogSlide = ({ blog }) => {
           )}
         </div>
 
-        <div className="featured-blog-info">
-          <h2 className="featured-blog-title">{blog.title}</h2>
-          <p className="featured-blog-meta">{blog.meta}</p>
+        <div className="ir-featured-blog-info">
+          <h2 className="ir-featured-blog-title">{blog.title}</h2>
+          <p className="ir-featured-blog-meta">{blog.meta}</p>
 
-          <div className="featured-blog-details">
-            <div className="featured-blog-author">
-              <span className="author-name">
+          <div className="ir-featured-blog-details">
+            <div className="ir-featured-blog-author">
+              <span className="ir-author-name">
                 {blog.author?.username || "Anonymous"}
               </span>
             </div>
 
-            <div className="featured-blog-stats">
-              <div className="stat-item">
+            <div className="ir-featured-blog-stats">
+              <div className="ir-stat-item">
                 <svg
                   width="14"
                   height="14"
@@ -292,7 +301,7 @@ const FeaturedBlogSlide = ({ blog }) => {
                 </svg>
                 {formatNumber(blog.viewsCount || 0)}
               </div>
-              <div className="stat-item">
+              <div className="ir-stat-item">
                 <svg
                   width="14"
                   height="14"
@@ -305,7 +314,7 @@ const FeaturedBlogSlide = ({ blog }) => {
                 </svg>
                 {formatNumber(blog.likesCount || 0)}
               </div>
-              <span className="publish-date">
+              <span className="ir-publish-date">
                 {formatDate(blog.publishedAt)}
               </span>
             </div>

@@ -8,7 +8,7 @@ function GhostLoader({ width, height, radius, theme }) {
         height: height,
         borderRadius: radius || "var(--irada-radius)",
       }}
-      className="ghost-loader"
+      className="ir-ghost-loader"
     ></div>
   );
 }

@@ -117,21 +117,21 @@ const MessageForm = ({
   };
 
   return (
-    <div className="irada-widget irada-message-form" data-theme={theme}>
-      <div className="message-form-container">
+    <div className="irada-widget ir-irada-message-form" data-theme={theme}>
+      <div className="ir-message-form-container">
         {(heading || subheading) && (
-          <div className="message-form-header">
-            {heading && <h2 className="message-form-title">{heading}</h2>}
+          <div className="ir-message-form-header">
+            {heading && <h2 className="ir-message-form-title">{heading}</h2>}
             {subheading && (
-              <p className="message-form-subtitle">{subheading}</p>
+              <p className="ir-message-form-subtitle">{subheading}</p>
             )}
           </div>
         )}
 
-        <form className="message-form" onSubmit={handleSubmit}>
-          <div className="form-row">
-            <div className="form-field">
-              <label htmlFor="name" className="form-label">
+        <form className="ir-message-form" onSubmit={handleSubmit}>
+          <div className="ir-form-row">
+            <div className="ir-form-field">
+              <label htmlFor="name" className="ir-form-label">
                 Name
               </label>
               <input
@@ -141,16 +141,16 @@ const MessageForm = ({
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder={placeholderName}
-                className={`form-input ${errors.name ? "error" : ""}`}
+                className={`ir-form-input ${errors.name ? "error" : ""}`}
                 disabled={loading}
               />
               {errors.name && (
-                <span className="error-message">{errors.name}</span>
+                <span className="ir-error-message">{errors.name}</span>
               )}
             </div>
 
-            <div className="form-field">
-              <label htmlFor="email" className="form-label">
+            <div className="ir-form-field">
+              <label htmlFor="email" className="ir-form-label">
                 Email
               </label>
               <input
@@ -160,17 +160,17 @@ const MessageForm = ({
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder={placeholderEmail}
-                className={`form-input ${errors.email ? "error" : ""}`}
+                className={`ir-form-input ${errors.email ? "error" : ""}`}
                 disabled={loading}
               />
               {errors.email && (
-                <span className="error-message">{errors.email}</span>
+                <span className="ir-error-message">{errors.email}</span>
               )}
             </div>
           </div>
 
-          <div className="form-field">
-            <label htmlFor="message" className="form-label">
+          <div className="ir-form-field">
+            <label htmlFor="message" className="ir-form-label">
               Message
             </label>
             <textarea
@@ -179,18 +179,18 @@ const MessageForm = ({
               value={formData.message}
               onChange={handleInputChange}
               placeholder={placeholderMessage}
-              className={`form-textarea ${errors.message ? "error" : ""}`}
+              className={`ir-form-textarea ${errors.message ? "error" : ""}`}
               rows={5}
               disabled={loading}
             />
             {errors.message && (
-              <span className="error-message">{errors.message}</span>
+              <span className="ir-error-message">{errors.message}</span>
             )}
           </div>
 
-          <button type="submit" className="submit-button" disabled={loading}>
+          <button type="submit" className="ir-submit-button" disabled={loading}>
             {loading ? (
-              <div className="loading-spinner">
+              <div className="ir-loading-spinner">
                 <svg
                   width="16"
                   height="16"

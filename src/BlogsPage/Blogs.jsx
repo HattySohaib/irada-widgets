@@ -156,30 +156,30 @@ function Blogs({
   return (
     <div className="irada-widget irada-blogs-page" data-theme={theme}>
       <div id="blogs">
-        <div className="recommended-blogs">
+        <div className="ir-recommended-blogs">
           {/* Enhanced Header Section */}
-          <div className="blogs-header">
-            <div className="blogs-header-content">
-              <div className="blogs-title-section">
-                <h1 className="blogs-main-title">{heading}</h1>
-                <p className="blogs-subtitle">{subheading}</p>
-                <div className="blogs-stats">
-                  <span className="stat-item">
+          <div className="ir-blogs-header">
+            <div className="ir-blogs-header-content">
+              <div className="ir-blogs-title-section">
+                <h1 className="ir-blogs-main-title">{heading}</h1>
+                <p className="ir-blogs-subtitle">{subheading}</p>
+                <div className="ir-blogs-stats">
+                  <span className="ir-stat-item">
                     <strong>{pagination.totalBlogs}</strong> articles
                   </span>
-                  <span className="stat-divider">•</span>
-                  <span className="stat-item">
+                  <span className="ir-stat-divider">•</span>
+                  <span className="ir-stat-item">
                     <strong>{pagination.totalPages}</strong> pages
                   </span>
                 </div>
               </div>
 
               {/* Search Section */}
-              <div className="blogs-controls">
-                <div className="search-container">
-                  <div className="search-input-wrapper">
+              <div className="ir-blogs-controls">
+                <div className="ir-search-container">
+                  <div className="ir-search-input-wrapper">
                     <svg
-                      className="search-icon"
+                      className="ir-search-icon"
                       width="16"
                       height="16"
                       viewBox="0 0 24 24"
@@ -195,12 +195,12 @@ function Blogs({
                       placeholder="Search articles, tags, or categories..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="search-input"
+                      className="ir-search-input"
                     />
                     {searchQuery && (
                       <button
                         onClick={() => setSearchQuery("")}
-                        className="clear-search"
+                        className="ir-clear-search"
                       >
                         <svg
                           width="14"
@@ -223,7 +223,7 @@ function Blogs({
 
           {/* Results Info */}
           {searchQuery && (
-            <div className="search-results-info">
+            <div className="ir-search-results-info">
               <p>
                 Showing {filteredBlogs.length} of {blogs.length} results for "
                 {searchQuery}"
@@ -231,7 +231,7 @@ function Blogs({
             </div>
           )}
 
-          <div className="recommended-blogs-list">
+          <div className="ir-recommended-blogs-list">
             {filteredBlogs.map((blog, index) => {
               const isLastElement = index === filteredBlogs.length - 1;
 
@@ -247,29 +247,29 @@ function Blogs({
           </div>
 
           {loadingMore && (
-            <div className="loading-more">
-              <div className="dot-spinner">
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
-                <div className="dot-spinner__dot"></div>
+            <div className="ir-loading-more">
+              <div className="ir-dot-spinner">
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
+                <div className="ir-dot-spinner__dot"></div>
               </div>
             </div>
           )}
 
           {!pagination.hasNextPage && filteredBlogs.length > 0 && (
-            <div className="end-message">
+            <div className="ir-end-message">
               <p>You've reached the end of all blogs</p>
             </div>
           )}
 
           {filteredBlogs.length === 0 && !loading && (
-            <div className="no-results">
-              <div className="no-results-content">
+            <div className="ir-no-results">
+              <div className="ir-no-results-content">
                 <svg
                   width="48"
                   height="48"

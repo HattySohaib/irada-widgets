@@ -50,7 +50,7 @@ function BlogCard2({ blog, theme }) {
   };
 
   return (
-    <Link to={getBlogPath()} key={blog._id} className="recommended-blog">
+    <Link to={getBlogPath()} key={blog._id} className="ir-recommended-blog">
       {isLoading && (
         <GhostLoader width={"100%"} height={"200px"} theme={theme} />
       )}
@@ -61,31 +61,31 @@ function BlogCard2({ blog, theme }) {
         alt={blog?.title || "Blog image"}
       />
 
-      <div className="blog-text">
-        <div className="blog-header">
-          <span className="blog-category">{blog?.category}</span>
+      <div className="ir-blog-text">
+        <div className="ir-blog-header">
+          <span className="ir-blog-category">{blog?.category}</span>
         </div>
 
-        <h3 className="blog-title">{truncate(blog.title, 60)}</h3>
+        <h3 className="ir-blog-title">{truncate(blog.title, 60)}</h3>
         <p>{truncate(blog.meta, 100)}</p>
 
         {blog?.tags && blog.tags.length > 0 && (
-          <div className="blog-tags">
+          <div className="ir-blog-tags">
             {blog.tags.slice(0, 3).map((tag, index) => (
-              <span key={index} className="blog-tag">
+              <span key={index} className="ir-blog-tag">
                 {tag}
               </span>
             ))}
             {blog.tags.length > 3 && (
-              <span className="blog-tag-more">+{blog.tags.length - 3}</span>
+              <span className="ir-blog-tag-more">+{blog.tags.length - 3}</span>
             )}
           </div>
         )}
       </div>
 
-      <div className="details">
-        <div className="blog-stats">
-          <span className="stat-item">
+      <div className="ir-details">
+        <div className="ir-blog-stats">
+          <span className="ir-stat-item">
             <svg
               width="14"
               height="14"
@@ -99,7 +99,7 @@ function BlogCard2({ blog, theme }) {
             </svg>
             {formatNumber(blog?.viewsCount || 0)}
           </span>
-          <span className="stat-item">
+          <span className="ir-stat-item">
             <svg
               width="14"
               height="14"
@@ -113,7 +113,7 @@ function BlogCard2({ blog, theme }) {
             {formatNumber(blog?.likesCount || 0)}
           </span>
         </div>
-        <span className="blog-date">
+        <span className="ir-blog-date">
           {formatRelativeTime(blog?.updatedAt || blog?.publishedAt)}
         </span>
       </div>

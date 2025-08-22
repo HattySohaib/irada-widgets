@@ -2,16 +2,16 @@ import React from "react";
 import "../App.css";
 function Loader({ theme }) {
   return (
-    <div className="loader-div">
-      <div className="dot-spinner">
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
-        <div className="dot-spinner__dot"></div>
+    <div className="ir-loader-div">
+      <div className="ir-dot-spinner">
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
+        <div className="ir-dot-spinner__dot"></div>
       </div>
     </div>
   );

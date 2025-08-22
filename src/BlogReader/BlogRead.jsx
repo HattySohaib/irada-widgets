@@ -310,8 +310,8 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
   if (!blog) {
     return (
       <div className="irada-widget irada-blogs-page" data-theme={theme}>
-        <div className="blog-error">
-          <div className="blog-error-content">
+        <div className="ir-blog-error">
+          <div className="ir-blog-error-content">
             <svg
               width="64"
               height="64"
@@ -329,7 +329,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
               The blog post you're looking for doesn't exist or has been
               removed.
             </p>
-            <Link to={getBackPath()} className="back-link">
+            <Link to={getBackPath()} className="ir-back-link">
               ← Back to Blogs
             </Link>
           </div>
@@ -350,7 +350,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
     <div className="irada-widget irada-blogs-page" data-theme={theme}>
       <div id="blog-read">
         {/* Banner Section */}
-        <div className="blog-banner">
+        <div className="ir-blog-banner">
           {imgLoading && (
             <GhostLoader
               width={"100%"}
@@ -368,11 +368,11 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
         </div>
 
         {/* Blog Header Section */}
-        <div className="blog-header-section">
-          <div className="blog-header-content">
-            <div className="blog-header-badges">
-              <div className="blog-category-badge">{blog?.category}</div>
-              <div className="blog-views-badge">
+        <div className="ir-blog-header-section">
+          <div className="ir-blog-header-content">
+            <div className="ir-blog-header-badges">
+              <div className="ir-blog-category-badge">{blog?.category}</div>
+              <div className="ir-blog-views-badge">
                 <svg
                   width="14"
                   height="14"
@@ -387,32 +387,32 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                 {formatNumber(blog?.viewsCount || 0)} views
               </div>
             </div>
-            <h1 className="blog-title">{blog?.title}</h1>
-            <p className="blog-subtitle">{blog?.meta}</p>
+            <h1 className="ir-blog-title">{blog?.title}</h1>
+            <p className="ir-blog-subtitle">{blog?.meta}</p>
 
             {/* Author and Meta Info */}
-            <div className="blog-meta">
-              <div className="author-info">
+            <div className="ir-blog-meta">
+              <div className="ir-author-info">
                 {blog?.author?.profileImageUrl && (
                   <img
                     src={blog?.author?.profileImageUrl}
                     alt={blog?.author?.username || "Author"}
-                    className="author-avatar"
+                    className="ir-author-avatar"
                   />
                 )}
-                <div className="author-details">
-                  <span className="author-name">
+                <div className="ir-author-details">
+                  <span className="ir-author-name">
                     {blog?.author?.username || "Anonymous"}
                   </span>
-                  <div className="publish-info">
-                    <span className="publish-date">{publishedDate}</span>
+                  <div className="ir-publish-info">
+                    <span className="ir-publish-date">{publishedDate}</span>
                     {isUpdated && (
-                      <span className="update-info">
+                      <span className="ir-update-info">
                         {" "}
                         · Updated {formatRelativeTime(blog?.updatedAt)}
                       </span>
                     )}
-                    <span className="reading-time">
+                    <span className="ir-reading-time">
                       {" "}
                       · {readingTime} min read
                     </span>
@@ -421,9 +421,9 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
               </div>
 
               {/* Share Button */}
-              <div className="share-container">
+              <div className="ir-share-container">
                 <button
-                  className="share-button"
+                  className="ir-share-button"
                   onClick={() => setShowShareMenu(!showShareMenu)}
                 >
                   <svg
@@ -444,10 +444,10 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                 </button>
 
                 {showShareMenu && (
-                  <div className="share-menu">
+                  <div className="ir-share-menu">
                     <button
                       onClick={() => handleShare("twitter")}
-                      className="share-option"
+                      className="ir-share-option"
                     >
                       <svg
                         width="16"
@@ -461,7 +461,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                     </button>
                     <button
                       onClick={() => handleShare("linkedin")}
-                      className="share-option"
+                      className="ir-share-option"
                     >
                       <svg
                         width="16"
@@ -475,7 +475,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                     </button>
                     <button
                       onClick={() => handleShare("facebook")}
-                      className="share-option"
+                      className="ir-share-option"
                     >
                       <svg
                         width="16"
@@ -489,7 +489,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                     </button>
                     <button
                       onClick={() => handleShare("copy")}
-                      className="share-option"
+                      className="ir-share-option"
                     >
                       <svg
                         width="16"
@@ -519,13 +519,13 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
         </div>
 
         {/* Main Content */}
-        <div className="blog-content-wrapper">
-          <div className="blog-content-container">
+        <div className="ir-blog-content-wrapper">
+          <div className="ir-blog-content-container">
             {/* Tags */}
             {blog?.tags && blog.tags.length > 0 && (
-              <div className="blog-tags-section">
+              <div className="ir-blog-tags-section">
                 {blog.tags.map((tag, index) => (
-                  <span key={index} className="blog-tag">
+                  <span key={index} className="ir-blog-tag">
                     {tag}
                   </span>
                 ))}
@@ -534,11 +534,11 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
 
             {/* Table of Contents */}
             {tableOfContents.length > 0 && (
-              <div className="blog-toc-section">
-                <div className="toc-header">
-                  <h3 className="toc-title">Table of Contents</h3>
+              <div className="ir-blog-toc-section">
+                <div className="ir-toc-header">
+                  <h3 className="ir-toc-title">Table of Contents</h3>
                   <button
-                    className="toc-toggle"
+                    className="ir-toc-toggle"
                     onClick={() => setShowTOC(!showTOC)}
                   >
                     <svg
@@ -559,16 +559,16 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                 </div>
 
                 {showTOC && (
-                  <nav className="toc-nav">
-                    <ul className="toc-list">
+                  <nav className="ir-toc-nav">
+                    <ul className="ir-toc-list">
                       {tableOfContents.map((item, index) => (
                         <li
                           key={index}
-                          className={`toc-item toc-level-${item.level}`}
+                          className={`ir-toc-item ir-toc-level-${item.level}`}
                         >
                           <a
                             href={`#${item.id}`}
-                            className="toc-link"
+                            className="ir-toc-link"
                             onClick={(e) => {
                               e.preventDefault();
                               const element = document.getElementById(item.id);
@@ -622,7 +622,7 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
 
             {/* Blog Content */}
             <div
-              className="blog-content"
+              className="ir-blog-content"
               dangerouslySetInnerHTML={{
                 __html: processedContent || blog?.content,
               }}
@@ -631,34 +631,34 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
         </div>
 
         {/* Similar Blogs Section - Full Width */}
-        <div className="similar-blogs-section">
-          <div className="similar-blogs-container">
-            <h2 className="similar-blogs-title">Similar Articles</h2>
+        <div className="ir-similar-blogs-section">
+          <div className="ir-similar-blogs-container">
+            <h2 className="ir-similar-blogs-title">Similar Articles</h2>
 
             {loadingSimilar ? (
-              <div className="similar-blogs-loading">
-                <div className="loading-skeleton">
-                  <div className="skeleton-card"></div>
-                  <div className="skeleton-card"></div>
-                  <div className="skeleton-card"></div>
-                  <div className="skeleton-card"></div>
-                  <div className="skeleton-card"></div>
+              <div className="ir-similar-blogs-loading">
+                <div className="ir-loading-skeleton">
+                  <div className="ir-skeleton-card"></div>
+                  <div className="ir-skeleton-card"></div>
+                  <div className="ir-skeleton-card"></div>
+                  <div className="ir-skeleton-card"></div>
+                  <div className="ir-skeleton-card"></div>
                 </div>
               </div>
             ) : similarBlogs.length > 0 ? (
-              <div className="similar-blogs-grid">
+              <div className="ir-similar-blogs-grid">
                 {similarBlogs.map((similarBlog, index) => (
                   <Link
                     key={similarBlog._id || index}
                     to={`${getBackPath()}/blog/${similarBlog.slug}`}
-                    className="similar-blog-card"
+                    className="ir-similar-blog-card"
                   >
-                    <div className="similar-blog-content">
-                      <div className="similar-blog-header">
-                        <div className="similar-blog-category">
+                    <div className="ir-similar-blog-content">
+                      <div className="ir-similar-blog-header">
+                        <div className="ir-similar-blog-category">
                           {similarBlog.category}
                         </div>
-                        <div className="similar-blog-views">
+                        <div className="ir-similar-blog-views">
                           <svg
                             width="12"
                             height="12"
@@ -673,15 +673,15 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                           {formatNumber(similarBlog.viewsCount || 0)}
                         </div>
                       </div>
-                      <h3 className="similar-blog-title">
+                      <h3 className="ir-similar-blog-title">
                         {similarBlog.title}
                       </h3>
-                      <p className="similar-blog-meta">{similarBlog.meta}</p>
-                      <div className="similar-blog-meta-info">
-                        <span className="similar-blog-author">
+                      <p className="ir-similar-blog-meta">{similarBlog.meta}</p>
+                      <div className="ir-similar-blog-meta-info">
+                        <span className="ir-similar-blog-author">
                           {similarBlog.author?.username || "Anonymous"}
                         </span>
-                        <span className="similar-blog-date">
+                        <span className="ir-similar-blog-date">
                           {formatDate(similarBlog.publishedAt)}
                         </span>
                       </div>
@@ -690,14 +690,14 @@ function BlogRead({ theme, apiKey, apiEndpoint }) {
                 ))}
               </div>
             ) : (
-              <div className="no-similar-blogs">
+              <div className="ir-no-similar-blogs">
                 <p>No similar articles found.</p>
               </div>
             )}
 
             {/* Back to Blogs Button */}
-            <div className="similar-blogs-footer">
-              <Link to={getBackPath()} className="back-to-blogs">
+            <div className="ir-similar-blogs-footer">
+              <Link to={getBackPath()} className="ir-back-to-blogs">
                 <svg
                   width="16"
                   height="16"

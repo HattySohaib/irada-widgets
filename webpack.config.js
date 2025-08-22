@@ -1,31 +1,41 @@
-// webpack.config.js
+const path = require("path");
+
 module.exports = {
-  entry: "./src/index.js", // Entry point to your component library
+  entry: "./src/index.js",
   mode: "production",
   output: {
-    path: __dirname + "/dist",
+    path: path.resolve(__dirname, "dist"),
     filename: "index.js",
-    libraryTarget: "umd", // This makes the library usable in various environments
+    library: {
+      name: "IradaWidgets",
+      type: "umd",
+    },
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
       {
-        test: /\.css$/, // Add this rule for CSS files
+        test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx"], // Handle JSX files
+    extensions: [".js", ".jsx"],
   },
   externals: {
-    react: "react", // Treat React as an external dependency
+    react: "react",
     "react-dom": "react-dom",
-    "react-router-dom": "react-router-dom", // Add this line
+    "react-router-dom": "react-router-dom",
   },
 };
