@@ -1,6 +1,6 @@
 {
   "name": "irada-widgets",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Modern Widget Library",
   "main": "dist/index.js",
   "module": "dist/index.js",
