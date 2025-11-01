@@ -944,9 +944,10 @@
 
 /* Back to Home Link */
 .irada-widget .ir-back-to-home-container {
-    max-width: var(--irada-max-width);
-    margin: 0 auto;
-    padding: var(--irada-spacing-md) var(--irada-spacing-lg);
+    position: fixed;
+    top: var(--irada-spacing-md);
+    left: var(--irada-spacing-md);
+    z-index: 1000;
 }
 
 .irada-widget .ir-back-to-home-link {
@@ -958,14 +959,17 @@
     font-weight: 500;
     font-size: var(--irada-font-size-sm);
     transition: var(--irada-transition);
-    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);
+    padding: var(--irada-spacing-sm) var(--irada-spacing-md);
     border-radius: var(--irada-border-radius);
-    background-color: transparent;
+    background-color: var(--irada-background);
+    border: 1px solid var(--irada-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .irada-widget .ir-back-to-home-link:hover {
     color: var(--irada-text-secondary);
     background-color: var(--irada-background-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .irada-widget .ir-back-to-home-link svg {
