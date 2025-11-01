@@ -517,6 +517,8 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+    display: block;
 }
 
 .irada-widget .ir-author-details {
@@ -938,6 +940,40 @@
 
 .irada-widget .ir-back-to-blogs:hover {
     color: var(--irada-text-secondary);
+}
+
+/* Back to Home Link */
+.irada-widget .ir-back-to-home-container {
+    max-width: var(--irada-max-width);
+    margin: 0 auto;
+    padding: var(--irada-spacing-md) var(--irada-spacing-lg);
+}
+
+.irada-widget .ir-back-to-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--irada-spacing-xs);
+    color: var(--irada-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: var(--irada-font-size-sm);
+    transition: var(--irada-transition);
+    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);
+    border-radius: var(--irada-border-radius);
+    background-color: transparent;
+}
+
+.irada-widget .ir-back-to-home-link:hover {
+    color: var(--irada-text-secondary);
+    background-color: var(--irada-background-secondary);
+}
+
+.irada-widget .ir-back-to-home-link svg {
+    transition: var(--irada-transition);
+}
+
+.irada-widget .ir-back-to-home-link:hover svg {
+    transform: translateX(-3px);
 }
 
 /* Similar Blogs Section */

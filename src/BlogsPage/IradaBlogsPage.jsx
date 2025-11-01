@@ -9,6 +9,7 @@ function IradaBlogsPage({
   theme = "light",
   heading = "Discover Our Blog",
   subheading = "Explore insights, tutorials, and stories from our community",
+  homeRoute = "/",
 }) {
   if (!apiKey) return <div>API key is required</div>;
 
@@ -26,13 +27,14 @@ function IradaBlogsPage({
             apiKey={apiKey}
             theme={theme}
             apiEndpoint={apiEndpoint}
+            homeRoute={homeRoute}
           />
         }
       />
       <Route
         path="blog/:slug"
         element={
-          <BlogRead theme={theme} apiKey={apiKey} apiEndpoint={apiEndpoint} />
+          <BlogRead theme={theme} apiKey={apiKey} apiEndpoint={apiEndpoint} homeRoute={homeRoute} />
         }
       />
     </Routes>

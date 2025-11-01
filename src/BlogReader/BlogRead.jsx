@@ -110,7 +110,7 @@ const processContentWithIds = (content, toc) => {
   return tempDiv.innerHTML;
 };
 
-function BlogRead({ theme, apiKey }) {
+function BlogRead({ theme, apiKey, homeRoute = "/" }) {
   const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
   const { slug } = useParams();
   const location = useLocation();
@@ -361,6 +361,26 @@ function BlogRead({ theme, apiKey }) {
   return (
     <div className="irada-widget irada-blogs-page" data-theme={theme}>
       <div id="blog-read">
+        {/* Back to Home Link */}
+        {homeRoute && (
+          <div className="ir-back-to-home-container">
+            <Link to={homeRoute} className="ir-back-to-home-link">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12,19 5,12 12,5" />
+              </svg>
+              Back to Home
+            </Link>
+          </div>
+        )}
+
         {/* Banner Section */}
         <div className="ir-blog-banner">
           {imgLoading && (
