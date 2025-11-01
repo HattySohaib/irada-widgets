@@ -262,6 +262,11 @@ function BlogRead({ theme, apiKey }) {
     if (slug && apiKey) fetchBlogDetails();
   }, [slug, apiKey]);
 
+  // Scroll to top when slug changes (when user clicks on similar blogs)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [slug]);
+
   useEffect(() => {
     if (blog) {
       fetchSimilarBlogs();
