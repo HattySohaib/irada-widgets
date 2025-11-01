@@ -414,7 +414,7 @@ function BlogRead({ theme, apiKey }) {
                 )}
                 <div className="ir-author-details">
                   <span className="ir-author-name">
-                    {blog?.author?.username || "Anonymous"}
+                    @{blog?.author?.username || "Anonymous"}
                   </span>
                   <div className="ir-publish-info">
                     <span className="ir-publish-date">{publishedDate}</span>
@@ -691,7 +691,7 @@ function BlogRead({ theme, apiKey }) {
                       <p className="ir-similar-blog-meta">{similarBlog.meta}</p>
                       <div className="ir-similar-blog-meta-info">
                         <span className="ir-similar-blog-author">
-                          {similarBlog.author?.username || "Anonymous"}
+                          @{similarBlog.author?.username || "Anonymous"}
                         </span>
                         <span className="ir-similar-blog-date">
                           {formatDate(similarBlog.publishedAt)}

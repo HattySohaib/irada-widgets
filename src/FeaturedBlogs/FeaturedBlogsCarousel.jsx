@@ -283,7 +283,7 @@ const FeaturedBlogSlide = ({ blog }) => {
           <div className="ir-featured-blog-details">
             <div className="ir-featured-blog-author">
               <span className="ir-author-name">
-                {blog.author?.username || "Anonymous"}
+                @{blog.author?.username || "Anonymous"}
               </span>
             </div>
 
