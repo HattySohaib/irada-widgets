@@ -34,7 +34,12 @@ function IradaBlogsPage({
       <Route
         path="blog/:slug"
         element={
-          <BlogRead theme={theme} apiKey={apiKey} apiEndpoint={apiEndpoint} homeRoute={homeRoute} />
+          <BlogRead
+            theme={theme}
+            apiKey={apiKey}
+            apiEndpoint={apiEndpoint}
+            homeRoute={homeRoute}
+          />
         }
       />
     </Routes>
