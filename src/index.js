@@ -1,7 +1,7 @@
 import "./App.css";
 // Irada Widgets - Main Export File
 // This file exports the main widget components for easy importing
-// All components now use a fixed API endpoint: https://bloggestapi.sohaibaftab.me
+// All components now use a fixed API endpoint: https://iradaapi.sohaibaftab.dev
 
 // Message Form Widget
 export { default as IradaContactForm } from "./MessageForm/MessageForm.jsx";

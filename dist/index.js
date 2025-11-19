@@ -1,2 +1,5059 @@
 /*! For license information please see index.js.LICENSE.txt */
-!function(e,n){"object"==typeof exports&&"object"==typeof module?module.exports=n(require("react"),require("react-router-dom")):"function"==typeof define&&define.amd?define(["react","react-router-dom"],n):"object"==typeof exports?exports.IradaWidgets=n(require("react"),require("react-router-dom")):e.IradaWidgets=n(e.react,e["react-router-dom"])}(self,((e,n)=>(()=>{"use strict";var r={626:(e,n,r)=>{r.d(n,{A:()=>l});var t=r(601),a=r.n(t),i=r(314),o=r.n(i)()(a());o.push([e.id,"@import url(https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap);"]),o.push([e.id,"/* Scoped CSS variables and styles for irada-widgets */\n\n/* Only reset within irada-widget containers */\n.irada-widget * {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n/* Full-width container styles */\n.irada-widget {\n    width: 100%;\n    max-width: 100%;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n/* Reset default margins and padding for full-width components */\n.irada-widget #blogs,\n.irada-widget #blog-read {\n    width: 100%;\n    max-width: 100%;\n    margin: 0;\n    padding: 0;\n    min-height: 100vh;\n    box-sizing: border-box;\n}\n\n/* Base CSS variables - these can be overridden by users */\n.irada-widget {\n    /* Colors - Minimal shadcn-like palette */\n    --irada-primary: #000000;\n    --irada-secondary: #6b7280;\n    --irada-background: #ffffff;\n    --irada-background-secondary: #f9fafb;\n    --irada-text: #000000;\n    --irada-text-secondary: #6b7280;\n    --irada-border: #e5e7eb;\n    --irada-border-hover: #d1d5db;\n    --irada-accent: #000000;\n    --irada-accent-foreground: #ffffff;\n\n    /* Additional color variables for components */\n    --irada-bg-primary: #ffffff;\n    --irada-text-primary: #000000;\n    --irada-border-color: #e5e7eb;\n    --irada-border-hover: #d1d5db;\n    --irada-primary-alpha: rgba(0, 0, 0, 0.1);\n    --irada-error: #ef4444;\n    --irada-error-alpha: rgba(239, 68, 68, 0.1);\n    --irada-primary-hover: #1a1a1a;\n\n    /* Additional shadow variables */\n    --irada-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n    --irada-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n\n    /* Layout variables */\n    --irada-max-width: 1200px;\n\n    /* Spacing and sizing */\n    --irada-radius: 6px;\n    --irada-radius-md: 6px;\n    --irada-radius-lg: 8px;\n    --irada-radius-xl: 12px;\n    --irada-spacing-xs: 0.5rem;\n    --irada-spacing-sm: 0.75rem;\n    --irada-spacing: 1rem;\n    --irada-spacing-lg: 1.5rem;\n    --irada-spacing-xl: 2rem;\n\n    /* Typography */\n    --irada-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n    --irada-font-family-display: 'Bricolage Grotesque', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n    --irada-font-size-sm: 0.875rem;\n    --irada-font-size: 1rem;\n    --irada-font-size-lg: 1.125rem;\n    --irada-font-size-xl: 1.25rem;\n    --irada-font-size-2xl: 1.5rem;\n    --irada-font-size-3xl: 1.875rem;\n\n    /* Shadows and effects */\n    --irada-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);\n    --irada-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n\n    /* Transitions */\n    --irada-transition: all 0.2s ease-in-out;\n\n    /* Full-width layout */\n    font-family: var(--irada-font-family);\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    border-radius: 0;\n    box-shadow: none;\n    overflow: visible;\n}\n\n/* Dark theme variables */\n.irada-widget[data-theme=\"dark\"] {\n    --irada-primary: #ffffff;\n    --irada-secondary: #9ca3af;\n    --irada-background: #0a0a0a;\n    --irada-background-secondary: #1a1a1a;\n    --irada-text: #ffffff;\n    --irada-text-secondary: #9ca3af;\n    --irada-border: #2a2a2a;\n    --irada-border-hover: #3a3a3a;\n    --irada-accent: #ffffff;\n    --irada-accent-foreground: #0a0a0a;\n\n    /* Additional color variables for components - Dark theme */\n    --irada-bg-primary: #0a0a0a;\n    --irada-text-primary: #ffffff;\n    --irada-border-color: #2a2a2a;\n    --irada-border-hover: #404040;\n    --irada-primary-alpha: rgba(255, 255, 255, 0.1);\n    --irada-error: #f87171;\n    --irada-error-alpha: rgba(248, 113, 113, 0.1);\n    --irada-primary-hover: #e5e5e5;\n}\n\n/* Button styles - Minimal outline design */\n.irada-widget .ir-irada-button {\n    background: transparent;\n    color: var(--irada-text);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    cursor: pointer;\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    transition: var(--irada-transition);\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-xs);\n    text-decoration: none;\n    line-height: 1;\n}\n\n.irada-widget .ir-irada-button:hover {\n    background: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-irada-button:focus {\n    outline: 2px solid var(--irada-primary);\n    outline-offset: 2px;\n}\n\n/* Blog card styles - Minimal design */\n.irada-widget .ir-recommended-blog {\n    position: relative;\n    height: 22rem;\n    border-radius: var(--irada-radius);\n    overflow: hidden;\n    border: 1px solid var(--irada-border);\n    cursor: pointer;\n    background-color: var(--irada-background);\n    text-decoration: none;\n    transition: var(--irada-transition);\n    display: flex;\n    flex-direction: column;\n}\n\n.irada-widget .ir-recommended-blog:hover {\n    border-color: var(--irada-border-hover);\n    box-shadow: var(--irada-shadow-lg);\n    transform: translateY(-2px);\n}\n\n.irada-widget .ir-recommended-blog img {\n    width: 100%;\n    height: 140px;\n    object-fit: cover;\n    object-position: center;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-text {\n    padding: 1rem;\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    gap: 0.5rem;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-title {\n    font-size: 1.25rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 500;\n    color: var(--irada-text);\n    margin: 0;\n    line-height: 1.2;\n    letter-spacing: -0.02em;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-header {\n    position: absolute;\n    top: var(--irada-spacing-sm);\n    left: var(--irada-spacing-sm);\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    z-index: 10;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-category {\n    font-size: 0.65rem;\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    background-color: rgba(255, 255, 255, 0.95);\n    backdrop-filter: blur(12px);\n    -webkit-backdrop-filter: blur(12px);\n    padding: 0.25rem 0.75rem;\n    border-radius: 9999px;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n\n/* Dark mode category pill */\n.irada-widget[data-theme=\"dark\"] .ir-recommended-blog .ir-blog-category {\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tags {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.25rem;\n    margin-top: 0.5rem;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tag {\n    font-size: 0.7rem;\n    font-family: var(--irada-font-family);\n    color: var(--irada-text);\n    background-color: var(--irada-background-secondary);\n    padding: 0.2rem 0.6rem;\n    border-radius: 9999px;\n    font-weight: 500;\n    text-transform: lowercase;\n    letter-spacing: 0.025em;\n    border: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tag-more {\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n}\n\n.irada-widget .ir-recommended-blog h3 {\n    font-size: 1rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0;\n    line-height: 1.4;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    height: calc(1.4em * 2);\n    letter-spacing: -0.02em;\n}\n\n.irada-widget .ir-recommended-blog p {\n    font-size: 0.875rem;\n    font-family: var(--irada-font-family);\n    font-weight: 400;\n    color: var(--irada-text-secondary);\n    margin: 0;\n    line-height: 1.5;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    height: calc(1.5em * 2);\n    flex: 1;\n    letter-spacing: 0.01em;\n}\n\n.irada-widget .ir-recommended-blog .ir-details {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0.5rem 1rem;\n    border-top: 1px solid var(--irada-border);\n    background-color: var(--irada-background);\n    font-size: 0.8rem;\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-recommended-blog .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: 0.375rem;\n    color: var(--irada-text-secondary);\n    font-size: 0.8rem;\n    font-family: var(--irada-font-family);\n    font-weight: 500;\n}\n\n.irada-widget .ir-recommended-blog .ir-stat-item svg {\n    opacity: 0.8;\n    width: 13px;\n    height: 13px;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-date {\n    font-size: 0.8rem;\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n}\n\n/* Blog control button */\n.irada-widget .ir-blog-control {\n    background: transparent;\n    border: 1px solid var(--irada-border);\n    font-size: var(--irada-font-size-sm);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-xs);\n    border-radius: var(--irada-radius);\n    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);\n    cursor: pointer;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-control:hover {\n    background: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-blog-control img {\n    width: 1rem;\n    height: 1rem;\n    opacity: 0.7;\n}\n\n/* Blog reader styles */\n.irada-widget #blog-read {\n    background-color: var(--irada-background);\n    width: 100%;\n    max-width: 100%;\n}\n\n/* Blog Error State */\n.irada-widget .ir-blog-error {\n    min-height: 60vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blog-error-content {\n    text-align: center;\n    max-width: 400px;\n}\n\n.irada-widget .ir-blog-error-content svg {\n    color: var(--irada-text-secondary);\n    opacity: 0.5;\n    margin-bottom: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-error-content h2 {\n    font-size: var(--irada-font-size-2xl);\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-blog-error-content p {\n    color: var(--irada-text-secondary);\n    margin: 0 0 var(--irada-spacing-lg) 0;\n    line-height: 1.5;\n}\n\n.irada-widget .ir-back-link {\n    display: inline-flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-link:hover {\n    color: var(--irada-text-secondary);\n}\n\n/* Blog Banner Section */\n.irada-widget .ir-blog-banner {\n    width: 100%;\n    height: 50vh;\n    overflow: hidden;\n    margin-bottom: 0;\n}\n\n.irada-widget .ir-blog-banner img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: center;\n}\n\n/* Blog Header Section */\n.irada-widget .ir-blog-header-section {\n    background-color: var(--irada-background);\n    padding: var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-blog-header-content {\n    max-width: 800px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-blog-header-badges {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    margin-bottom: var(--irada-spacing);\n}\n\n.irada-widget .ir-blog-views-badge {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: 0.5rem 1rem;\n    border-radius: 9999px;\n    font-size: 0.75rem;\n    font-weight: 600;\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n}\n\n.irada-widget .ir-blog-category-badge {\n    display: inline-block;\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: 0.5rem 1rem;\n    border-radius: 9999px;\n    font-size: 0.75rem;\n    font-weight: 600;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n}\n\n.irada-widget .ir-blog-title {\n    font-size: 3rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 800;\n    line-height: 1.1;\n    margin: 0 0 var(--irada-spacing) 0;\n    letter-spacing: -0.02em;\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-blog-subtitle {\n    font-size: var(--irada-font-size-xl);\n    line-height: 1.4;\n    margin: 0 0 var(--irada-spacing-lg) 0;\n    color: var(--irada-text-secondary);\n}\n\n/* Blog Meta Section */\n.irada-widget .ir-blog-meta {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing);\n}\n\n.irada-widget .ir-author-info {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-author-avatar {\n    width: 48px;\n    height: 48px;\n    border-radius: 50%;\n    object-fit: cover;\n    border: 2px solid rgba(255, 255, 255, 0.2);\n    flex-shrink: 0;\n    display: block;\n}\n\n.irada-widget .ir-author-details {\n    display: flex;\n    flex-direction: column;\n    gap: 0.25rem;\n}\n\n.irada-widget .ir-author-name {\n    font-weight: 600;\n    font-size: var(--irada-font-size);\n    margin-left: 0.5rem;\n}\n\n.irada-widget .ir-publish-info {\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    opacity: 0.8;\n}\n\n.irada-widget .ir-publish-date,\n.irada-widget .ir-update-info,\n.irada-widget .ir-reading-time {\n    color: inherit;\n}\n\n/* Share Button */\n.irada-widget .ir-share-container {\n    position: relative;\n}\n\n.irada-widget .ir-share-button {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    border-radius: var(--irada-radius);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    cursor: pointer;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-share-button:hover {\n    background-color: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n}\n\n.irada-widget .ir-share-menu {\n    position: absolute;\n    top: 100%;\n    right: 0;\n    margin-top: var(--irada-spacing-xs);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    box-shadow: var(--irada-shadow-lg);\n    padding: var(--irada-spacing-xs);\n    min-width: 160px;\n    z-index: 1000;\n}\n\n.irada-widget .ir-share-option {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    width: 100%;\n    padding: var(--irada-spacing-sm);\n    background: none;\n    border: none;\n    color: var(--irada-text);\n    font-size: var(--irada-font-size-sm);\n    cursor: pointer;\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-share-option:hover {\n    background-color: var(--irada-background-secondary);\n}\n\n/* Blog Content Wrapper */\n.irada-widget .ir-blog-content-wrapper {\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 0 var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blog-content-container {\n    background-color: var(--irada-background);\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n    box-shadow: var(--irada-shadow);\n}\n\n/* Table of Contents Section */\n.irada-widget .ir-blog-toc-section {\n    margin-bottom: var(--irada-spacing-lg);\n    background-color: var(--irada-background-secondary);\n    overflow: hidden;\n}\n\n.irada-widget .ir-toc-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: var(--irada-spacing) var(--irada-spacing-lg);\n    background-color: var(--irada-background);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-toc-title {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0;\n}\n\n.irada-widget .ir-toc-toggle {\n    background: none;\n    border: none;\n    color: var(--irada-text-secondary);\n    cursor: pointer;\n    padding: var(--irada-spacing-xs);\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-toc-toggle:hover {\n    background-color: var(--irada-border);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-toc-nav {\n    padding: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-toc-list {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\n.irada-widget .ir-toc-item {\n    margin-bottom: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-toc-link {\n    display: block;\n    color: var(--irada-text-secondary);\n    text-decoration: none;\n    padding: var(--irada-spacing-xs) 0;\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n    font-size: var(--irada-font-size-sm);\n    line-height: 1.4;\n}\n\n.irada-widget .ir-toc-link:hover {\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    padding-left: var(--irada-spacing-sm);\n}\n\n/* Reddit-style thread lines for TOC hierarchy */\n.irada-widget .ir-toc-item {\n    position: relative;\n}\n\n.irada-widget .ir-toc-level-1 {\n    padding-left: 0;\n}\n\n.irada-widget .ir-toc-level-2 {\n    padding-left: 24px;\n}\n\n.irada-widget .ir-toc-level-3 {\n    padding-left: 48px;\n}\n\n.irada-widget .ir-toc-level-4 {\n    padding-left: 72px;\n}\n\n.irada-widget .ir-toc-level-5 {\n    padding-left: 96px;\n}\n\n.irada-widget .ir-toc-level-6 {\n    padding-left: 120px;\n}\n\n/* Vertical thread lines */\n.irada-widget .ir-toc-level-2::before,\n.irada-widget .ir-toc-level-3::before,\n.irada-widget .ir-toc-level-4::before,\n.irada-widget .ir-toc-level-5::before,\n.irada-widget .ir-toc-level-6::before {\n    content: '';\n    position: absolute;\n    left: 12px;\n    top: 0;\n    bottom: 0;\n    width: 1px;\n    background-color: var(--irada-border);\n}\n\n/* Horizontal connector lines */\n.irada-widget .ir-toc-level-2::after,\n.irada-widget .ir-toc-level-3::after,\n.irada-widget .ir-toc-level-4::after,\n.irada-widget .ir-toc-level-5::after,\n.irada-widget .ir-toc-level-6::after {\n    content: '';\n    position: absolute;\n    left: 12px;\n    top: 50%;\n    width: 12px;\n    height: 1px;\n    background-color: var(--irada-border);\n    transform: translateY(-50%);\n}\n\n/* Adjust vertical line positions for deeper levels */\n.irada-widget .ir-toc-level-3::before {\n    left: 36px;\n}\n\n.irada-widget .ir-toc-level-3::after {\n    left: 36px;\n}\n\n.irada-widget .ir-toc-level-4::before {\n    left: 60px;\n}\n\n.irada-widget .ir-toc-level-4::after {\n    left: 60px;\n}\n\n.irada-widget .ir-toc-level-5::before {\n    left: 84px;\n}\n\n.irada-widget .ir-toc-level-5::after {\n    left: 84px;\n}\n\n.irada-widget .ir-toc-level-6::before {\n    left: 108px;\n}\n\n.irada-widget .ir-toc-level-6::after {\n    left: 108px;\n}\n\n/* Blog Tags Section */\n.irada-widget .ir-blog-tags-section {\n    display: flex;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing-xs);\n    padding: var(--irada-spacing-lg) var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-blog-tags-section .ir-blog-tag {\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text);\n    padding: 0.375rem 0.75rem;\n    border-radius: 9999px;\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    border: 1px solid var(--irada-border);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-tags-section .ir-blog-tag:hover {\n    background-color: var(--irada-border);\n}\n\n/* Blog Content */\n.irada-widget .ir-blog-content {\n    color: var(--irada-text);\n    padding: var(--irada-spacing-xl);\n    line-height: 1.8;\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size);\n}\n\n.irada-widget .ir-blog-content h1,\n.irada-widget .ir-blog-content h2,\n.irada-widget .ir-blog-content h3,\n.irada-widget .ir-blog-content h4,\n.irada-widget .ir-blog-content h5,\n.irada-widget .ir-blog-content h6 {\n    color: var(--irada-text);\n    font-weight: 600;\n    margin: var(--irada-spacing-xl) 0 var(--irada-spacing) 0;\n    line-height: 1.3;\n}\n\n.irada-widget .ir-blog-content h1 {\n    font-size: 2rem;\n    font-family: var(--irada-font-family-display);\n}\n\n.irada-widget .ir-blog-content h2 {\n    font-size: 1.75rem;\n    font-family: var(--irada-font-family-display);\n}\n\n.irada-widget .ir-blog-content h3 {\n    font-size: 1.5rem;\n}\n\n.irada-widget .ir-blog-content h4 {\n    font-size: 1.25rem;\n}\n\n.irada-widget .ir-blog-content p {\n    margin: 0 0 var(--irada-spacing) 0;\n}\n\n.irada-widget .ir-blog-content a {\n    color: var(--irada-primary);\n    text-decoration: underline;\n    text-decoration-color: var(--irada-border);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-content a:hover {\n    text-decoration-color: var(--irada-primary);\n}\n\n.irada-widget .ir-blog-content ul,\n.irada-widget .ir-blog-content ol {\n    margin: var(--irada-spacing) 0;\n    padding-left: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-content li {\n    margin-bottom: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-blog-content blockquote {\n    border-left: 4px solid var(--irada-border);\n    padding-left: var(--irada-spacing);\n    margin: var(--irada-spacing-lg) 0;\n    font-style: italic;\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-blog-content code {\n    background-color: var(--irada-background-secondary);\n    padding: 0.125rem 0.25rem;\n    border-radius: var(--irada-radius);\n    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;\n    font-size: 0.875em;\n}\n\n.irada-widget .ir-blog-content pre {\n    background-color: var(--irada-background-secondary);\n    padding: var(--irada-spacing);\n    border-radius: var(--irada-radius);\n    overflow-x: auto;\n    margin: var(--irada-spacing-lg) 0;\n}\n\n.irada-widget .ir-blog-content pre code {\n    background: none;\n    padding: 0;\n}\n\n.irada-widget .ir-blog-content img {\n    max-width: 100%;\n    height: auto;\n    border-radius: var(--irada-radius);\n    margin: var(--irada-spacing-lg) 0;\n}\n\n/* Blog Footer */\n.irada-widget .ir-blog-footer {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: var(--irada-spacing-lg) var(--irada-spacing-xl);\n    border-top: 1px solid var(--irada-border);\n    background-color: var(--irada-background-secondary);\n}\n\n.irada-widget .ir-blog-footer .ir-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-footer .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n}\n\n.irada-widget .ir-back-to-blogs {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-to-blogs:hover {\n    color: var(--irada-text-secondary);\n}\n\n/* Back to Home Link */\n.irada-widget .ir-back-to-home-container {\n    position: fixed;\n    top: var(--irada-spacing-md);\n    left: var(--irada-spacing-md);\n    z-index: 1000;\n}\n\n.irada-widget .ir-back-to-home-link {\n    display: inline-flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    font-size: var(--irada-font-size-sm);\n    transition: var(--irada-transition);\n    padding: var(--irada-spacing-sm) var(--irada-spacing-md);\n    border-radius: var(--irada-border-radius);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.irada-widget .ir-back-to-home-link:hover {\n    color: var(--irada-text-secondary);\n    background-color: var(--irada-background-secondary);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n\n.irada-widget .ir-back-to-home-link svg {\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-to-home-link:hover svg {\n    transform: translateX(-3px);\n}\n\n/* Similar Blogs Section */\n.irada-widget .ir-similar-blogs-section {\n    width: 100%;\n    background-color: var(--irada-background-secondary);\n    border-top: 1px solid var(--irada-border);\n    margin-top: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-similar-blogs-container {\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n    padding: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-similar-blogs-title {\n    font-size: var(--irada-font-size-xl);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin-bottom: var(--irada-spacing-lg);\n    text-align: center;\n}\n\n.irada-widget .ir-similar-blogs-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-similar-blog-card {\n    display: block;\n    text-decoration: none;\n    color: inherit;\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-similar-blog-card:hover {\n    border-color: var(--irada-border-hover);\n    transform: translateY(-2px);\n    box-shadow: var(--irada-shadow);\n}\n\n.irada-widget .ir-similar-blog-content {\n    padding: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-similar-blog-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-similar-blog-views {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-xs);\n    font-weight: 500;\n}\n\n.irada-widget .ir-similar-blog-category {\n    display: inline-block;\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-xs);\n    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);\n    border-radius: var(--irada-radius);\n    margin-bottom: var(--irada-spacing-sm);\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n}\n\n.irada-widget .ir-similar-blog-title {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin-bottom: var(--irada-spacing-sm);\n    line-height: 1.4;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n}\n\n.irada-widget .ir-similar-blog-meta {\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    line-height: 1.5;\n    margin-bottom: var(--irada-spacing);\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n}\n\n.irada-widget .ir-similar-blog-meta-info {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: var(--irada-font-size-xs);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-similar-blog-author {\n    font-weight: 500;\n}\n\n.irada-widget .ir-similar-blog-date {\n    opacity: 0.8;\n}\n\n/* Loading skeleton for similar blogs */\n.irada-widget .ir-similar-blogs-loading {\n    padding: var(--irada-spacing-lg) 0;\n}\n\n.irada-widget .ir-loading-skeleton {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-skeleton-card {\n    height: 120px;\n    background: linear-gradient(90deg, var(--irada-border) 25%, var(--irada-background) 50%, var(--irada-border) 75%);\n    background-size: 200% 100%;\n    animation: loading 1.5s infinite;\n    border-radius: var(--irada-radius);\n}\n\n@keyframes loading {\n    0% {\n        background-position: 200% 0;\n    }\n\n    100% {\n        background-position: -200% 0;\n    }\n}\n\n.irada-widget .ir-no-similar-blogs {\n    text-align: center;\n    padding: var(--irada-spacing-xl);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-similar-blogs-footer {\n    display: flex;\n    justify-content: center;\n    padding-top: var(--irada-spacing-xl);\n    border-top: 1px solid var(--irada-border);\n    margin-top: var(--irada-spacing-xl);\n}\n\n/* Message Form Widget Styles */\n.irada-widget.ir-irada-message-form {\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-primary);\n    background: var(--irada-bg-primary);\n    border-radius: var(--irada-radius-lg);\n    padding: var(--irada-spacing-xl);\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n}\n\n.irada-widget .ir-message-form-container {\n    width: 100%;\n}\n\n/* Header Styles */\n.irada-widget .ir-message-form-header {\n    text-align: center;\n    margin-bottom: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-message-form-title {\n    font-family: var(--irada-font-family-display);\n    font-size: var(--irada-font-size-2xl);\n    font-weight: 700;\n    color: var(--irada-text-primary);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n    line-height: 1.2;\n}\n\n.irada-widget .ir-message-form-subtitle {\n    font-size: var(--irada-font-size-base);\n    color: var(--irada-text-secondary);\n    margin: 0;\n    line-height: 1.5;\n}\n\n/* Form Styles */\n.irada-widget .ir-message-form {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-form-row {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-form-field {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-form-label {\n    font-size: var(--irada-font-size-sm);\n    font-weight: 600;\n    color: var(--irada-text-primary);\n    margin: 0;\n}\n\n.irada-widget .ir-form-input,\n.irada-widget .ir-form-textarea {\n    padding: 0.75rem 1rem;\n    border: 1px solid var(--irada-border-color);\n    border-radius: var(--irada-radius-md);\n    font-size: var(--irada-font-size-base);\n    font-family: var(--irada-font-family);\n    background: var(--irada-bg-primary);\n    color: var(--irada-text-primary);\n    transition: all var(--irada-transition);\n    outline: none;\n    resize: vertical;\n    min-height: 44px;\n    box-sizing: border-box;\n    width: 100%;\n}\n\n.irada-widget .ir-form-input:focus,\n.irada-widget .ir-form-textarea:focus {\n    border-color: var(--irada-primary);\n    box-shadow: 0 0 0 3px var(--irada-primary-alpha);\n}\n\n.irada-widget .ir-form-input:hover,\n.irada-widget .ir-form-textarea:hover {\n    border-color: var(--irada-border-hover);\n}\n\n.irada-widget .ir-form-input.error,\n.irada-widget .ir-form-textarea.error {\n    border-color: var(--irada-error);\n    box-shadow: 0 0 0 3px var(--irada-error-alpha);\n}\n\n.irada-widget .ir-form-input:disabled,\n.irada-widget .ir-form-textarea:disabled {\n    opacity: 0.6;\n    cursor: not-allowed;\n    background: var(--irada-bg-secondary);\n}\n\n.irada-widget .ir-form-textarea {\n    min-height: 120px;\n    line-height: 1.5;\n}\n\n/* Error Message */\n.irada-widget .ir-error-message {\n    font-size: var(--irada-font-size-sm);\n    color: var(--irada-error);\n    margin: 0;\n    font-weight: 500;\n}\n\n/* Submit Button */\n.irada-widget .ir-submit-button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-sm);\n    padding: var(--irada-spacing-sm) var(--irada-spacing-xl);\n    background: #000000;\n    color: white;\n    border: 1px solid #000000;\n    border-radius: var(--irada-radius-md);\n    font-size: var(--irada-font-size-base);\n    font-weight: 600;\n    font-family: var(--irada-font-family);\n    cursor: pointer;\n    transition: all var(--irada-transition);\n    outline: none;\n    min-height: 44px;\n    width: 100%;\n    max-width: 200px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-submit-button:hover:not(:disabled) {\n    background: #1a1a1a;\n    border-color: #1a1a1a;\n    transform: translateY(-1px);\n    box-shadow: var(--irada-shadow-md);\n}\n\n.irada-widget .ir-submit-button:active:not(:disabled) {\n    transform: translateY(0);\n    box-shadow: var(--irada-shadow-sm);\n}\n\n.irada-widget .ir-submit-button:disabled {\n    opacity: 0.6;\n    cursor: not-allowed;\n    transform: none;\n    box-shadow: none;\n}\n\n/* Dark theme overrides for submit button */\n.irada-widget[data-theme=\"dark\"] .ir-submit-button {\n    background: #ffffff;\n    color: #000000;\n    border: 1px solid #ffffff;\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-submit-button:hover:not(:disabled) {\n    background: #e5e5e5;\n    border-color: #e5e5e5;\n}\n\n/* Loading Spinner */\n.irada-widget .ir-loading-spinner {\n    animation: spin 1s linear infinite;\n}\n\n@keyframes spin {\n    from {\n        transform: rotate(0deg);\n    }\n\n    to {\n        transform: rotate(360deg);\n    }\n}\n\n/* Message Form Responsive Design */\n@media (max-width: 768px) {\n    .irada-widget.ir-message-form-widget {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-message-form-title {\n        font-size: var(--irada-font-size-xl);\n    }\n\n    .irada-widget .ir-submit-button {\n        max-width: 100%;\n    }\n}\n\n@media (max-width: 480px) {\n    .irada-widget.ir-message-form-widget {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-message-form-header {\n        margin-bottom: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-message-form-title {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-message-form-subtitle {\n        font-size: var(--irada-font-size-sm);\n    }\n}\n\n/* Featured Blogs Carousel Styles */\n.irada-widget.ir-irada-featured-carousel {\n    width: 100%;\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel-container {\n    position: relative;\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel {\n    position: relative;\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel-inner {\n    display: flex;\n    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n\n}\n\n.irada-widget .ir-carousel-item {\n    min-width: 100%;\n    box-sizing: border-box;\n}\n\n/* Featured Blog Slide Styles */\n.irada-widget .ir-featured-blog-slide {\n    position: relative;\n    height: 60vh;\n    min-height: 500px;\n    display: block;\n    text-decoration: none;\n    color: inherit;\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n}\n\n.irada-widget .ir-featured-blog-image {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 1;\n}\n\n.irada-widget .ir-featured-blog-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: center;\n}\n\n.irada-widget .ir-featured-blog-overlay {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: linear-gradient(0deg,\n            rgba(0, 0, 0, 0.616) 50%,\n            rgba(0, 0, 0, 0) 100%);\n    z-index: 2;\n}\n\n.irada-widget .ir-featured-blog-content {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: var(--irada-spacing-xl);\n    z-index: 3;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    height: 100%;\n    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);\n}\n\n.irada-widget .ir-featured-blog-badges {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    margin-bottom: var(--irada-spacing-lg);\n    flex-wrap: wrap;\n}\n\n.irada-widget .ir-featured-blog-content .ir-featured-category-badge {\n    color: rgb(216, 216, 216);\n    font-size: 0.9rem;\n    font-weight: 400;\n    letter-spacing: 0.3px;\n    opacity: 0.9;\n}\n\n.irada-widget .ir-featured-badge-separator {\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 0.8rem;\n    margin: 0 var(--irada-spacing-xs);\n    opacity: 0.7;\n}\n\n.irada-widget .ir-featured-blog-tags {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    flex-wrap: wrap;\n}\n\n.irada-widget .ir-featured-blog-tag {\n    background-color: rgba(255, 255, 255, 0.1);\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.8);\n    font-size: 0.65rem;\n    font-weight: 400;\n    padding: 0.2rem 0.6rem;\n    border-radius: 9999px;\n    text-transform: none;\n    letter-spacing: 0.2px;\n    opacity: 0.8;\n}\n\n.irada-widget .ir-featured-blog-info {\n    color: white;\n}\n\n.irada-widget .ir-featured-blog-title {\n    font-size: 3rem;\n    font-weight: 700;\n    line-height: 1.1;\n    margin-bottom: var(--irada-spacing-md);\n    font-family: var(--irada-font-family-display);\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-meta {\n    font-size: var(--irada-font-size-lg);\n    line-height: 1.5;\n    margin-bottom: var(--irada-spacing-lg);\n    opacity: 0.9;\n    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-details {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing-md);\n}\n\n.irada-widget .ir-featured-blog-author {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-featured-blog-author .ir-author-name {\n    font-weight: 600;\n    font-size: var(--irada-font-size-sm);\n    color: white;\n    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-md);\n    font-size: var(--irada-font-size-sm);\n    color: rgba(255, 255, 255, 0.8);\n}\n\n.irada-widget .ir-featured-blog-stats .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    font-weight: 500;\n\n    padding: 0.25rem 0.5rem;\n\n}\n\n.irada-widget .ir-publish-date {\n    font-weight: 500;\n    opacity: 0.8;\n    color: rgba(255, 255, 255, 0.8);\n    font-size: var(--irada-font-size-sm);\n\n    padding: 0.25rem 0.5rem;\n\n}\n\n/* Carousel Controls */\n.irada-widget .ir-carousel-controls {\n    position: absolute;\n    top: var(--irada-spacing-lg);\n    right: var(--irada-spacing-lg);\n    display: flex;\n    gap: var(--irada-spacing-sm);\n    z-index: 10;\n}\n\n.irada-widget .ir-carousel-control {\n    background-color: rgba(255, 255, 255, 0.1);\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: white;\n    width: 44px;\n    height: 44px;\n    border-radius: 50%;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s ease;\n    opacity: 0;\n    transform: scale(0.9);\n}\n\n.irada-widget .ir-carousel:hover .ir-carousel-control {\n    opacity: 1;\n    transform: scale(1);\n}\n\n.irada-widget .ir-carousel-control:hover {\n    background-color: rgba(255, 255, 255, 0.2);\n    border-color: rgba(255, 255, 255, 0.3);\n    transform: scale(1.05);\n}\n\n.irada-widget .ir-carousel-control:active {\n    transform: scale(0.95);\n}\n\n/* Carousel Pagination */\n.irada-widget .ir-carousel-pagination {\n    display: flex;\n    justify-content: center;\n    gap: var(--irada-spacing-sm);\n    padding: var(--irada-spacing-lg);\n    background-color: var(--irada-background);\n    border-top: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-carousel-dot {\n    width: 8px;\n    height: 8px;\n    background-color: rgba(0, 0, 0, 0.445);\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    padding: 0;\n}\n\n.irada-widget .ir-carousel-dot.active {\n    background-color: var(--irada-primary);\n    width: 32px;\n    border-radius: 4px;\n}\n\n.irada-widget .ir-carousel-dot:hover {\n    background-color: var(--irada-primary);\n    opacity: 0.7;\n}\n\n/* Dark theme overrides for carousel dots */\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot {\n    background-color: rgba(255, 255, 255, 0.459);\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot.active {\n    background-color: var(--irada-primary);\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot:hover {\n    background-color: var(--irada-primary);\n    opacity: 0.7;\n}\n\n/* Responsive Design for Featured Carousel */\n@media (max-width: 1024px) {\n    .irada-widget .ir-featured-blog-slide {\n        height: 60vh;\n        min-height: 450px;\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size);\n    }\n}\n\n@media (max-width: 768px) {\n    .irada-widget.ir-irada-featured-carousel {\n        padding: 0;\n    }\n\n    .irada-widget .ir-featured-blog-slide {\n        height: 60vh;\n        min-height: 500px;\n    }\n\n    .irada-widget .ir-featured-blog-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-xl);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size-sm);\n    }\n\n    .irada-widget .ir-featured-blog-details {\n        flex-direction: column;\n        align-items: flex-start;\n        gap: var(--irada-spacing-sm);\n    }\n\n    .irada-widget .ir-carousel-controls {\n        top: var(--irada-spacing);\n        right: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-carousel-control {\n        width: 40px;\n        height: 40px;\n        opacity: 1;\n        transform: scale(1);\n    }\n\n    .irada-widget .ir-carousel-pagination {\n        padding: var(--irada-spacing);\n    }\n}\n\n@media (max-width: 480px) {\n    .irada-widget.ir-irada-featured-carousel {\n        padding: 0;\n    }\n\n\n    .irada-widget .ir-featured-blog-slide {\n        height: 50vh;\n        min-height: 600px;\n    }\n\n    .irada-widget .ir-featured-blog-content {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size-xs);\n    }\n\n    .irada-widget .ir-featured-blog-badges {\n        margin-bottom: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-carousel-controls {\n        top: var(--irada-spacing-xs);\n        right: var(--irada-spacing-xs);\n    }\n\n    .irada-widget .ir-carousel-control {\n        width: 36px;\n        height: 36px;\n    }\n\n    .irada-widget .ir-carousel-pagination {\n        padding: var(--irada-spacing-sm);\n    }\n}\n\n/* Responsive Design for Blog Reader */\n@media screen and (max-width: 768px) {\n    .irada-widget .ir-blog-title {\n        font-size: 2rem;\n    }\n\n    .irada-widget .ir-blog-subtitle {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-hero-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-meta {\n        flex-direction: column;\n        align-items: flex-start;\n        gap: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-content-wrapper {\n        padding: 0 var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-footer {\n        flex-direction: column;\n        gap: var(--irada-spacing);\n        align-items: flex-start;\n    }\n}\n\n@media screen and (max-width: 640px) {\n    .irada-widget .ir-banner-container {\n        height: 40vh;\n    }\n\n    .irada-widget .ir-blog-title {\n        font-size: 1.75rem;\n    }\n\n    .irada-widget .ir-hero-content {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing);\n    }\n}\n\n/* Blogs page styles */\n.irada-widget .ir-recommended-blogs {\n    padding: var(--irada-spacing-xl);\n    background-color: var(--irada-background);\n}\n\n/* Enhanced Blogs Header */\n.irada-widget .ir-blogs-header {\n    margin-bottom: var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n    padding-bottom: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blogs-header-content {\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    gap: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blogs-title-section {\n    flex: 1;\n}\n\n.irada-widget .ir-blogs-main-title {\n    font-size: 2.25rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 800;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n    line-height: 1.1;\n    letter-spacing: -0.03em;\n}\n\n.irada-widget .ir-blogs-subtitle {\n    font-size: var(--irada-font-size-lg);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    margin: 0 0 var(--irada-spacing) 0;\n    line-height: 1.5;\n}\n\n.irada-widget .ir-blogs-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-blogs-stats .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: 0.25rem;\n}\n\n.irada-widget .ir-blogs-stats .ir-stat-item strong {\n    color: var(--irada-text);\n    font-weight: 600;\n}\n\n.irada-widget .ir-stat-divider {\n    opacity: 0.5;\n}\n\n/* Blogs Controls */\n.irada-widget .ir-blogs-controls {\n    display: flex;\n    align-items: center;\n    min-width: 400px;\n}\n\n.irada-widget .ir-search-container {\n    flex: 1;\n    position: relative;\n}\n\n.irada-widget .ir-search-input-wrapper {\n    position: relative;\n    display: flex;\n    align-items: center;\n}\n\n.irada-widget .ir-search-icon {\n    position: absolute;\n    left: var(--irada-spacing-sm);\n    color: var(--irada-text-secondary);\n    opacity: 0.7;\n    z-index: 2;\n}\n\n.irada-widget .ir-search-input {\n    width: 100%;\n    padding: var(--irada-spacing-sm) var(--irada-spacing-sm) var(--irada-spacing-sm) 2.5rem;\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    background-color: var(--irada-background);\n    color: var(--irada-text);\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-search-input:focus {\n    outline: none;\n    border-color: var(--irada-border-hover);\n    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);\n}\n\n.irada-widget .ir-search-input::placeholder {\n    color: var(--irada-text-secondary);\n    opacity: 0.7;\n}\n\n.irada-widget .ir-clear-search {\n    position: absolute;\n    right: var(--irada-spacing-sm);\n    background: none;\n    border: none;\n    color: var(--irada-text-secondary);\n    cursor: pointer;\n    padding: 0.25rem;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-clear-search:hover {\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text);\n}\n\n\n\n.irada-widget .ir-filters-content h3 {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-filters-content p {\n    color: var(--irada-text-secondary);\n    margin: 0;\n}\n\n/* Search Results Info */\n.irada-widget .ir-search-results-info {\n    margin-bottom: var(--irada-spacing-lg);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n}\n\n.irada-widget .ir-search-results-info p {\n    margin: 0;\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n}\n\n/* No Results */\n.irada-widget .ir-no-results {\n    padding: var(--irada-spacing-xl) 0;\n    text-align: center;\n}\n\n.irada-widget .ir-no-results-content {\n    max-width: 400px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-no-results-content svg {\n    color: var(--irada-text-secondary);\n    opacity: 0.5;\n    margin-bottom: var(--irada-spacing);\n}\n\n.irada-widget .ir-no-results-content h3 {\n    font-size: var(--irada-font-size-xl);\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-no-results-content p {\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    margin: 0;\n}\n\n.irada-widget .ir-recommended-blogs-list {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n    gap: var(--irada-spacing-lg);\n    margin-top: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-loading-more {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    padding: var(--irada-spacing-xl);\n    margin-top: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-loading-more .ir-dot-spinner {\n    --uib-size: 2rem;\n    --uib-speed: 0.9s;\n}\n\n.irada-widget .ir-end-message {\n    text-align: center;\n    padding: var(--irada-spacing-xl);\n    margin-top: var(--irada-spacing-lg);\n    color: var(--irada-text-secondary);\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    border-top: 1px solid var(--irada-border);\n}\n\n/* Loader styles */\n.irada-widget .ir-loader-div {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100vh;\n    min-height: 100vh;\n    background-color: var(--irada-background);\n    position: relative;\n    z-index: 1000;\n}\n\n/* Ensure the widget container takes full height during loading */\n.irada-widget.irada-blogs-page {\n    min-height: 100vh;\n    width: 100%;\n}\n\n.irada-widget .ir-dot-spinner {\n    --uib-size: 3.5rem;\n    --uib-speed: 0.9s;\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: var(--uib-size);\n    width: var(--uib-size);\n}\n\n.irada-widget .ir-dot-spinner__dot {\n    position: absolute;\n    top: 0;\n    left: 0;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    height: 100%;\n    width: 100%;\n}\n\n.irada-widget .ir-dot-spinner__dot::before {\n    content: '';\n    height: 25%;\n    width: 25%;\n    border-radius: 50%;\n    background-color: var(--irada-text);\n    transform: scale(0);\n    opacity: 0.7;\n    animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(2) {\n    transform: rotate(45deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(2)::before {\n    animation-delay: calc(var(--uib-speed) * -0.875);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(3) {\n    transform: rotate(90deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(3)::before {\n    animation-delay: calc(var(--uib-speed) * -0.75);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(4) {\n    transform: rotate(135deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(4)::before {\n    animation-delay: calc(var(--uib-speed) * -0.625);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(5) {\n    transform: rotate(180deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(5)::before {\n    animation-delay: calc(var(--uib-speed) * -0.5);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(6) {\n    transform: rotate(225deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(6)::before {\n    animation-delay: calc(var(--uib-speed) * -0.375);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(7) {\n    transform: rotate(270deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(7)::before {\n    animation-delay: calc(var(--uib-speed) * -0.25);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(8) {\n    transform: rotate(315deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(8)::before {\n    animation-delay: calc(var(--uib-speed) * -0.125);\n}\n\n@keyframes pulse0112 {\n\n    0%,\n    100% {\n        transform: scale(0);\n        opacity: 0.5;\n    }\n\n    50% {\n        transform: scale(1);\n        opacity: 1;\n    }\n}\n\n/* Ghost loader */\n.irada-widget .ir-ghost-loader {\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    animation: ghost-pulse 1.5s ease-in-out infinite;\n}\n\n@keyframes ghost-pulse {\n\n    0%,\n    100% {\n        opacity: 0.6;\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n/* Responsive design */\n@media screen and (max-width: 768px) {\n    .irada-widget .ir-blogs-header-content {\n        flex-direction: column;\n        gap: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blogs-controls {\n        min-width: auto;\n        width: 100%;\n    }\n\n    .irada-widget .ir-blogs-main-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-recommended-blogs-list {\n        grid-template-columns: 1fr;\n        gap: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blogread-info {\n        padding: var(--irada-spacing) var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing) var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blogread-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-banner-container img {\n        height: 30vh;\n    }\n}\n\n@media (max-width: 640px) {\n    .irada-widget .ir-recommended-blogs {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content img {\n        width: 100%;\n        height: auto;\n    }\n}",""]);const l=o},314:e=>{e.exports=function(e){var n=[];return n.toString=function(){return this.map((function(n){var r="",t=void 0!==n[5];return n[4]&&(r+="@supports (".concat(n[4],") {")),n[2]&&(r+="@media ".concat(n[2]," {")),t&&(r+="@layer".concat(n[5].length>0?" ".concat(n[5]):""," {")),r+=e(n),t&&(r+="}"),n[2]&&(r+="}"),n[4]&&(r+="}"),r})).join("")},n.i=function(e,r,t,a,i){"string"==typeof e&&(e=[[null,e,void 0]]);var o={};if(t)for(var l=0;l<this.length;l++){var d=this[l][0];null!=d&&(o[d]=!0)}for(var s=0;s<e.length;s++){var c=[].concat(e[s]);t&&o[c[0]]||(void 0!==i&&(void 0===c[5]||(c[1]="@layer".concat(c[5].length>0?" ".concat(c[5]):""," {").concat(c[1],"}")),c[5]=i),r&&(c[2]?(c[1]="@media ".concat(c[2]," {").concat(c[1],"}"),c[2]=r):c[2]=r),a&&(c[4]?(c[1]="@supports (".concat(c[4],") {").concat(c[1],"}"),c[4]=a):c[4]="".concat(a)),n.push(c))}},n}},601:e=>{e.exports=function(e){return e[1]}},72:e=>{var n=[];function r(e){for(var r=-1,t=0;t<n.length;t++)if(n[t].identifier===e){r=t;break}return r}function t(e,t){for(var i={},o=[],l=0;l<e.length;l++){var d=e[l],s=t.base?d[0]+t.base:d[0],c=i[s]||0,g="".concat(s," ").concat(c);i[s]=c+1;var u=r(g),m={css:d[1],media:d[2],sourceMap:d[3],supports:d[4],layer:d[5]};if(-1!==u)n[u].references++,n[u].updater(m);else{var f=a(m,t);t.byIndex=l,n.splice(l,0,{identifier:g,updater:f,references:1})}o.push(g)}return o}function a(e,n){var r=n.domAPI(n);return r.update(e),function(n){if(n){if(n.css===e.css&&n.media===e.media&&n.sourceMap===e.sourceMap&&n.supports===e.supports&&n.layer===e.layer)return;r.update(e=n)}else r.remove()}}e.exports=function(e,a){var i=t(e=e||[],a=a||{});return function(e){e=e||[];for(var o=0;o<i.length;o++){var l=r(i[o]);n[l].references--}for(var d=t(e,a),s=0;s<i.length;s++){var c=r(i[s]);0===n[c].references&&(n[c].updater(),n.splice(c,1))}i=d}}},659:e=>{var n={};e.exports=function(e,r){var t=function(e){if(void 0===n[e]){var r=document.querySelector(e);if(window.HTMLIFrameElement&&r instanceof window.HTMLIFrameElement)try{r=r.contentDocument.head}catch(e){r=null}n[e]=r}return n[e]}(e);if(!t)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");t.appendChild(r)}},540:e=>{e.exports=function(e){var n=document.createElement("style");return e.setAttributes(n,e.attributes),e.insert(n,e.options),n}},56:(e,n,r)=>{e.exports=function(e){var n=r.nc;n&&e.setAttribute("nonce",n)}},825:e=>{e.exports=function(e){if("undefined"==typeof document)return{update:function(){},remove:function(){}};var n=e.insertStyleElement(e);return{update:function(r){!function(e,n,r){var t="";r.supports&&(t+="@supports (".concat(r.supports,") {")),r.media&&(t+="@media ".concat(r.media," {"));var a=void 0!==r.layer;a&&(t+="@layer".concat(r.layer.length>0?" ".concat(r.layer):""," {")),t+=r.css,a&&(t+="}"),r.media&&(t+="}"),r.supports&&(t+="}");var i=r.sourceMap;i&&"undefined"!=typeof btoa&&(t+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(i))))," */")),n.styleTagTransform(t,e,n.options)}(n,e,r)},remove:function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(n)}}}},113:e=>{e.exports=function(e,n){if(n.styleSheet)n.styleSheet.cssText=e;else{for(;n.firstChild;)n.removeChild(n.firstChild);n.appendChild(document.createTextNode(e))}}},155:n=>{n.exports=e},442:e=>{e.exports=n}},t={};function a(e){var n=t[e];if(void 0!==n)return n.exports;var i=t[e]={id:e,exports:{}};return r[e](i,i.exports,a),i.exports}a.n=e=>{var n=e&&e.__esModule?()=>e.default:()=>e;return a.d(n,{a:n}),n},a.d=(e,n)=>{for(var r in n)a.o(n,r)&&!a.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:n[r]})},a.o=(e,n)=>Object.prototype.hasOwnProperty.call(e,n),a.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.nc=void 0;var i={};a.r(i),a.d(i,{IradaBlogCard:()=>q,IradaBlogsCarousel:()=>R,IradaBlogsPage:()=>me,IradaContactForm:()=>C});var o=a(72),l=a.n(o),d=a(825),s=a.n(d),c=a(659),g=a.n(c),u=a(56),m=a.n(u),f=a(540),p=a.n(f),h=a(113),v=a.n(h),b=a(626),y={};y.styleTagTransform=v(),y.setAttributes=m(),y.insert=g().bind(null,"head"),y.domAPI=s(),y.insertStyleElement=p(),l()(b.A,y),b.A&&b.A.locals&&b.A.locals;var w=a(155),x=a.n(w);function E(e){return E="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},E(e)}function k(){k=function(){return n};var e,n={},r=Object.prototype,t=r.hasOwnProperty,a=Object.defineProperty||function(e,n,r){e[n]=r.value},i="function"==typeof Symbol?Symbol:{},o=i.iterator||"@@iterator",l=i.asyncIterator||"@@asyncIterator",d=i.toStringTag||"@@toStringTag";function s(e,n,r){return Object.defineProperty(e,n,{value:r,enumerable:!0,configurable:!0,writable:!0}),e[n]}try{s({},"")}catch(e){s=function(e,n,r){return e[n]=r}}function c(e,n,r,t){var i=n&&n.prototype instanceof v?n:v,o=Object.create(i.prototype),l=new A(t||[]);return a(o,"_invoke",{value:j(e,r,l)}),o}function g(e,n,r){try{return{type:"normal",arg:e.call(n,r)}}catch(e){return{type:"throw",arg:e}}}n.wrap=c;var u="suspendedStart",m="suspendedYield",f="executing",p="completed",h={};function v(){}function b(){}function y(){}var w={};s(w,o,(function(){return this}));var x=Object.getPrototypeOf,N=x&&x(x(P([])));N&&N!==r&&t.call(N,o)&&(w=N);var z=y.prototype=v.prototype=Object.create(w);function S(e){["next","throw","return"].forEach((function(n){s(e,n,(function(e){return this._invoke(n,e)}))}))}function L(e,n){function r(a,i,o,l){var d=g(e[a],e,i);if("throw"!==d.type){var s=d.arg,c=s.value;return c&&"object"==E(c)&&t.call(c,"__await")?n.resolve(c.__await).then((function(e){r("next",e,o,l)}),(function(e){r("throw",e,o,l)})):n.resolve(c).then((function(e){s.value=e,o(s)}),(function(e){return r("throw",e,o,l)}))}l(d.arg)}var i;a(this,"_invoke",{value:function(e,t){function a(){return new n((function(n,a){r(e,t,n,a)}))}return i=i?i.then(a,a):a()}})}function j(n,r,t){var a=u;return function(i,o){if(a===f)throw Error("Generator is already running");if(a===p){if("throw"===i)throw o;return{value:e,done:!0}}for(t.method=i,t.arg=o;;){var l=t.delegate;if(l){var d=_(l,t);if(d){if(d===h)continue;return d}}if("next"===t.method)t.sent=t._sent=t.arg;else if("throw"===t.method){if(a===u)throw a=p,t.arg;t.dispatchException(t.arg)}else"return"===t.method&&t.abrupt("return",t.arg);a=f;var s=g(n,r,t);if("normal"===s.type){if(a=t.done?p:m,s.arg===h)continue;return{value:s.arg,done:t.done}}"throw"===s.type&&(a=p,t.method="throw",t.arg=s.arg)}}}function _(n,r){var t=r.method,a=n.iterator[t];if(a===e)return r.delegate=null,"throw"===t&&n.iterator.return&&(r.method="return",r.arg=e,_(n,r),"throw"===r.method)||"return"!==t&&(r.method="throw",r.arg=new TypeError("The iterator does not provide a '"+t+"' method")),h;var i=g(a,n.iterator,r.arg);if("throw"===i.type)return r.method="throw",r.arg=i.arg,r.delegate=null,h;var o=i.arg;return o?o.done?(r[n.resultName]=o.value,r.next=n.nextLoc,"return"!==r.method&&(r.method="next",r.arg=e),r.delegate=null,h):o:(r.method="throw",r.arg=new TypeError("iterator result is not an object"),r.delegate=null,h)}function C(e){var n={tryLoc:e[0]};1 in e&&(n.catchLoc=e[1]),2 in e&&(n.finallyLoc=e[2],n.afterLoc=e[3]),this.tryEntries.push(n)}function O(e){var n=e.completion||{};n.type="normal",delete n.arg,e.completion=n}function A(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(C,this),this.reset(!0)}function P(n){if(n||""===n){var r=n[o];if(r)return r.call(n);if("function"==typeof n.next)return n;if(!isNaN(n.length)){var a=-1,i=function r(){for(;++a<n.length;)if(t.call(n,a))return r.value=n[a],r.done=!1,r;return r.value=e,r.done=!0,r};return i.next=i}}throw new TypeError(E(n)+" is not iterable")}return b.prototype=y,a(z,"constructor",{value:y,configurable:!0}),a(y,"constructor",{value:b,configurable:!0}),b.displayName=s(y,d,"GeneratorFunction"),n.isGeneratorFunction=function(e){var n="function"==typeof e&&e.constructor;return!!n&&(n===b||"GeneratorFunction"===(n.displayName||n.name))},n.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,y):(e.__proto__=y,s(e,d,"GeneratorFunction")),e.prototype=Object.create(z),e},n.awrap=function(e){return{__await:e}},S(L.prototype),s(L.prototype,l,(function(){return this})),n.AsyncIterator=L,n.async=function(e,r,t,a,i){void 0===i&&(i=Promise);var o=new L(c(e,r,t,a),i);return n.isGeneratorFunction(r)?o:o.next().then((function(e){return e.done?e.value:o.next()}))},S(z),s(z,d,"Generator"),s(z,o,(function(){return this})),s(z,"toString",(function(){return"[object Generator]"})),n.keys=function(e){var n=Object(e),r=[];for(var t in n)r.push(t);return r.reverse(),function e(){for(;r.length;){var t=r.pop();if(t in n)return e.value=t,e.done=!1,e}return e.done=!0,e}},n.values=P,A.prototype={constructor:A,reset:function(n){if(this.prev=0,this.next=0,this.sent=this._sent=e,this.done=!1,this.delegate=null,this.method="next",this.arg=e,this.tryEntries.forEach(O),!n)for(var r in this)"t"===r.charAt(0)&&t.call(this,r)&&!isNaN(+r.slice(1))&&(this[r]=e)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(n){if(this.done)throw n;var r=this;function a(t,a){return l.type="throw",l.arg=n,r.next=t,a&&(r.method="next",r.arg=e),!!a}for(var i=this.tryEntries.length-1;i>=0;--i){var o=this.tryEntries[i],l=o.completion;if("root"===o.tryLoc)return a("end");if(o.tryLoc<=this.prev){var d=t.call(o,"catchLoc"),s=t.call(o,"finallyLoc");if(d&&s){if(this.prev<o.catchLoc)return a(o.catchLoc,!0);if(this.prev<o.finallyLoc)return a(o.finallyLoc)}else if(d){if(this.prev<o.catchLoc)return a(o.catchLoc,!0)}else{if(!s)throw Error("try statement without catch or finally");if(this.prev<o.finallyLoc)return a(o.finallyLoc)}}}},abrupt:function(e,n){for(var r=this.tryEntries.length-1;r>=0;--r){var a=this.tryEntries[r];if(a.tryLoc<=this.prev&&t.call(a,"finallyLoc")&&this.prev<a.finallyLoc){var i=a;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=e,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(o)},complete:function(e,n){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&n&&(this.next=n),h},finish:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===e)return this.complete(r.completion,r.afterLoc),O(r),h}},catch:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===e){var t=r.completion;if("throw"===t.type){var a=t.arg;O(r)}return a}}throw Error("illegal catch attempt")},delegateYield:function(n,r,t){return this.delegate={iterator:P(n),resultName:r,nextLoc:t},"next"===this.method&&(this.arg=e),h}},n}function N(e,n,r,t,a,i,o){try{var l=e[i](o),d=l.value}catch(e){return void r(e)}l.done?n(d):Promise.resolve(d).then(t,a)}function z(e,n){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var t=Object.getOwnPropertySymbols(e);n&&(t=t.filter((function(n){return Object.getOwnPropertyDescriptor(e,n).enumerable}))),r.push.apply(r,t)}return r}function S(e){for(var n=1;n<arguments.length;n++){var r=null!=arguments[n]?arguments[n]:{};n%2?z(Object(r),!0).forEach((function(n){L(e,n,r[n])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):z(Object(r)).forEach((function(n){Object.defineProperty(e,n,Object.getOwnPropertyDescriptor(r,n))}))}return e}function L(e,n,r){return(n=function(e){var n=function(e){if("object"!=E(e)||!e)return e;var n=e[Symbol.toPrimitive];if(void 0!==n){var r=n.call(e,"string");if("object"!=E(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(e)}(e);return"symbol"==E(n)?n:n+""}(n))in e?Object.defineProperty(e,n,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[n]=r,e}function j(e,n){return function(e){if(Array.isArray(e))return e}(e)||function(e,n){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var t,a,i,o,l=[],d=!0,s=!1;try{if(i=(r=r.call(e)).next,0===n){if(Object(r)!==r)return;d=!1}else for(;!(d=(t=i.call(r)).done)&&(l.push(t.value),l.length!==n);d=!0);}catch(e){s=!0,a=e}finally{try{if(!d&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(s)throw a}}return l}}(e,n)||function(e,n){if(e){if("string"==typeof e)return _(e,n);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?_(e,n):void 0}}(e,n)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function _(e,n){(null==n||n>e.length)&&(n=e.length);for(var r=0,t=Array(n);r<n;r++)t[r]=e[r];return t}const C=function(e){var n=e.theme,r=void 0===n?"light":n,t=e.apiKey,a=e.heading,i=void 0===a?"Get in Touch":a,o=e.subheading,l=void 0===o?"Send us a message and we'll get back to you as soon as possible.":o,d=e.placeholderName,s=void 0===d?"Your name":d,c=e.placeholderEmail,g=void 0===c?"Your email":c,u=e.placeholderMessage,m=void 0===u?"Your message...":u,f=e.buttonText,p=void 0===f?"Send Message":f,h=e.onSuccess,v=e.onError,b=j((0,w.useState)({name:"",email:"",message:""}),2),y=b[0],E=b[1],z=j((0,w.useState)(!1),2),_=z[0],C=z[1],O=j((0,w.useState)({}),2),A=O[0],P=O[1],T=function(e){var n=e.target,r=n.name,t=n.value;E((function(e){return S(S({},e),{},L({},r,t))})),A[r]&&P((function(e){return S(S({},e),{},L({},r,""))}))},B=function(){var e,n=(e=k().mark((function e(n){var r,a;return k().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(n.preventDefault(),i=void 0,i={},y.name.trim()||(i.name="Name is required"),y.email.trim()?/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(y.email)||(i.email="Please enter a valid email"):i.email="Email is required",y.message.trim()?y.message.trim().length<10&&(i.message="Message must be at least 10 characters"):i.message="Message is required",P(i),0===Object.keys(i).length){e.next=3;break}return e.abrupt("return");case 3:if(t){e.next=7;break}return console.error("API key and endpoint are required"),v&&v("Configuration error"),e.abrupt("return");case 7:return C(!0),e.prev=8,e.next=11,fetch("".concat("https://bloggestapi.sohaibaftab.me","/api/messages"),{method:"POST",headers:{"Content-Type":"application/json","x-api-key":t},body:JSON.stringify({senderEmail:y.email.trim(),name:y.name.trim(),message:y.message.trim()})});case 11:if((r=e.sent).ok){e.next=14;break}throw new Error("HTTP error! status: ".concat(r.status));case 14:return e.next=16,r.json();case 16:a=e.sent,E({name:"",email:"",message:""}),P({}),h&&h(a),e.next=26;break;case 22:e.prev=22,e.t0=e.catch(8),console.error("Failed to send message:",e.t0),v&&v(e.t0.message||"Failed to send message");case 26:return e.prev=26,C(!1),e.finish(26);case 29:case"end":return e.stop()}var i}),e,null,[[8,22,26,29]])})),function(){var n=this,r=arguments;return new Promise((function(t,a){var i=e.apply(n,r);function o(e){N(i,t,a,o,l,"next",e)}function l(e){N(i,t,a,o,l,"throw",e)}o(void 0)}))});return function(e){return n.apply(this,arguments)}}();return x().createElement("div",{className:"irada-widget ir-irada-message-form","data-theme":r},x().createElement("div",{className:"ir-message-form-container"},(i||l)&&x().createElement("div",{className:"ir-message-form-header"},i&&x().createElement("h2",{className:"ir-message-form-title"},i),l&&x().createElement("p",{className:"ir-message-form-subtitle"},l)),x().createElement("form",{className:"ir-message-form",onSubmit:B},x().createElement("div",{className:"ir-form-row"},x().createElement("div",{className:"ir-form-field"},x().createElement("label",{htmlFor:"name",className:"ir-form-label"},"Name"),x().createElement("input",{type:"text",id:"name",name:"name",value:y.name,onChange:T,placeholder:s,className:"ir-form-input ".concat(A.name?"error":""),disabled:_}),A.name&&x().createElement("span",{className:"ir-error-message"},A.name)),x().createElement("div",{className:"ir-form-field"},x().createElement("label",{htmlFor:"email",className:"ir-form-label"},"Email"),x().createElement("input",{type:"email",id:"email",name:"email",value:y.email,onChange:T,placeholder:g,className:"ir-form-input ".concat(A.email?"error":""),disabled:_}),A.email&&x().createElement("span",{className:"ir-error-message"},A.email))),x().createElement("div",{className:"ir-form-field"},x().createElement("label",{htmlFor:"message",className:"ir-form-label"},"Message"),x().createElement("textarea",{id:"message",name:"message",value:y.message,onChange:T,placeholder:m,className:"ir-form-textarea ".concat(A.message?"error":""),rows:5,disabled:_}),A.message&&x().createElement("span",{className:"ir-error-message"},A.message)),x().createElement("button",{type:"submit",className:"ir-submit-button",disabled:_},_?x().createElement("div",{className:"ir-loading-spinner"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M21 12a9 9 0 11-6.219-8.56"}))):x().createElement(x().Fragment,null,p,x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M22 2L11 13"}),x().createElement("path",{d:"M22 2L15 22L11 13L2 9L22 2Z"})))))))};var O=a(442);const A=function(e){var n=e.width,r=e.height,t=e.radius;return e.theme,x().createElement("div",{style:{width:n,height:r,borderRadius:t||"var(--irada-radius)"},className:"ir-ghost-loader"})};function P(e){return P="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},P(e)}function T(){T=function(){return n};var e,n={},r=Object.prototype,t=r.hasOwnProperty,a=Object.defineProperty||function(e,n,r){e[n]=r.value},i="function"==typeof Symbol?Symbol:{},o=i.iterator||"@@iterator",l=i.asyncIterator||"@@asyncIterator",d=i.toStringTag||"@@toStringTag";function s(e,n,r){return Object.defineProperty(e,n,{value:r,enumerable:!0,configurable:!0,writable:!0}),e[n]}try{s({},"")}catch(e){s=function(e,n,r){return e[n]=r}}function c(e,n,r,t){var i=n&&n.prototype instanceof v?n:v,o=Object.create(i.prototype),l=new C(t||[]);return a(o,"_invoke",{value:S(e,r,l)}),o}function g(e,n,r){try{return{type:"normal",arg:e.call(n,r)}}catch(e){return{type:"throw",arg:e}}}n.wrap=c;var u="suspendedStart",m="suspendedYield",f="executing",p="completed",h={};function v(){}function b(){}function y(){}var w={};s(w,o,(function(){return this}));var x=Object.getPrototypeOf,E=x&&x(x(O([])));E&&E!==r&&t.call(E,o)&&(w=E);var k=y.prototype=v.prototype=Object.create(w);function N(e){["next","throw","return"].forEach((function(n){s(e,n,(function(e){return this._invoke(n,e)}))}))}function z(e,n){function r(a,i,o,l){var d=g(e[a],e,i);if("throw"!==d.type){var s=d.arg,c=s.value;return c&&"object"==P(c)&&t.call(c,"__await")?n.resolve(c.__await).then((function(e){r("next",e,o,l)}),(function(e){r("throw",e,o,l)})):n.resolve(c).then((function(e){s.value=e,o(s)}),(function(e){return r("throw",e,o,l)}))}l(d.arg)}var i;a(this,"_invoke",{value:function(e,t){function a(){return new n((function(n,a){r(e,t,n,a)}))}return i=i?i.then(a,a):a()}})}function S(n,r,t){var a=u;return function(i,o){if(a===f)throw Error("Generator is already running");if(a===p){if("throw"===i)throw o;return{value:e,done:!0}}for(t.method=i,t.arg=o;;){var l=t.delegate;if(l){var d=L(l,t);if(d){if(d===h)continue;return d}}if("next"===t.method)t.sent=t._sent=t.arg;else if("throw"===t.method){if(a===u)throw a=p,t.arg;t.dispatchException(t.arg)}else"return"===t.method&&t.abrupt("return",t.arg);a=f;var s=g(n,r,t);if("normal"===s.type){if(a=t.done?p:m,s.arg===h)continue;return{value:s.arg,done:t.done}}"throw"===s.type&&(a=p,t.method="throw",t.arg=s.arg)}}}function L(n,r){var t=r.method,a=n.iterator[t];if(a===e)return r.delegate=null,"throw"===t&&n.iterator.return&&(r.method="return",r.arg=e,L(n,r),"throw"===r.method)||"return"!==t&&(r.method="throw",r.arg=new TypeError("The iterator does not provide a '"+t+"' method")),h;var i=g(a,n.iterator,r.arg);if("throw"===i.type)return r.method="throw",r.arg=i.arg,r.delegate=null,h;var o=i.arg;return o?o.done?(r[n.resultName]=o.value,r.next=n.nextLoc,"return"!==r.method&&(r.method="next",r.arg=e),r.delegate=null,h):o:(r.method="throw",r.arg=new TypeError("iterator result is not an object"),r.delegate=null,h)}function j(e){var n={tryLoc:e[0]};1 in e&&(n.catchLoc=e[1]),2 in e&&(n.finallyLoc=e[2],n.afterLoc=e[3]),this.tryEntries.push(n)}function _(e){var n=e.completion||{};n.type="normal",delete n.arg,e.completion=n}function C(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(j,this),this.reset(!0)}function O(n){if(n||""===n){var r=n[o];if(r)return r.call(n);if("function"==typeof n.next)return n;if(!isNaN(n.length)){var a=-1,i=function r(){for(;++a<n.length;)if(t.call(n,a))return r.value=n[a],r.done=!1,r;return r.value=e,r.done=!0,r};return i.next=i}}throw new TypeError(P(n)+" is not iterable")}return b.prototype=y,a(k,"constructor",{value:y,configurable:!0}),a(y,"constructor",{value:b,configurable:!0}),b.displayName=s(y,d,"GeneratorFunction"),n.isGeneratorFunction=function(e){var n="function"==typeof e&&e.constructor;return!!n&&(n===b||"GeneratorFunction"===(n.displayName||n.name))},n.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,y):(e.__proto__=y,s(e,d,"GeneratorFunction")),e.prototype=Object.create(k),e},n.awrap=function(e){return{__await:e}},N(z.prototype),s(z.prototype,l,(function(){return this})),n.AsyncIterator=z,n.async=function(e,r,t,a,i){void 0===i&&(i=Promise);var o=new z(c(e,r,t,a),i);return n.isGeneratorFunction(r)?o:o.next().then((function(e){return e.done?e.value:o.next()}))},N(k),s(k,d,"Generator"),s(k,o,(function(){return this})),s(k,"toString",(function(){return"[object Generator]"})),n.keys=function(e){var n=Object(e),r=[];for(var t in n)r.push(t);return r.reverse(),function e(){for(;r.length;){var t=r.pop();if(t in n)return e.value=t,e.done=!1,e}return e.done=!0,e}},n.values=O,C.prototype={constructor:C,reset:function(n){if(this.prev=0,this.next=0,this.sent=this._sent=e,this.done=!1,this.delegate=null,this.method="next",this.arg=e,this.tryEntries.forEach(_),!n)for(var r in this)"t"===r.charAt(0)&&t.call(this,r)&&!isNaN(+r.slice(1))&&(this[r]=e)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(n){if(this.done)throw n;var r=this;function a(t,a){return l.type="throw",l.arg=n,r.next=t,a&&(r.method="next",r.arg=e),!!a}for(var i=this.tryEntries.length-1;i>=0;--i){var o=this.tryEntries[i],l=o.completion;if("root"===o.tryLoc)return a("end");if(o.tryLoc<=this.prev){var d=t.call(o,"catchLoc"),s=t.call(o,"finallyLoc");if(d&&s){if(this.prev<o.catchLoc)return a(o.catchLoc,!0);if(this.prev<o.finallyLoc)return a(o.finallyLoc)}else if(d){if(this.prev<o.catchLoc)return a(o.catchLoc,!0)}else{if(!s)throw Error("try statement without catch or finally");if(this.prev<o.finallyLoc)return a(o.finallyLoc)}}}},abrupt:function(e,n){for(var r=this.tryEntries.length-1;r>=0;--r){var a=this.tryEntries[r];if(a.tryLoc<=this.prev&&t.call(a,"finallyLoc")&&this.prev<a.finallyLoc){var i=a;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=e,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(o)},complete:function(e,n){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&n&&(this.next=n),h},finish:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===e)return this.complete(r.completion,r.afterLoc),_(r),h}},catch:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===e){var t=r.completion;if("throw"===t.type){var a=t.arg;_(r)}return a}}throw Error("illegal catch attempt")},delegateYield:function(n,r,t){return this.delegate={iterator:O(n),resultName:r,nextLoc:t},"next"===this.method&&(this.arg=e),h}},n}function B(e,n,r,t,a,i,o){try{var l=e[i](o),d=l.value}catch(e){return void r(e)}l.done?n(d):Promise.resolve(d).then(t,a)}function M(e,n){return function(e){if(Array.isArray(e))return e}(e)||function(e,n){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var t,a,i,o,l=[],d=!0,s=!1;try{if(i=(r=r.call(e)).next,0===n){if(Object(r)!==r)return;d=!1}else for(;!(d=(t=i.call(r)).done)&&(l.push(t.value),l.length!==n);d=!0);}catch(e){s=!0,a=e}finally{try{if(!d&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(s)throw a}}return l}}(e,n)||function(e,n){if(e){if("string"==typeof e)return I(e,n);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?I(e,n):void 0}}(e,n)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function I(e,n){(null==n||n>e.length)&&(n=e.length);for(var r=0,t=Array(n);r<n;r++)t[r]=e[r];return t}var F=function(e){return e?e>=1e6?"".concat((e/1e6).toFixed(1),"M"):e>=1e3?"".concat((e/1e3).toFixed(1),"K"):e.toString():"0"},G=function(e){var n,r,t=e.blog,a=M((0,w.useState)(!0),2),i=a[0],o=a[1];return x().createElement(O.Link,{to:"/blogs/blog/".concat(t.slug),className:"ir-featured-blog-slide"},x().createElement("div",{className:"ir-featured-blog-image"},i&&x().createElement(A,{width:"100%",height:"100%",radius:"0",theme:"dark"}),x().createElement("img",{onLoad:function(){o(!1)},style:{display:i?"none":"block"},src:t.banner,alt:t.title}),x().createElement("div",{className:"ir-featured-blog-overlay"})),x().createElement("div",{className:"ir-featured-blog-content"},x().createElement("div",{className:"ir-featured-blog-badges"},x().createElement("div",{className:"ir-featured-category-badge"},t.category),t.tags&&t.tags.length>0&&x().createElement(x().Fragment,null,x().createElement("span",{className:"ir-featured-badge-separator"},"•"),x().createElement("div",{className:"ir-featured-blog-tags"},t.tags.slice(0,3).map((function(e,n){return x().createElement("span",{key:n,className:"ir-featured-blog-tag"},e)}))))),x().createElement("div",{className:"ir-featured-blog-info"},x().createElement("h2",{className:"ir-featured-blog-title"},t.title),x().createElement("p",{className:"ir-featured-blog-meta"},t.meta),x().createElement("div",{className:"ir-featured-blog-details"},x().createElement("div",{className:"ir-featured-blog-author"},x().createElement("span",{className:"ir-author-name"},"@",(null===(n=t.author)||void 0===n?void 0:n.username)||"Anonymous")),x().createElement("div",{className:"ir-featured-blog-stats"},x().createElement("div",{className:"ir-stat-item"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"}),x().createElement("circle",{cx:"12",cy:"12",r:"3"})),F(t.viewsCount||0)),x().createElement("div",{className:"ir-stat-item"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})),F(t.likesCount||0)),x().createElement("span",{className:"ir-publish-date"},(r=t.publishedAt)?new Date(r).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):""))))))};const R=function(e){var n=e.theme,r=e.apiKey,t="https://bloggestapi.sohaibaftab.me",a=M((0,w.useState)([]),2),i=a[0],o=a[1],l=M((0,w.useState)(!0),2),d=l[0],s=l[1],c=M((0,w.useState)(0),2),g=c[0],u=c[1],m=M((0,w.useState)(!1),2),f=m[0],p=m[1],h=(0,w.useRef)(0),v=(0,w.useRef)(0),b=(0,w.useRef)(null);(0,w.useEffect)((function(){var e=function(){var e,n=(e=T().mark((function e(){var n,a,i;return T().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(r){e.next=4;break}return console.error("API key is required to fetch featured blogs"),s(!1),e.abrupt("return");case 4:return e.prev=4,s(!0),e.next=8,fetch("".concat(t,"/api/token/blogs?featured=true"),{method:"GET",headers:{"x-api-key":r,"Content-Type":"application/json"}});case 8:if((n=e.sent).ok){e.next=11;break}throw new Error("HTTP error! status: ".concat(n.status));case 11:return e.next=13,n.json();case 13:a=e.sent,i=a.data||{},o(i.blogs||[]),e.next=21;break;case 18:e.prev=18,e.t0=e.catch(4),console.error("Failed to fetch featured blogs:",e.t0);case 21:return e.prev=21,s(!1),e.finish(21);case 24:case"end":return e.stop()}}),e,null,[[4,18,21,24]])})),function(){var n=this,r=arguments;return new Promise((function(t,a){var i=e.apply(n,r);function o(e){B(i,t,a,o,l,"next",e)}function l(e){B(i,t,a,o,l,"throw",e)}o(void 0)}))});return function(){return n.apply(this,arguments)}}();e()}),[r,t]),(0,w.useEffect)((function(){return!f&&i.length>1&&(b.current=setInterval((function(){u((function(e){return(e+1)%i.length}))}),5e3)),function(){b.current&&clearInterval(b.current)}}),[f,i.length]);var y=function(){u((g+1)%i.length)},E=function(){u((g-1+i.length)%i.length)};return d?x().createElement("div",{className:"irada-widget ir-irada-featured-carousel","data-theme":n},x().createElement("div",{className:"ir-carousel-container"},x().createElement("div",{className:"ir-carousel-container"},x().createElement("div",{className:"ir-loading-skeleton"},x().createElement("div",{className:"ir-skeleton-card",style:{height:"400px"}}))))):i&&0!==i.length?x().createElement("div",{className:"irada-widget ir-irada-featured-carousel","data-theme":n},x().createElement("div",{className:"ir-carousel-container"},x().createElement("div",{className:"ir-carousel",onTouchStart:function(e){p(!0),h.current=e.touches[0].clientX},onTouchMove:function(e){v.current=e.touches[0].clientX},onTouchEnd:function(){var e=h.current-v.current;e>60?y():e<-60&&E(),p(!1)},onMouseEnter:function(){p(!0),b.current&&clearInterval(b.current)},onMouseLeave:function(){p(!1)}},x().createElement("div",{className:"ir-carousel-inner",style:{transform:"translateX(-".concat(100*g,"%)")}},i.map((function(e,n){return x().createElement("div",{className:"ir-carousel-item",key:e._id||n},x().createElement(G,{blog:e}))}))),i.length>1&&x().createElement("div",{className:"ir-carousel-controls"},x().createElement("button",{className:"ir-carousel-control prev",onClick:E},x().createElement("svg",{width:"20",height:"20",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("polyline",{points:"15,18 9,12 15,6"}))),x().createElement("button",{className:"ir-carousel-control next",onClick:y},x().createElement("svg",{width:"20",height:"20",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("polyline",{points:"9,18 15,12 9,6"}))))),i.length>1&&x().createElement("div",{className:"ir-carousel-pagination"},i.map((function(e,n){return x().createElement("button",{key:n,className:"ir-carousel-dot ".concat(n===g?"active":""),onClick:function(){return function(e){u(e)}(n)},"aria-label":"Go to slide ".concat(n+1)})}))))):x().createElement("div",{className:"irada-widget ir-irada-featured-carousel","data-theme":n},x().createElement("div",{className:"ir-carousel-container"},x().createElement("div",{className:"ir-carousel-container"},x().createElement("div",{style:{padding:"2rem",textAlign:"center"}},x().createElement("p",null,"No featured blogs available.")))))},D=function(e){return e.theme,x().createElement("div",{className:"ir-loader-div",style:{width:"100%",height:"100vh"}},x().createElement("div",{style:{textAlign:"center"}},x().createElement("div",{className:"ir-dot-spinner"},x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"})),x().createElement("p",{style:{marginTop:"1rem",color:"var(--irada-text)",fontSize:"1rem",fontFamily:"var(--irada-font-family)",opacity:.8}},"Loading...")))};function W(e,n){(null==n||n>e.length)&&(n=e.length);for(var r=0,t=Array(n);r<n;r++)t[r]=e[r];return t}var H=function(e,n){return e?(null==e?void 0:e.length)>n?e.substr(0,n-1)+"...":e:""},U=function(e){return e>=1e6?"".concat((e/1e6).toFixed(1),"M"):e>=1e3?"".concat((e/1e3).toFixed(1),"K"):e.toString()};const q=function(e){var n,r,t,a,i,o,l,d=e.blog,s=e.theme,c=(o=(0,w.useState)(!0),l=2,function(e){if(Array.isArray(e))return e}(o)||function(e,n){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var t,a,i,o,l=[],d=!0,s=!1;try{if(i=(r=r.call(e)).next,0===n){if(Object(r)!==r)return;d=!1}else for(;!(d=(t=i.call(r)).done)&&(l.push(t.value),l.length!==n);d=!0);}catch(e){s=!0,a=e}finally{try{if(!d&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(s)throw a}}return l}}(o,l)||function(e,n){if(e){if("string"==typeof e)return W(e,n);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?W(e,n):void 0}}(o,l)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()),g=c[0],u=c[1],m=(0,O.useLocation)();return x().createElement(O.Link,{to:(i=m.pathname,i.endsWith("/blogs")?"".concat(i,"/blog/").concat(null==d?void 0:d.slug):"/blog/".concat(null==d?void 0:d.slug)),key:d._id,className:"ir-recommended-blog"},g&&x().createElement(A,{width:"100%",height:"200px",theme:s}),x().createElement("img",{onLoad:function(){u(!1)},style:{display:g?"none":"block"},src:null==d?void 0:d.banner,alt:(null==d?void 0:d.title)||"Blog image"}),x().createElement("div",{className:"ir-blog-text"},x().createElement("div",{className:"ir-blog-header"},x().createElement("span",{className:"ir-blog-category"},null==d?void 0:d.category)),x().createElement("h3",{className:"ir-blog-title"},H(d.title,60)),x().createElement("p",null,H(d.meta,100)),(null==d?void 0:d.tags)&&d.tags.length>0&&x().createElement("div",{className:"ir-blog-tags"},d.tags.slice(0,3).map((function(e,n){return x().createElement("span",{key:n,className:"ir-blog-tag"},e)})),d.tags.length>3&&x().createElement("span",{className:"ir-blog-tag-more"},"+",d.tags.length-3))),x().createElement("div",{className:"ir-details"},x().createElement("div",{className:"ir-blog-stats"},x().createElement("span",{className:"ir-stat-item"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"}),x().createElement("circle",{cx:"12",cy:"12",r:"3"})),U((null==d?void 0:d.viewsCount)||0)),x().createElement("span",{className:"ir-stat-item"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"})),U((null==d?void 0:d.likesCount)||0))),x().createElement("span",{className:"ir-blog-date"},(n=(null==d?void 0:d.updatedAt)||(null==d?void 0:d.publishedAt),r=new Date(n),t=new Date,(a=Math.floor((t-r)/1e3))<60?"Just now":a<3600?"".concat(Math.floor(a/60),"m ago"):a<86400?"".concat(Math.floor(a/3600),"h ago"):a<2592e3?"".concat(Math.floor(a/86400),"d ago"):a<31536e3?"".concat(Math.floor(a/2592e3),"mo ago"):"".concat(Math.floor(a/31536e3),"y ago")))))};function Y(e){return Y="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Y(e)}function K(){K=function(){return n};var e,n={},r=Object.prototype,t=r.hasOwnProperty,a=Object.defineProperty||function(e,n,r){e[n]=r.value},i="function"==typeof Symbol?Symbol:{},o=i.iterator||"@@iterator",l=i.asyncIterator||"@@asyncIterator",d=i.toStringTag||"@@toStringTag";function s(e,n,r){return Object.defineProperty(e,n,{value:r,enumerable:!0,configurable:!0,writable:!0}),e[n]}try{s({},"")}catch(e){s=function(e,n,r){return e[n]=r}}function c(e,n,r,t){var i=n&&n.prototype instanceof v?n:v,o=Object.create(i.prototype),l=new C(t||[]);return a(o,"_invoke",{value:S(e,r,l)}),o}function g(e,n,r){try{return{type:"normal",arg:e.call(n,r)}}catch(e){return{type:"throw",arg:e}}}n.wrap=c;var u="suspendedStart",m="suspendedYield",f="executing",p="completed",h={};function v(){}function b(){}function y(){}var w={};s(w,o,(function(){return this}));var x=Object.getPrototypeOf,E=x&&x(x(O([])));E&&E!==r&&t.call(E,o)&&(w=E);var k=y.prototype=v.prototype=Object.create(w);function N(e){["next","throw","return"].forEach((function(n){s(e,n,(function(e){return this._invoke(n,e)}))}))}function z(e,n){function r(a,i,o,l){var d=g(e[a],e,i);if("throw"!==d.type){var s=d.arg,c=s.value;return c&&"object"==Y(c)&&t.call(c,"__await")?n.resolve(c.__await).then((function(e){r("next",e,o,l)}),(function(e){r("throw",e,o,l)})):n.resolve(c).then((function(e){s.value=e,o(s)}),(function(e){return r("throw",e,o,l)}))}l(d.arg)}var i;a(this,"_invoke",{value:function(e,t){function a(){return new n((function(n,a){r(e,t,n,a)}))}return i=i?i.then(a,a):a()}})}function S(n,r,t){var a=u;return function(i,o){if(a===f)throw Error("Generator is already running");if(a===p){if("throw"===i)throw o;return{value:e,done:!0}}for(t.method=i,t.arg=o;;){var l=t.delegate;if(l){var d=L(l,t);if(d){if(d===h)continue;return d}}if("next"===t.method)t.sent=t._sent=t.arg;else if("throw"===t.method){if(a===u)throw a=p,t.arg;t.dispatchException(t.arg)}else"return"===t.method&&t.abrupt("return",t.arg);a=f;var s=g(n,r,t);if("normal"===s.type){if(a=t.done?p:m,s.arg===h)continue;return{value:s.arg,done:t.done}}"throw"===s.type&&(a=p,t.method="throw",t.arg=s.arg)}}}function L(n,r){var t=r.method,a=n.iterator[t];if(a===e)return r.delegate=null,"throw"===t&&n.iterator.return&&(r.method="return",r.arg=e,L(n,r),"throw"===r.method)||"return"!==t&&(r.method="throw",r.arg=new TypeError("The iterator does not provide a '"+t+"' method")),h;var i=g(a,n.iterator,r.arg);if("throw"===i.type)return r.method="throw",r.arg=i.arg,r.delegate=null,h;var o=i.arg;return o?o.done?(r[n.resultName]=o.value,r.next=n.nextLoc,"return"!==r.method&&(r.method="next",r.arg=e),r.delegate=null,h):o:(r.method="throw",r.arg=new TypeError("iterator result is not an object"),r.delegate=null,h)}function j(e){var n={tryLoc:e[0]};1 in e&&(n.catchLoc=e[1]),2 in e&&(n.finallyLoc=e[2],n.afterLoc=e[3]),this.tryEntries.push(n)}function _(e){var n=e.completion||{};n.type="normal",delete n.arg,e.completion=n}function C(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(j,this),this.reset(!0)}function O(n){if(n||""===n){var r=n[o];if(r)return r.call(n);if("function"==typeof n.next)return n;if(!isNaN(n.length)){var a=-1,i=function r(){for(;++a<n.length;)if(t.call(n,a))return r.value=n[a],r.done=!1,r;return r.value=e,r.done=!0,r};return i.next=i}}throw new TypeError(Y(n)+" is not iterable")}return b.prototype=y,a(k,"constructor",{value:y,configurable:!0}),a(y,"constructor",{value:b,configurable:!0}),b.displayName=s(y,d,"GeneratorFunction"),n.isGeneratorFunction=function(e){var n="function"==typeof e&&e.constructor;return!!n&&(n===b||"GeneratorFunction"===(n.displayName||n.name))},n.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,y):(e.__proto__=y,s(e,d,"GeneratorFunction")),e.prototype=Object.create(k),e},n.awrap=function(e){return{__await:e}},N(z.prototype),s(z.prototype,l,(function(){return this})),n.AsyncIterator=z,n.async=function(e,r,t,a,i){void 0===i&&(i=Promise);var o=new z(c(e,r,t,a),i);return n.isGeneratorFunction(r)?o:o.next().then((function(e){return e.done?e.value:o.next()}))},N(k),s(k,d,"Generator"),s(k,o,(function(){return this})),s(k,"toString",(function(){return"[object Generator]"})),n.keys=function(e){var n=Object(e),r=[];for(var t in n)r.push(t);return r.reverse(),function e(){for(;r.length;){var t=r.pop();if(t in n)return e.value=t,e.done=!1,e}return e.done=!0,e}},n.values=O,C.prototype={constructor:C,reset:function(n){if(this.prev=0,this.next=0,this.sent=this._sent=e,this.done=!1,this.delegate=null,this.method="next",this.arg=e,this.tryEntries.forEach(_),!n)for(var r in this)"t"===r.charAt(0)&&t.call(this,r)&&!isNaN(+r.slice(1))&&(this[r]=e)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(n){if(this.done)throw n;var r=this;function a(t,a){return l.type="throw",l.arg=n,r.next=t,a&&(r.method="next",r.arg=e),!!a}for(var i=this.tryEntries.length-1;i>=0;--i){var o=this.tryEntries[i],l=o.completion;if("root"===o.tryLoc)return a("end");if(o.tryLoc<=this.prev){var d=t.call(o,"catchLoc"),s=t.call(o,"finallyLoc");if(d&&s){if(this.prev<o.catchLoc)return a(o.catchLoc,!0);if(this.prev<o.finallyLoc)return a(o.finallyLoc)}else if(d){if(this.prev<o.catchLoc)return a(o.catchLoc,!0)}else{if(!s)throw Error("try statement without catch or finally");if(this.prev<o.finallyLoc)return a(o.finallyLoc)}}}},abrupt:function(e,n){for(var r=this.tryEntries.length-1;r>=0;--r){var a=this.tryEntries[r];if(a.tryLoc<=this.prev&&t.call(a,"finallyLoc")&&this.prev<a.finallyLoc){var i=a;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=e,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(o)},complete:function(e,n){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&n&&(this.next=n),h},finish:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===e)return this.complete(r.completion,r.afterLoc),_(r),h}},catch:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===e){var t=r.completion;if("throw"===t.type){var a=t.arg;_(r)}return a}}throw Error("illegal catch attempt")},delegateYield:function(n,r,t){return this.delegate={iterator:O(n),resultName:r,nextLoc:t},"next"===this.method&&(this.arg=e),h}},n}function V(e){return function(e){if(Array.isArray(e))return Z(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||X(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function $(e,n,r,t,a,i,o){try{var l=e[i](o),d=l.value}catch(e){return void r(e)}l.done?n(d):Promise.resolve(d).then(t,a)}function J(e,n){return function(e){if(Array.isArray(e))return e}(e)||function(e,n){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var t,a,i,o,l=[],d=!0,s=!1;try{if(i=(r=r.call(e)).next,0===n){if(Object(r)!==r)return;d=!1}else for(;!(d=(t=i.call(r)).done)&&(l.push(t.value),l.length!==n);d=!0);}catch(e){s=!0,a=e}finally{try{if(!d&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(s)throw a}}return l}}(e,n)||X(e,n)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function X(e,n){if(e){if("string"==typeof e)return Z(e,n);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?Z(e,n):void 0}}function Z(e,n){(null==n||n>e.length)&&(n=e.length);for(var r=0,t=Array(n);r<n;r++)t[r]=e[r];return t}const Q=function(e){var n=e.apiKey,r=e.theme,t=e.heading,a=void 0===t?"Discover Our Blog":t,i=e.subheading,o=void 0===i?"Explore insights, tutorials, and stories from our community":i,l=e.homeRoute,d=void 0===l?"/":l,s=J((0,w.useState)(!0),2),c=s[0],g=s[1],u=J((0,w.useState)(!1),2),m=u[0],f=u[1],p=J((0,w.useState)([]),2),h=p[0],v=p[1],b=J((0,w.useState)(null),2),y=b[0],E=b[1],k=J((0,w.useState)(""),2),N=k[0],z=k[1],S=J((0,w.useState)({currentPage:1,totalPages:1,totalBlogs:0,limit:10,hasNextPage:!1,hasPrevPage:!1}),2),L=S[0],j=S[1],_=(0,w.useRef)(),C=((0,w.useRef)(),function(){var e,r=(e=K().mark((function e(){var r,t,a,i,o,l=arguments;return K().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(r=l.length>0&&void 0!==l[0]?l[0]:1,t=l.length>1&&void 0!==l[1]&&l[1],n){e.next=6;break}return console.error("API key is required to fetch blogs"),g(!1),e.abrupt("return");case 6:return e.prev=6,1===r?g(!0):f(!0),e.next=11,fetch("".concat("https://bloggestapi.sohaibaftab.me","/api/token/blogs?page=").concat(r),{method:"GET",headers:{"x-api-key":n,"Content-Type":"application/json"}});case 11:if((a=e.sent).ok){e.next=14;break}throw new Error("HTTP error! status: ".concat(a.status));case 14:return e.next=16,a.json();case 16:i=e.sent,o=i.data||{},v(t?function(e){return[].concat(V(e),V(o.blogs||[]))}:o.blogs||[]),j(o.pagination||{currentPage:1,totalPages:1,totalBlogs:0,limit:10,hasNextPage:!1,hasPrevPage:!1}),E(null),e.next=27;break;case 23:e.prev=23,e.t0=e.catch(6),console.error("Failed to fetch blogs:",e.t0),E("Failed to load blogs. Please try again later.");case 27:return e.prev=27,g(!1),f(!1),e.finish(27);case 31:case"end":return e.stop()}}),e,null,[[6,23,27,31]])})),function(){var n=this,r=arguments;return new Promise((function(t,a){var i=e.apply(n,r);function o(e){$(i,t,a,o,l,"next",e)}function l(e){$(i,t,a,o,l,"throw",e)}o(void 0)}))});return function(){return r.apply(this,arguments)}}()),A=(0,w.useCallback)((function(e){c||m||(_.current&&_.current.disconnect(),_.current=new IntersectionObserver((function(e){e[0].isIntersecting&&L.hasNextPage&&C(L.currentPage+1,!0)}),{rootMargin:"100px"}),e&&_.current.observe(e))}),[c,m,L.hasNextPage,L.currentPage]);(0,w.useEffect)((function(){return n&&C(1,!1),function(){_.current&&_.current.disconnect()}}),[n]);var P=h.filter((function(e){return e.title.toLowerCase().includes(N.toLowerCase())||e.meta.toLowerCase().includes(N.toLowerCase())||e.category.toLowerCase().includes(N.toLowerCase())||e.tags&&e.tags.some((function(e){return e.toLowerCase().includes(N.toLowerCase())}))}));return c?x().createElement("div",{className:"irada-widget irada-blogs-page","data-theme":r},x().createElement(D,{theme:r})):y?x().createElement("div",{style:{padding:"var(--irada-spacing-xl)",textAlign:"center",color:"var(--irada-text)"}},x().createElement("p",null,y)):x().createElement("div",{className:"irada-widget irada-blogs-page","data-theme":r},x().createElement("div",{id:"blogs"},x().createElement("div",{className:"ir-recommended-blogs"},d&&x().createElement("div",{className:"ir-back-to-home-container"},x().createElement(O.Link,{to:d,className:"ir-back-to-home-link"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("line",{x1:"19",y1:"12",x2:"5",y2:"12"}),x().createElement("polyline",{points:"12,19 5,12 12,5"})),"Back to Home")),x().createElement("div",{className:"ir-blogs-header"},x().createElement("div",{className:"ir-blogs-header-content"},x().createElement("div",{className:"ir-blogs-title-section"},x().createElement("h1",{className:"ir-blogs-main-title"},a),x().createElement("p",{className:"ir-blogs-subtitle"},o),x().createElement("div",{className:"ir-blogs-stats"},x().createElement("span",{className:"ir-stat-item"},x().createElement("strong",null,L.totalBlogs)," articles"),x().createElement("span",{className:"ir-stat-divider"},"•"),x().createElement("span",{className:"ir-stat-item"},x().createElement("strong",null,L.totalPages)," pages"))),x().createElement("div",{className:"ir-blogs-controls"},x().createElement("div",{className:"ir-search-container"},x().createElement("div",{className:"ir-search-input-wrapper"},x().createElement("svg",{className:"ir-search-icon",width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("circle",{cx:"11",cy:"11",r:"8"}),x().createElement("path",{d:"m21 21-4.35-4.35"})),x().createElement("input",{type:"text",placeholder:"Search articles, tags, or categories...",value:N,onChange:function(e){return z(e.target.value)},className:"ir-search-input"}),N&&x().createElement("button",{onClick:function(){return z("")},className:"ir-clear-search"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("line",{x1:"18",y1:"6",x2:"6",y2:"18"}),x().createElement("line",{x1:"6",y1:"6",x2:"18",y2:"18"})))))))),N&&x().createElement("div",{className:"ir-search-results-info"},x().createElement("p",null,"Showing ",P.length," of ",h.length,' results for "',N,'"')),x().createElement("div",{className:"ir-recommended-blogs-list"},P.map((function(e,n){var t=n===P.length-1;return x().createElement("div",{key:e._id,ref:t?A:null},x().createElement(q,{theme:r,blog:e}))}))),m&&x().createElement("div",{className:"ir-loading-more"},x().createElement("div",{className:"ir-dot-spinner"},x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}),x().createElement("div",{className:"ir-dot-spinner__dot"}))),!L.hasNextPage&&P.length>0&&x().createElement("div",{className:"ir-end-message"},x().createElement("p",null,"You've reached the end of all blogs")),0===P.length&&!c&&x().createElement("div",{className:"ir-no-results"},x().createElement("div",{className:"ir-no-results-content"},x().createElement("svg",{width:"48",height:"48",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"1.5"},x().createElement("circle",{cx:"11",cy:"11",r:"8"}),x().createElement("path",{d:"m21 21-4.35-4.35"})),x().createElement("h3",null,"No results found"),x().createElement("p",null,"Try adjusting your search terms"))))))};function ee(e){return ee="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},ee(e)}function ne(e){return function(e){if(Array.isArray(e))return le(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||oe(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function re(){re=function(){return n};var e,n={},r=Object.prototype,t=r.hasOwnProperty,a=Object.defineProperty||function(e,n,r){e[n]=r.value},i="function"==typeof Symbol?Symbol:{},o=i.iterator||"@@iterator",l=i.asyncIterator||"@@asyncIterator",d=i.toStringTag||"@@toStringTag";function s(e,n,r){return Object.defineProperty(e,n,{value:r,enumerable:!0,configurable:!0,writable:!0}),e[n]}try{s({},"")}catch(e){s=function(e,n,r){return e[n]=r}}function c(e,n,r,t){var i=n&&n.prototype instanceof v?n:v,o=Object.create(i.prototype),l=new C(t||[]);return a(o,"_invoke",{value:S(e,r,l)}),o}function g(e,n,r){try{return{type:"normal",arg:e.call(n,r)}}catch(e){return{type:"throw",arg:e}}}n.wrap=c;var u="suspendedStart",m="suspendedYield",f="executing",p="completed",h={};function v(){}function b(){}function y(){}var w={};s(w,o,(function(){return this}));var x=Object.getPrototypeOf,E=x&&x(x(O([])));E&&E!==r&&t.call(E,o)&&(w=E);var k=y.prototype=v.prototype=Object.create(w);function N(e){["next","throw","return"].forEach((function(n){s(e,n,(function(e){return this._invoke(n,e)}))}))}function z(e,n){function r(a,i,o,l){var d=g(e[a],e,i);if("throw"!==d.type){var s=d.arg,c=s.value;return c&&"object"==ee(c)&&t.call(c,"__await")?n.resolve(c.__await).then((function(e){r("next",e,o,l)}),(function(e){r("throw",e,o,l)})):n.resolve(c).then((function(e){s.value=e,o(s)}),(function(e){return r("throw",e,o,l)}))}l(d.arg)}var i;a(this,"_invoke",{value:function(e,t){function a(){return new n((function(n,a){r(e,t,n,a)}))}return i=i?i.then(a,a):a()}})}function S(n,r,t){var a=u;return function(i,o){if(a===f)throw Error("Generator is already running");if(a===p){if("throw"===i)throw o;return{value:e,done:!0}}for(t.method=i,t.arg=o;;){var l=t.delegate;if(l){var d=L(l,t);if(d){if(d===h)continue;return d}}if("next"===t.method)t.sent=t._sent=t.arg;else if("throw"===t.method){if(a===u)throw a=p,t.arg;t.dispatchException(t.arg)}else"return"===t.method&&t.abrupt("return",t.arg);a=f;var s=g(n,r,t);if("normal"===s.type){if(a=t.done?p:m,s.arg===h)continue;return{value:s.arg,done:t.done}}"throw"===s.type&&(a=p,t.method="throw",t.arg=s.arg)}}}function L(n,r){var t=r.method,a=n.iterator[t];if(a===e)return r.delegate=null,"throw"===t&&n.iterator.return&&(r.method="return",r.arg=e,L(n,r),"throw"===r.method)||"return"!==t&&(r.method="throw",r.arg=new TypeError("The iterator does not provide a '"+t+"' method")),h;var i=g(a,n.iterator,r.arg);if("throw"===i.type)return r.method="throw",r.arg=i.arg,r.delegate=null,h;var o=i.arg;return o?o.done?(r[n.resultName]=o.value,r.next=n.nextLoc,"return"!==r.method&&(r.method="next",r.arg=e),r.delegate=null,h):o:(r.method="throw",r.arg=new TypeError("iterator result is not an object"),r.delegate=null,h)}function j(e){var n={tryLoc:e[0]};1 in e&&(n.catchLoc=e[1]),2 in e&&(n.finallyLoc=e[2],n.afterLoc=e[3]),this.tryEntries.push(n)}function _(e){var n=e.completion||{};n.type="normal",delete n.arg,e.completion=n}function C(e){this.tryEntries=[{tryLoc:"root"}],e.forEach(j,this),this.reset(!0)}function O(n){if(n||""===n){var r=n[o];if(r)return r.call(n);if("function"==typeof n.next)return n;if(!isNaN(n.length)){var a=-1,i=function r(){for(;++a<n.length;)if(t.call(n,a))return r.value=n[a],r.done=!1,r;return r.value=e,r.done=!0,r};return i.next=i}}throw new TypeError(ee(n)+" is not iterable")}return b.prototype=y,a(k,"constructor",{value:y,configurable:!0}),a(y,"constructor",{value:b,configurable:!0}),b.displayName=s(y,d,"GeneratorFunction"),n.isGeneratorFunction=function(e){var n="function"==typeof e&&e.constructor;return!!n&&(n===b||"GeneratorFunction"===(n.displayName||n.name))},n.mark=function(e){return Object.setPrototypeOf?Object.setPrototypeOf(e,y):(e.__proto__=y,s(e,d,"GeneratorFunction")),e.prototype=Object.create(k),e},n.awrap=function(e){return{__await:e}},N(z.prototype),s(z.prototype,l,(function(){return this})),n.AsyncIterator=z,n.async=function(e,r,t,a,i){void 0===i&&(i=Promise);var o=new z(c(e,r,t,a),i);return n.isGeneratorFunction(r)?o:o.next().then((function(e){return e.done?e.value:o.next()}))},N(k),s(k,d,"Generator"),s(k,o,(function(){return this})),s(k,"toString",(function(){return"[object Generator]"})),n.keys=function(e){var n=Object(e),r=[];for(var t in n)r.push(t);return r.reverse(),function e(){for(;r.length;){var t=r.pop();if(t in n)return e.value=t,e.done=!1,e}return e.done=!0,e}},n.values=O,C.prototype={constructor:C,reset:function(n){if(this.prev=0,this.next=0,this.sent=this._sent=e,this.done=!1,this.delegate=null,this.method="next",this.arg=e,this.tryEntries.forEach(_),!n)for(var r in this)"t"===r.charAt(0)&&t.call(this,r)&&!isNaN(+r.slice(1))&&(this[r]=e)},stop:function(){this.done=!0;var e=this.tryEntries[0].completion;if("throw"===e.type)throw e.arg;return this.rval},dispatchException:function(n){if(this.done)throw n;var r=this;function a(t,a){return l.type="throw",l.arg=n,r.next=t,a&&(r.method="next",r.arg=e),!!a}for(var i=this.tryEntries.length-1;i>=0;--i){var o=this.tryEntries[i],l=o.completion;if("root"===o.tryLoc)return a("end");if(o.tryLoc<=this.prev){var d=t.call(o,"catchLoc"),s=t.call(o,"finallyLoc");if(d&&s){if(this.prev<o.catchLoc)return a(o.catchLoc,!0);if(this.prev<o.finallyLoc)return a(o.finallyLoc)}else if(d){if(this.prev<o.catchLoc)return a(o.catchLoc,!0)}else{if(!s)throw Error("try statement without catch or finally");if(this.prev<o.finallyLoc)return a(o.finallyLoc)}}}},abrupt:function(e,n){for(var r=this.tryEntries.length-1;r>=0;--r){var a=this.tryEntries[r];if(a.tryLoc<=this.prev&&t.call(a,"finallyLoc")&&this.prev<a.finallyLoc){var i=a;break}}i&&("break"===e||"continue"===e)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=e,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,h):this.complete(o)},complete:function(e,n){if("throw"===e.type)throw e.arg;return"break"===e.type||"continue"===e.type?this.next=e.arg:"return"===e.type?(this.rval=this.arg=e.arg,this.method="return",this.next="end"):"normal"===e.type&&n&&(this.next=n),h},finish:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===e)return this.complete(r.completion,r.afterLoc),_(r),h}},catch:function(e){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===e){var t=r.completion;if("throw"===t.type){var a=t.arg;_(r)}return a}}throw Error("illegal catch attempt")},delegateYield:function(n,r,t){return this.delegate={iterator:O(n),resultName:r,nextLoc:t},"next"===this.method&&(this.arg=e),h}},n}function te(e,n,r,t,a,i,o){try{var l=e[i](o),d=l.value}catch(e){return void r(e)}l.done?n(d):Promise.resolve(d).then(t,a)}function ae(e){return function(){var n=this,r=arguments;return new Promise((function(t,a){var i=e.apply(n,r);function o(e){te(i,t,a,o,l,"next",e)}function l(e){te(i,t,a,o,l,"throw",e)}o(void 0)}))}}function ie(e,n){return function(e){if(Array.isArray(e))return e}(e)||function(e,n){var r=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null!=r){var t,a,i,o,l=[],d=!0,s=!1;try{if(i=(r=r.call(e)).next,0===n){if(Object(r)!==r)return;d=!1}else for(;!(d=(t=i.call(r)).done)&&(l.push(t.value),l.length!==n);d=!0);}catch(e){s=!0,a=e}finally{try{if(!d&&null!=r.return&&(o=r.return(),Object(o)!==o))return}finally{if(s)throw a}}return l}}(e,n)||oe(e,n)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function oe(e,n){if(e){if("string"==typeof e)return le(e,n);var r={}.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?le(e,n):void 0}}function le(e,n){(null==n||n>e.length)&&(n=e.length);for(var r=0,t=Array(n);r<n;r++)t[r]=e[r];return t}var de=function(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):""},se=function(e){return e?e>=1e6?"".concat((e/1e6).toFixed(1),"M"):e>=1e3?"".concat((e/1e3).toFixed(1),"K"):e.toString():"0"},ce=function(e){if(!e)return[];var n=document.createElement("div");n.innerHTML=e;var r=n.querySelectorAll("h1, h2, h3, h4, h5, h6"),t=[];return r.forEach((function(e,n){var r=e.textContent.trim(),a=e.tagName.toLowerCase(),i=r.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""),o=e.id||"heading-".concat(i,"-").concat(n);t.push({id:o,text:r,level:parseInt(e.tagName.charAt(1)),tagName:a})})),t},ge=function(e,n){if(!e||!n.length)return e;var r=document.createElement("div");return r.innerHTML=e,r.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach((function(e,r){var t=n.find((function(n){return n.text===e.textContent.trim()&&n.tagName===e.tagName.toLowerCase()}));t&&!e.id&&(e.id=t.id)})),r.innerHTML};const ue=function(e){var n,r,t,a,i=e.theme,o=e.apiKey,l=e.homeRoute,d=void 0===l?"/":l,s="https://bloggestapi.sohaibaftab.me",c=(0,O.useParams)().slug,g=(0,O.useLocation)(),u=ie((0,w.useState)(null),2),m=u[0],f=u[1],p=ie((0,w.useState)(!0),2),h=p[0],v=p[1],b=ie((0,w.useState)(!0),2),y=b[0],E=b[1],k=ie((0,w.useState)(!1),2),N=k[0],z=k[1],S=ie((0,w.useState)([]),2),L=S[0],j=S[1],_=ie((0,w.useState)(!1),2),C=_[0],P=_[1],T=ie((0,w.useState)(""),2),B=T[0],M=T[1],I=ie((0,w.useState)([]),2),F=I[0],G=I[1],R=ie((0,w.useState)(!1),2),W=R[0],H=R[1],U=function(){return g.pathname.includes("/blogs/")?"/blogs":"/"},q=function(){var e=ae(re().mark((function e(){var n,r,t,a,i;return re().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(o){e.next=4;break}return console.error("API key is required to fetch blog details"),v(!1),e.abrupt("return");case 4:return e.prev=4,e.next=7,fetch("".concat(s,"/api/blogs/").concat(c),{method:"GET",headers:{Authorization:"Bearer ".concat(o),"Content-Type":"application/json"}});case 7:if((n=e.sent).ok){e.next=10;break}throw new Error("HTTP error! status: ".concat(n.status));case 10:return e.next=12,n.json();case 12:r=e.sent,t=r.data||{},console.log(t),f(t),t.content&&(a=ce(t.content),console.log("Generated TOC:",a),j(a),i=ge(t.content,a),console.log("Processed content length:",i.length),M(i)),v(!1),e.next=24;break;case 20:e.prev=20,e.t0=e.catch(4),console.error("Failed to fetch blog details:",e.t0),v(!1);case 24:case"end":return e.stop()}}),e,null,[[4,20]])})));return function(){return e.apply(this,arguments)}}(),Y=function(){var e=ae(re().mark((function e(){var n,r,t,a,i,l,d,g,u,f,p,h;return re().wrap((function(e){for(;;)switch(e.prev=e.next){case 0:if(o&&m){e.next=2;break}return e.abrupt("return");case 2:return H(!0),e.prev=3,(n=new URLSearchParams).append("limit","10"),n.append("category",m.category),e.next=9,fetch("".concat(s,"/api/blogs?").concat(n.toString()),{method:"GET",headers:{Authorization:"Bearer ".concat(o),"Content-Type":"application/json"}});case 9:if(r=e.sent,t=[],!r.ok){e.next=18;break}return e.next=14,r.json();case 14:i=e.sent,l=(null===(a=i.data)||void 0===a?void 0:a.blogs)||[],d=l.filter((function(e){return e.slug!==c})),t=ne(d);case 18:if(!(t.length<5&&m.tags&&m.tags.length>=2)){e.next=35;break}return e.prev=19,e.next=22,fetch("".concat(s,"/api/blogs?limit=20"),{method:"GET",headers:{Authorization:"Bearer ".concat(o),"Content-Type":"application/json"}});case 22:if(!(g=e.sent).ok){e.next=30;break}return e.next=26,g.json();case 26:f=e.sent,p=(null===(u=f.data)||void 0===u?void 0:u.blogs)||[],h=p.filter((function(e){return e.slug!==c&&e.category!==m.category&&!(!e.tags||!m.tags)&&e.tags.filter((function(e){return m.tags.includes(e)})).length>=2})),t=[].concat(ne(t),ne(h));case 30:e.next=35;break;case 32:e.prev=32,e.t0=e.catch(19),console.error("Failed to fetch blogs by tags:",e.t0);case 35:G(t.slice(0,5)),e.next=41;break;case 38:e.prev=38,e.t1=e.catch(3),console.error("Failed to fetch similar blogs:",e.t1);case 41:return e.prev=41,H(!1),e.finish(41);case 44:case"end":return e.stop()}}),e,null,[[3,38,41,44],[19,32]])})));return function(){return e.apply(this,arguments)}}();(0,w.useEffect)((function(){c&&o&&q()}),[c,o]),(0,w.useEffect)((function(){window.scrollTo({top:0,behavior:"smooth"})}),[c]),(0,w.useEffect)((function(){m&&Y()}),[m]);var K=function(e){var n=window.location.href,r=(null==m?void 0:m.title)||"",t=(null==m||m.meta,"");switch(e){case"twitter":t="https://twitter.com/intent/tweet?text=".concat(encodeURIComponent(r),"&url=").concat(encodeURIComponent(n));break;case"linkedin":t="https://www.linkedin.com/sharing/share-offsite/?url=".concat(encodeURIComponent(n));break;case"facebook":t="https://www.facebook.com/sharer/sharer.php?u=".concat(encodeURIComponent(n));break;case"copy":return navigator.clipboard.writeText(n),void z(!1);default:return}window.open(t,"_blank","width=600,height=400"),z(!1)};if(h)return x().createElement("div",{className:"irada-widget irada-blogs-page","data-theme":i},x().createElement(D,{theme:i}));if(!m)return x().createElement("div",{className:"irada-widget irada-blogs-page","data-theme":i},x().createElement("div",{className:"ir-blog-error"},x().createElement("div",{className:"ir-blog-error-content"},x().createElement("svg",{width:"64",height:"64",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"1.5"},x().createElement("circle",{cx:"12",cy:"12",r:"10"}),x().createElement("line",{x1:"15",y1:"9",x2:"9",y2:"15"}),x().createElement("line",{x1:"9",y1:"9",x2:"15",y2:"15"})),x().createElement("h2",null,"Blog Not Found"),x().createElement("p",null,"The blog post you're looking for doesn't exist or has been removed."),x().createElement(O.Link,{to:U(),className:"ir-back-link"},"← Back to Blogs"))));var V=function(e){if(!e)return 0;var n=e.replace(/<[^>]*>/g,"").split(/\s+/).length;return Math.ceil(n/200)}(null==m?void 0:m.content),$=de(null==m?void 0:m.publishedAt),J=(de(null==m?void 0:m.updatedAt),(null==m?void 0:m.updatedAt)&&(null==m?void 0:m.publishedAt)&&new Date(m.updatedAt)>new Date(m.publishedAt));return x().createElement("div",{className:"irada-widget irada-blogs-page","data-theme":i},x().createElement("div",{id:"blog-read"},d&&x().createElement("div",{className:"ir-back-to-home-container"},x().createElement(O.Link,{to:d,className:"ir-back-to-home-link"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("line",{x1:"19",y1:"12",x2:"5",y2:"12"}),x().createElement("polyline",{points:"12,19 5,12 12,5"})),"Back to Home")),x().createElement("div",{className:"ir-blog-banner"},y&&x().createElement(A,{width:"100%",height:"50vh",radius:"0",theme:i}),x().createElement("img",{style:{display:y?"none":"block"},onLoad:function(){E(!1)},src:null==m?void 0:m.banner,alt:(null==m?void 0:m.title)||"Blog banner"})),x().createElement("div",{className:"ir-blog-header-section"},x().createElement("div",{className:"ir-blog-header-content"},x().createElement("div",{className:"ir-blog-header-badges"},x().createElement("div",{className:"ir-blog-category-badge"},null==m?void 0:m.category),x().createElement("div",{className:"ir-blog-views-badge"},x().createElement("svg",{width:"14",height:"14",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"}),x().createElement("circle",{cx:"12",cy:"12",r:"3"})),se((null==m?void 0:m.viewsCount)||0)," views")),x().createElement("h1",{className:"ir-blog-title"},null==m?void 0:m.title),x().createElement("p",{className:"ir-blog-subtitle"},null==m?void 0:m.meta),x().createElement("div",{className:"ir-blog-meta"},x().createElement("div",{className:"ir-author-info"},(null==m||null===(n=m.author)||void 0===n?void 0:n.profileImageUrl)&&x().createElement("img",{src:null==m||null===(r=m.author)||void 0===r?void 0:r.profileImageUrl,alt:(null==m||null===(t=m.author)||void 0===t?void 0:t.username)||"Author",className:"ir-author-avatar"}),x().createElement("div",{className:"ir-author-details"},x().createElement("span",{className:"ir-author-name"},"@",(null==m||null===(a=m.author)||void 0===a?void 0:a.username)||"Anonymous"),x().createElement("div",{className:"ir-publish-info"},x().createElement("span",{className:"ir-publish-date"},$),J&&x().createElement("span",{className:"ir-update-info"}," ","· Updated ",function(e){if(!e)return"";var n=new Date(e),r=new Date,t=Math.floor((r-n)/1e3);return t<60?"Just now":t<3600?"".concat(Math.floor(t/60),"m ago"):t<86400?"".concat(Math.floor(t/3600),"h ago"):t<2592e3?"".concat(Math.floor(t/86400),"d ago"):t<31536e3?"".concat(Math.floor(t/2592e3),"mo ago"):"".concat(Math.floor(t/31536e3),"y ago")}(null==m?void 0:m.updatedAt)),x().createElement("span",{className:"ir-reading-time"}," ","· ",V," min read")))),x().createElement("div",{className:"ir-share-container"},x().createElement("button",{className:"ir-share-button",onClick:function(){return z(!N)}},x().createElement("svg",{width:"20",height:"20",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("circle",{cx:"18",cy:"5",r:"3"}),x().createElement("circle",{cx:"6",cy:"12",r:"3"}),x().createElement("circle",{cx:"18",cy:"19",r:"3"}),x().createElement("line",{x1:"8.59",y1:"13.51",x2:"15.42",y2:"17.49"}),x().createElement("line",{x1:"15.41",y1:"6.51",x2:"8.59",y2:"10.49"})),"Share"),N&&x().createElement("div",{className:"ir-share-menu"},x().createElement("button",{onClick:function(){return K("twitter")},className:"ir-share-option"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"currentColor"},x().createElement("path",{d:"M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"})),"Twitter"),x().createElement("button",{onClick:function(){return K("linkedin")},className:"ir-share-option"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"currentColor"},x().createElement("path",{d:"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"})),"LinkedIn"),x().createElement("button",{onClick:function(){return K("facebook")},className:"ir-share-option"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"currentColor"},x().createElement("path",{d:"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"})),"Facebook"),x().createElement("button",{onClick:function(){return K("copy")},className:"ir-share-option"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("rect",{x:"9",y:"9",width:"13",height:"13",rx:"2",ry:"2"}),x().createElement("path",{d:"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"})),"Copy Link")))))),x().createElement("div",{className:"ir-blog-content-wrapper"},x().createElement("div",{className:"ir-blog-content-container"},(null==m?void 0:m.tags)&&m.tags.length>0&&x().createElement("div",{className:"ir-blog-tags-section"},m.tags.map((function(e,n){return x().createElement("span",{key:n,className:"ir-blog-tag"},e)}))),L.length>0&&x().createElement("div",{className:"ir-blog-toc-section"},x().createElement("div",{className:"ir-toc-header"},x().createElement("h3",{className:"ir-toc-title"},"Table of Contents"),x().createElement("button",{className:"ir-toc-toggle",onClick:function(){return P(!C)}},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2",style:{transform:C?"rotate(180deg)":"rotate(0deg)",transition:"transform 0.2s ease"}},x().createElement("polyline",{points:"6,9 12,15 18,9"})))),C&&x().createElement("nav",{className:"ir-toc-nav"},x().createElement("ul",{className:"ir-toc-list"},L.map((function(e,n){return x().createElement("li",{key:n,className:"ir-toc-item ir-toc-level-".concat(e.level)},x().createElement("a",{href:"#".concat(e.id),className:"ir-toc-link",onClick:function(n){n.preventDefault();var r=document.getElementById(e.id);if(console.log("TOC click:",e.id,"Element found:",!!r),r)r.scrollIntoView({behavior:"smooth",block:"start"});else{console.log("Element not found for ID:",e.id);var t=document.querySelectorAll("h1, h2, h3, h4, h5, h6"),a=Array.from(t).find((function(n){return n.textContent.trim()===e.text}));a&&(console.log("Found by text content, scrolling to:",a),a.scrollIntoView({behavior:"smooth",block:"start"}))}}},e.text))}))))),x().createElement("div",{className:"ir-blog-content",dangerouslySetInnerHTML:{__html:B||(null==m?void 0:m.content)}}))),x().createElement("div",{className:"ir-similar-blogs-section"},x().createElement("div",{className:"ir-similar-blogs-container"},x().createElement("h2",{className:"ir-similar-blogs-title"},"Similar Articles"),W?x().createElement("div",{className:"ir-similar-blogs-loading"},x().createElement("div",{className:"ir-loading-skeleton"},x().createElement("div",{className:"ir-skeleton-card"}),x().createElement("div",{className:"ir-skeleton-card"}),x().createElement("div",{className:"ir-skeleton-card"}),x().createElement("div",{className:"ir-skeleton-card"}),x().createElement("div",{className:"ir-skeleton-card"}))):F.length>0?x().createElement("div",{className:"ir-similar-blogs-grid"},F.map((function(e,n){var r;return x().createElement(O.Link,{key:e._id||n,to:"".concat(U(),"/blog/").concat(e.slug),className:"ir-similar-blog-card"},x().createElement("div",{className:"ir-similar-blog-content"},x().createElement("div",{className:"ir-similar-blog-header"},x().createElement("div",{className:"ir-similar-blog-category"},e.category),x().createElement("div",{className:"ir-similar-blog-views"},x().createElement("svg",{width:"12",height:"12",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("path",{d:"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"}),x().createElement("circle",{cx:"12",cy:"12",r:"3"})),se(e.viewsCount||0))),x().createElement("h3",{className:"ir-similar-blog-title"},e.title),x().createElement("p",{className:"ir-similar-blog-meta"},e.meta),x().createElement("div",{className:"ir-similar-blog-meta-info"},x().createElement("span",{className:"ir-similar-blog-author"},"@",(null===(r=e.author)||void 0===r?void 0:r.username)||"Anonymous"),x().createElement("span",{className:"ir-similar-blog-date"},de(e.publishedAt)))))}))):x().createElement("div",{className:"ir-no-similar-blogs"},x().createElement("p",null,"No similar articles found.")),x().createElement("div",{className:"ir-similar-blogs-footer"},x().createElement(O.Link,{to:U(),className:"ir-back-to-blogs"},x().createElement("svg",{width:"16",height:"16",viewBox:"0 0 24 24",fill:"none",stroke:"currentColor",strokeWidth:"2"},x().createElement("line",{x1:"19",y1:"12",x2:"5",y2:"12"}),x().createElement("polyline",{points:"12,19 5,12 12,5"})),"Back to Blogs"))))))};function me(e){var n=e.apiKey,r=e.theme,t=void 0===r?"light":r,a=e.heading,i=void 0===a?"Discover Our Blog":a,o=e.subheading,l=void 0===o?"Explore insights, tutorials, and stories from our community":o,d=e.homeRoute,s=void 0===d?"/":d;if(!n)return x().createElement("div",null,"API key is required");var c="https://bloggestapi.sohaibaftab.me";return x().createElement(O.Routes,null,x().createElement(O.Route,{index:!0,path:"/",element:x().createElement(Q,{heading:i,subheading:l,apiKey:n,theme:t,apiEndpoint:c,homeRoute:s})}),x().createElement(O.Route,{path:"blog/:slug",element:x().createElement(ue,{theme:t,apiKey:n,apiEndpoint:c,homeRoute:s})}))}return i})()));
+!(function (e, n) {
+  "object" == typeof exports && "object" == typeof module
+    ? (module.exports = n(require("react"), require("react-router-dom")))
+    : "function" == typeof define && define.amd
+    ? define(["react", "react-router-dom"], n)
+    : "object" == typeof exports
+    ? (exports.IradaWidgets = n(require("react"), require("react-router-dom")))
+    : (e.IradaWidgets = n(e.react, e["react-router-dom"]));
+})(self, (e, n) =>
+  (() => {
+    "use strict";
+    var r = {
+        626: (e, n, r) => {
+          r.d(n, { A: () => l });
+          var t = r(601),
+            a = r.n(t),
+            i = r(314),
+            o = r.n(i)()(a());
+          o.push([
+            e.id,
+            "@import url(https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap);",
+          ]),
+            o.push([
+              e.id,
+              "/* Scoped CSS variables and styles for irada-widgets */\n\n/* Only reset within irada-widget containers */\n.irada-widget * {\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n/* Full-width container styles */\n.irada-widget {\n    width: 100%;\n    max-width: 100%;\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}\n\n/* Reset default margins and padding for full-width components */\n.irada-widget #blogs,\n.irada-widget #blog-read {\n    width: 100%;\n    max-width: 100%;\n    margin: 0;\n    padding: 0;\n    min-height: 100vh;\n    box-sizing: border-box;\n}\n\n/* Base CSS variables - these can be overridden by users */\n.irada-widget {\n    /* Colors - Minimal shadcn-like palette */\n    --irada-primary: #000000;\n    --irada-secondary: #6b7280;\n    --irada-background: #ffffff;\n    --irada-background-secondary: #f9fafb;\n    --irada-text: #000000;\n    --irada-text-secondary: #6b7280;\n    --irada-border: #e5e7eb;\n    --irada-border-hover: #d1d5db;\n    --irada-accent: #000000;\n    --irada-accent-foreground: #ffffff;\n\n    /* Additional color variables for components */\n    --irada-bg-primary: #ffffff;\n    --irada-text-primary: #000000;\n    --irada-border-color: #e5e7eb;\n    --irada-border-hover: #d1d5db;\n    --irada-primary-alpha: rgba(0, 0, 0, 0.1);\n    --irada-error: #ef4444;\n    --irada-error-alpha: rgba(239, 68, 68, 0.1);\n    --irada-primary-hover: #1a1a1a;\n\n    /* Additional shadow variables */\n    --irada-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n    --irada-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n\n    /* Layout variables */\n    --irada-max-width: 1200px;\n\n    /* Spacing and sizing */\n    --irada-radius: 6px;\n    --irada-radius-md: 6px;\n    --irada-radius-lg: 8px;\n    --irada-radius-xl: 12px;\n    --irada-spacing-xs: 0.5rem;\n    --irada-spacing-sm: 0.75rem;\n    --irada-spacing: 1rem;\n    --irada-spacing-lg: 1.5rem;\n    --irada-spacing-xl: 2rem;\n\n    /* Typography */\n    --irada-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n    --irada-font-family-display: 'Bricolage Grotesque', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n    --irada-font-size-sm: 0.875rem;\n    --irada-font-size: 1rem;\n    --irada-font-size-lg: 1.125rem;\n    --irada-font-size-xl: 1.25rem;\n    --irada-font-size-2xl: 1.5rem;\n    --irada-font-size-3xl: 1.875rem;\n\n    /* Shadows and effects */\n    --irada-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);\n    --irada-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n\n    /* Transitions */\n    --irada-transition: all 0.2s ease-in-out;\n\n    /* Full-width layout */\n    font-family: var(--irada-font-family);\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    border-radius: 0;\n    box-shadow: none;\n    overflow: visible;\n}\n\n/* Dark theme variables */\n.irada-widget[data-theme=\"dark\"] {\n    --irada-primary: #ffffff;\n    --irada-secondary: #9ca3af;\n    --irada-background: #0a0a0a;\n    --irada-background-secondary: #1a1a1a;\n    --irada-text: #ffffff;\n    --irada-text-secondary: #9ca3af;\n    --irada-border: #2a2a2a;\n    --irada-border-hover: #3a3a3a;\n    --irada-accent: #ffffff;\n    --irada-accent-foreground: #0a0a0a;\n\n    /* Additional color variables for components - Dark theme */\n    --irada-bg-primary: #0a0a0a;\n    --irada-text-primary: #ffffff;\n    --irada-border-color: #2a2a2a;\n    --irada-border-hover: #404040;\n    --irada-primary-alpha: rgba(255, 255, 255, 0.1);\n    --irada-error: #f87171;\n    --irada-error-alpha: rgba(248, 113, 113, 0.1);\n    --irada-primary-hover: #e5e5e5;\n}\n\n/* Button styles - Minimal outline design */\n.irada-widget .ir-irada-button {\n    background: transparent;\n    color: var(--irada-text);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    cursor: pointer;\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    transition: var(--irada-transition);\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-xs);\n    text-decoration: none;\n    line-height: 1;\n}\n\n.irada-widget .ir-irada-button:hover {\n    background: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-irada-button:focus {\n    outline: 2px solid var(--irada-primary);\n    outline-offset: 2px;\n}\n\n/* Blog card styles - Minimal design */\n.irada-widget .ir-recommended-blog {\n    position: relative;\n    height: 22rem;\n    border-radius: var(--irada-radius);\n    overflow: hidden;\n    border: 1px solid var(--irada-border);\n    cursor: pointer;\n    background-color: var(--irada-background);\n    text-decoration: none;\n    transition: var(--irada-transition);\n    display: flex;\n    flex-direction: column;\n}\n\n.irada-widget .ir-recommended-blog:hover {\n    border-color: var(--irada-border-hover);\n    box-shadow: var(--irada-shadow-lg);\n    transform: translateY(-2px);\n}\n\n.irada-widget .ir-recommended-blog img {\n    width: 100%;\n    height: 140px;\n    object-fit: cover;\n    object-position: center;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-text {\n    padding: 1rem;\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n    gap: 0.5rem;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-title {\n    font-size: 1.25rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 500;\n    color: var(--irada-text);\n    margin: 0;\n    line-height: 1.2;\n    letter-spacing: -0.02em;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-header {\n    position: absolute;\n    top: var(--irada-spacing-sm);\n    left: var(--irada-spacing-sm);\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    z-index: 10;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-category {\n    font-size: 0.65rem;\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    background-color: rgba(255, 255, 255, 0.95);\n    backdrop-filter: blur(12px);\n    -webkit-backdrop-filter: blur(12px);\n    padding: 0.25rem 0.75rem;\n    border-radius: 9999px;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n\n/* Dark mode category pill */\n.irada-widget[data-theme=\"dark\"] .ir-recommended-blog .ir-blog-category {\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    border: 1px solid rgba(255, 255, 255, 0.3);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tags {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.25rem;\n    margin-top: 0.5rem;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tag {\n    font-size: 0.7rem;\n    font-family: var(--irada-font-family);\n    color: var(--irada-text);\n    background-color: var(--irada-background-secondary);\n    padding: 0.2rem 0.6rem;\n    border-radius: 9999px;\n    font-weight: 500;\n    text-transform: lowercase;\n    letter-spacing: 0.025em;\n    border: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-tag-more {\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n}\n\n.irada-widget .ir-recommended-blog h3 {\n    font-size: 1rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0;\n    line-height: 1.4;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    height: calc(1.4em * 2);\n    letter-spacing: -0.02em;\n}\n\n.irada-widget .ir-recommended-blog p {\n    font-size: 0.875rem;\n    font-family: var(--irada-font-family);\n    font-weight: 400;\n    color: var(--irada-text-secondary);\n    margin: 0;\n    line-height: 1.5;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    height: calc(1.5em * 2);\n    flex: 1;\n    letter-spacing: 0.01em;\n}\n\n.irada-widget .ir-recommended-blog .ir-details {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 0.5rem 1rem;\n    border-top: 1px solid var(--irada-border);\n    background-color: var(--irada-background);\n    font-size: 0.8rem;\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-recommended-blog .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: 0.375rem;\n    color: var(--irada-text-secondary);\n    font-size: 0.8rem;\n    font-family: var(--irada-font-family);\n    font-weight: 500;\n}\n\n.irada-widget .ir-recommended-blog .ir-stat-item svg {\n    opacity: 0.8;\n    width: 13px;\n    height: 13px;\n}\n\n.irada-widget .ir-recommended-blog .ir-blog-date {\n    font-size: 0.8rem;\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n}\n\n/* Blog control button */\n.irada-widget .ir-blog-control {\n    background: transparent;\n    border: 1px solid var(--irada-border);\n    font-size: var(--irada-font-size-sm);\n    color: var(--irada-text-secondary);\n    font-weight: 500;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-xs);\n    border-radius: var(--irada-radius);\n    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);\n    cursor: pointer;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-control:hover {\n    background: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-blog-control img {\n    width: 1rem;\n    height: 1rem;\n    opacity: 0.7;\n}\n\n/* Blog reader styles */\n.irada-widget #blog-read {\n    background-color: var(--irada-background);\n    width: 100%;\n    max-width: 100%;\n}\n\n/* Blog Error State */\n.irada-widget .ir-blog-error {\n    min-height: 60vh;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blog-error-content {\n    text-align: center;\n    max-width: 400px;\n}\n\n.irada-widget .ir-blog-error-content svg {\n    color: var(--irada-text-secondary);\n    opacity: 0.5;\n    margin-bottom: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-error-content h2 {\n    font-size: var(--irada-font-size-2xl);\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-blog-error-content p {\n    color: var(--irada-text-secondary);\n    margin: 0 0 var(--irada-spacing-lg) 0;\n    line-height: 1.5;\n}\n\n.irada-widget .ir-back-link {\n    display: inline-flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-link:hover {\n    color: var(--irada-text-secondary);\n}\n\n/* Blog Banner Section */\n.irada-widget .ir-blog-banner {\n    width: 100%;\n    height: 50vh;\n    overflow: hidden;\n    margin-bottom: 0;\n}\n\n.irada-widget .ir-blog-banner img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: center;\n}\n\n/* Blog Header Section */\n.irada-widget .ir-blog-header-section {\n    background-color: var(--irada-background);\n    padding: var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-blog-header-content {\n    max-width: 800px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-blog-header-badges {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    margin-bottom: var(--irada-spacing);\n}\n\n.irada-widget .ir-blog-views-badge {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: 0.5rem 1rem;\n    border-radius: 9999px;\n    font-size: 0.75rem;\n    font-weight: 600;\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n}\n\n.irada-widget .ir-blog-category-badge {\n    display: inline-block;\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: 0.5rem 1rem;\n    border-radius: 9999px;\n    font-size: 0.75rem;\n    font-weight: 600;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n}\n\n.irada-widget .ir-blog-title {\n    font-size: 3rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 800;\n    line-height: 1.1;\n    margin: 0 0 var(--irada-spacing) 0;\n    letter-spacing: -0.02em;\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-blog-subtitle {\n    font-size: var(--irada-font-size-xl);\n    line-height: 1.4;\n    margin: 0 0 var(--irada-spacing-lg) 0;\n    color: var(--irada-text-secondary);\n}\n\n/* Blog Meta Section */\n.irada-widget .ir-blog-meta {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing);\n}\n\n.irada-widget .ir-author-info {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-author-avatar {\n    width: 48px;\n    height: 48px;\n    border-radius: 50%;\n    object-fit: cover;\n    border: 2px solid rgba(255, 255, 255, 0.2);\n    flex-shrink: 0;\n    display: block;\n}\n\n.irada-widget .ir-author-details {\n    display: flex;\n    flex-direction: column;\n    gap: 0.25rem;\n}\n\n.irada-widget .ir-author-name {\n    font-weight: 600;\n    font-size: var(--irada-font-size);\n    margin-left: 0.5rem;\n}\n\n.irada-widget .ir-publish-info {\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    opacity: 0.8;\n}\n\n.irada-widget .ir-publish-date,\n.irada-widget .ir-update-info,\n.irada-widget .ir-reading-time {\n    color: inherit;\n}\n\n/* Share Button */\n.irada-widget .ir-share-container {\n    position: relative;\n}\n\n.irada-widget .ir-share-button {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    color: var(--irada-text);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    border-radius: var(--irada-radius);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    cursor: pointer;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-share-button:hover {\n    background-color: var(--irada-background-secondary);\n    border-color: var(--irada-border-hover);\n}\n\n.irada-widget .ir-share-menu {\n    position: absolute;\n    top: 100%;\n    right: 0;\n    margin-top: var(--irada-spacing-xs);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    box-shadow: var(--irada-shadow-lg);\n    padding: var(--irada-spacing-xs);\n    min-width: 160px;\n    z-index: 1000;\n}\n\n.irada-widget .ir-share-option {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    width: 100%;\n    padding: var(--irada-spacing-sm);\n    background: none;\n    border: none;\n    color: var(--irada-text);\n    font-size: var(--irada-font-size-sm);\n    cursor: pointer;\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-share-option:hover {\n    background-color: var(--irada-background-secondary);\n}\n\n/* Blog Content Wrapper */\n.irada-widget .ir-blog-content-wrapper {\n    max-width: 800px;\n    margin: 0 auto;\n    padding: 0 var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blog-content-container {\n    background-color: var(--irada-background);\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n    box-shadow: var(--irada-shadow);\n}\n\n/* Table of Contents Section */\n.irada-widget .ir-blog-toc-section {\n    margin-bottom: var(--irada-spacing-lg);\n    background-color: var(--irada-background-secondary);\n    overflow: hidden;\n}\n\n.irada-widget .ir-toc-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: var(--irada-spacing) var(--irada-spacing-lg);\n    background-color: var(--irada-background);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-toc-title {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0;\n}\n\n.irada-widget .ir-toc-toggle {\n    background: none;\n    border: none;\n    color: var(--irada-text-secondary);\n    cursor: pointer;\n    padding: var(--irada-spacing-xs);\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-toc-toggle:hover {\n    background-color: var(--irada-border);\n    color: var(--irada-text);\n}\n\n.irada-widget .ir-toc-nav {\n    padding: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-toc-list {\n    list-style: none;\n    margin: 0;\n    padding: 0;\n}\n\n.irada-widget .ir-toc-item {\n    margin-bottom: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-toc-link {\n    display: block;\n    color: var(--irada-text-secondary);\n    text-decoration: none;\n    padding: var(--irada-spacing-xs) 0;\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n    font-size: var(--irada-font-size-sm);\n    line-height: 1.4;\n}\n\n.irada-widget .ir-toc-link:hover {\n    color: var(--irada-text);\n    background-color: var(--irada-background);\n    padding-left: var(--irada-spacing-sm);\n}\n\n/* Reddit-style thread lines for TOC hierarchy */\n.irada-widget .ir-toc-item {\n    position: relative;\n}\n\n.irada-widget .ir-toc-level-1 {\n    padding-left: 0;\n}\n\n.irada-widget .ir-toc-level-2 {\n    padding-left: 24px;\n}\n\n.irada-widget .ir-toc-level-3 {\n    padding-left: 48px;\n}\n\n.irada-widget .ir-toc-level-4 {\n    padding-left: 72px;\n}\n\n.irada-widget .ir-toc-level-5 {\n    padding-left: 96px;\n}\n\n.irada-widget .ir-toc-level-6 {\n    padding-left: 120px;\n}\n\n/* Vertical thread lines */\n.irada-widget .ir-toc-level-2::before,\n.irada-widget .ir-toc-level-3::before,\n.irada-widget .ir-toc-level-4::before,\n.irada-widget .ir-toc-level-5::before,\n.irada-widget .ir-toc-level-6::before {\n    content: '';\n    position: absolute;\n    left: 12px;\n    top: 0;\n    bottom: 0;\n    width: 1px;\n    background-color: var(--irada-border);\n}\n\n/* Horizontal connector lines */\n.irada-widget .ir-toc-level-2::after,\n.irada-widget .ir-toc-level-3::after,\n.irada-widget .ir-toc-level-4::after,\n.irada-widget .ir-toc-level-5::after,\n.irada-widget .ir-toc-level-6::after {\n    content: '';\n    position: absolute;\n    left: 12px;\n    top: 50%;\n    width: 12px;\n    height: 1px;\n    background-color: var(--irada-border);\n    transform: translateY(-50%);\n}\n\n/* Adjust vertical line positions for deeper levels */\n.irada-widget .ir-toc-level-3::before {\n    left: 36px;\n}\n\n.irada-widget .ir-toc-level-3::after {\n    left: 36px;\n}\n\n.irada-widget .ir-toc-level-4::before {\n    left: 60px;\n}\n\n.irada-widget .ir-toc-level-4::after {\n    left: 60px;\n}\n\n.irada-widget .ir-toc-level-5::before {\n    left: 84px;\n}\n\n.irada-widget .ir-toc-level-5::after {\n    left: 84px;\n}\n\n.irada-widget .ir-toc-level-6::before {\n    left: 108px;\n}\n\n.irada-widget .ir-toc-level-6::after {\n    left: 108px;\n}\n\n/* Blog Tags Section */\n.irada-widget .ir-blog-tags-section {\n    display: flex;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing-xs);\n    padding: var(--irada-spacing-lg) var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-blog-tags-section .ir-blog-tag {\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text);\n    padding: 0.375rem 0.75rem;\n    border-radius: 9999px;\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n    border: 1px solid var(--irada-border);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-tags-section .ir-blog-tag:hover {\n    background-color: var(--irada-border);\n}\n\n/* Blog Content */\n.irada-widget .ir-blog-content {\n    color: var(--irada-text);\n    padding: var(--irada-spacing-xl);\n    line-height: 1.8;\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size);\n}\n\n.irada-widget .ir-blog-content h1,\n.irada-widget .ir-blog-content h2,\n.irada-widget .ir-blog-content h3,\n.irada-widget .ir-blog-content h4,\n.irada-widget .ir-blog-content h5,\n.irada-widget .ir-blog-content h6 {\n    color: var(--irada-text);\n    font-weight: 600;\n    margin: var(--irada-spacing-xl) 0 var(--irada-spacing) 0;\n    line-height: 1.3;\n}\n\n.irada-widget .ir-blog-content h1 {\n    font-size: 2rem;\n    font-family: var(--irada-font-family-display);\n}\n\n.irada-widget .ir-blog-content h2 {\n    font-size: 1.75rem;\n    font-family: var(--irada-font-family-display);\n}\n\n.irada-widget .ir-blog-content h3 {\n    font-size: 1.5rem;\n}\n\n.irada-widget .ir-blog-content h4 {\n    font-size: 1.25rem;\n}\n\n.irada-widget .ir-blog-content p {\n    margin: 0 0 var(--irada-spacing) 0;\n}\n\n.irada-widget .ir-blog-content a {\n    color: var(--irada-primary);\n    text-decoration: underline;\n    text-decoration-color: var(--irada-border);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-blog-content a:hover {\n    text-decoration-color: var(--irada-primary);\n}\n\n.irada-widget .ir-blog-content ul,\n.irada-widget .ir-blog-content ol {\n    margin: var(--irada-spacing) 0;\n    padding-left: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-content li {\n    margin-bottom: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-blog-content blockquote {\n    border-left: 4px solid var(--irada-border);\n    padding-left: var(--irada-spacing);\n    margin: var(--irada-spacing-lg) 0;\n    font-style: italic;\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-blog-content code {\n    background-color: var(--irada-background-secondary);\n    padding: 0.125rem 0.25rem;\n    border-radius: var(--irada-radius);\n    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;\n    font-size: 0.875em;\n}\n\n.irada-widget .ir-blog-content pre {\n    background-color: var(--irada-background-secondary);\n    padding: var(--irada-spacing);\n    border-radius: var(--irada-radius);\n    overflow-x: auto;\n    margin: var(--irada-spacing-lg) 0;\n}\n\n.irada-widget .ir-blog-content pre code {\n    background: none;\n    padding: 0;\n}\n\n.irada-widget .ir-blog-content img {\n    max-width: 100%;\n    height: auto;\n    border-radius: var(--irada-radius);\n    margin: var(--irada-spacing-lg) 0;\n}\n\n/* Blog Footer */\n.irada-widget .ir-blog-footer {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: var(--irada-spacing-lg) var(--irada-spacing-xl);\n    border-top: 1px solid var(--irada-border);\n    background-color: var(--irada-background-secondary);\n}\n\n.irada-widget .ir-blog-footer .ir-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blog-footer .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    font-weight: 500;\n}\n\n.irada-widget .ir-back-to-blogs {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-to-blogs:hover {\n    color: var(--irada-text-secondary);\n}\n\n/* Back to Home Link */\n.irada-widget .ir-back-to-home-container {\n    position: fixed;\n    top: var(--irada-spacing-md);\n    left: var(--irada-spacing-md);\n    z-index: 1000;\n}\n\n.irada-widget .ir-back-to-home-link {\n    display: inline-flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text);\n    text-decoration: none;\n    font-weight: 500;\n    font-size: var(--irada-font-size-sm);\n    transition: var(--irada-transition);\n    padding: var(--irada-spacing-sm) var(--irada-spacing-md);\n    border-radius: var(--irada-border-radius);\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);\n}\n\n.irada-widget .ir-back-to-home-link:hover {\n    color: var(--irada-text-secondary);\n    background-color: var(--irada-background-secondary);\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);\n}\n\n.irada-widget .ir-back-to-home-link svg {\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-back-to-home-link:hover svg {\n    transform: translateX(-3px);\n}\n\n/* Similar Blogs Section */\n.irada-widget .ir-similar-blogs-section {\n    width: 100%;\n    background-color: var(--irada-background-secondary);\n    border-top: 1px solid var(--irada-border);\n    margin-top: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-similar-blogs-container {\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n    padding: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-similar-blogs-title {\n    font-size: var(--irada-font-size-xl);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin-bottom: var(--irada-spacing-lg);\n    text-align: center;\n}\n\n.irada-widget .ir-similar-blogs-grid {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-similar-blog-card {\n    display: block;\n    text-decoration: none;\n    color: inherit;\n    background-color: var(--irada-background);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-similar-blog-card:hover {\n    border-color: var(--irada-border-hover);\n    transform: translateY(-2px);\n    box-shadow: var(--irada-shadow);\n}\n\n.irada-widget .ir-similar-blog-content {\n    padding: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-similar-blog-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-similar-blog-views {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-xs);\n    font-weight: 500;\n}\n\n.irada-widget .ir-similar-blog-category {\n    display: inline-block;\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-xs);\n    padding: var(--irada-spacing-xs) var(--irada-spacing-sm);\n    border-radius: var(--irada-radius);\n    margin-bottom: var(--irada-spacing-sm);\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n}\n\n.irada-widget .ir-similar-blog-title {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin-bottom: var(--irada-spacing-sm);\n    line-height: 1.4;\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n}\n\n.irada-widget .ir-similar-blog-meta {\n    color: var(--irada-text-secondary);\n    font-size: var(--irada-font-size-sm);\n    line-height: 1.5;\n    margin-bottom: var(--irada-spacing);\n    display: -webkit-box;\n    -webkit-line-clamp: 2;\n    -webkit-box-orient: vertical;\n    overflow: hidden;\n}\n\n.irada-widget .ir-similar-blog-meta-info {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    font-size: var(--irada-font-size-xs);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-similar-blog-author {\n    font-weight: 500;\n}\n\n.irada-widget .ir-similar-blog-date {\n    opacity: 0.8;\n}\n\n/* Loading skeleton for similar blogs */\n.irada-widget .ir-similar-blogs-loading {\n    padding: var(--irada-spacing-lg) 0;\n}\n\n.irada-widget .ir-loading-skeleton {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-skeleton-card {\n    height: 120px;\n    background: linear-gradient(90deg, var(--irada-border) 25%, var(--irada-background) 50%, var(--irada-border) 75%);\n    background-size: 200% 100%;\n    animation: loading 1.5s infinite;\n    border-radius: var(--irada-radius);\n}\n\n@keyframes loading {\n    0% {\n        background-position: 200% 0;\n    }\n\n    100% {\n        background-position: -200% 0;\n    }\n}\n\n.irada-widget .ir-no-similar-blogs {\n    text-align: center;\n    padding: var(--irada-spacing-xl);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-similar-blogs-footer {\n    display: flex;\n    justify-content: center;\n    padding-top: var(--irada-spacing-xl);\n    border-top: 1px solid var(--irada-border);\n    margin-top: var(--irada-spacing-xl);\n}\n\n/* Message Form Widget Styles */\n.irada-widget.ir-irada-message-form {\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-primary);\n    background: var(--irada-bg-primary);\n    border-radius: var(--irada-radius-lg);\n    padding: var(--irada-spacing-xl);\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n}\n\n.irada-widget .ir-message-form-container {\n    width: 100%;\n}\n\n/* Header Styles */\n.irada-widget .ir-message-form-header {\n    text-align: center;\n    margin-bottom: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-message-form-title {\n    font-family: var(--irada-font-family-display);\n    font-size: var(--irada-font-size-2xl);\n    font-weight: 700;\n    color: var(--irada-text-primary);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n    line-height: 1.2;\n}\n\n.irada-widget .ir-message-form-subtitle {\n    font-size: var(--irada-font-size-base);\n    color: var(--irada-text-secondary);\n    margin: 0;\n    line-height: 1.5;\n}\n\n/* Form Styles */\n.irada-widget .ir-message-form {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-form-row {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-form-field {\n    display: flex;\n    flex-direction: column;\n    gap: var(--irada-spacing-xs);\n}\n\n.irada-widget .ir-form-label {\n    font-size: var(--irada-font-size-sm);\n    font-weight: 600;\n    color: var(--irada-text-primary);\n    margin: 0;\n}\n\n.irada-widget .ir-form-input,\n.irada-widget .ir-form-textarea {\n    padding: 0.75rem 1rem;\n    border: 1px solid var(--irada-border-color);\n    border-radius: var(--irada-radius-md);\n    font-size: var(--irada-font-size-base);\n    font-family: var(--irada-font-family);\n    background: var(--irada-bg-primary);\n    color: var(--irada-text-primary);\n    transition: all var(--irada-transition);\n    outline: none;\n    resize: vertical;\n    min-height: 44px;\n    box-sizing: border-box;\n    width: 100%;\n}\n\n.irada-widget .ir-form-input:focus,\n.irada-widget .ir-form-textarea:focus {\n    border-color: var(--irada-primary);\n    box-shadow: 0 0 0 3px var(--irada-primary-alpha);\n}\n\n.irada-widget .ir-form-input:hover,\n.irada-widget .ir-form-textarea:hover {\n    border-color: var(--irada-border-hover);\n}\n\n.irada-widget .ir-form-input.error,\n.irada-widget .ir-form-textarea.error {\n    border-color: var(--irada-error);\n    box-shadow: 0 0 0 3px var(--irada-error-alpha);\n}\n\n.irada-widget .ir-form-input:disabled,\n.irada-widget .ir-form-textarea:disabled {\n    opacity: 0.6;\n    cursor: not-allowed;\n    background: var(--irada-bg-secondary);\n}\n\n.irada-widget .ir-form-textarea {\n    min-height: 120px;\n    line-height: 1.5;\n}\n\n/* Error Message */\n.irada-widget .ir-error-message {\n    font-size: var(--irada-font-size-sm);\n    color: var(--irada-error);\n    margin: 0;\n    font-weight: 500;\n}\n\n/* Submit Button */\n.irada-widget .ir-submit-button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: var(--irada-spacing-sm);\n    padding: var(--irada-spacing-sm) var(--irada-spacing-xl);\n    background: #000000;\n    color: white;\n    border: 1px solid #000000;\n    border-radius: var(--irada-radius-md);\n    font-size: var(--irada-font-size-base);\n    font-weight: 600;\n    font-family: var(--irada-font-family);\n    cursor: pointer;\n    transition: all var(--irada-transition);\n    outline: none;\n    min-height: 44px;\n    width: 100%;\n    max-width: 200px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-submit-button:hover:not(:disabled) {\n    background: #1a1a1a;\n    border-color: #1a1a1a;\n    transform: translateY(-1px);\n    box-shadow: var(--irada-shadow-md);\n}\n\n.irada-widget .ir-submit-button:active:not(:disabled) {\n    transform: translateY(0);\n    box-shadow: var(--irada-shadow-sm);\n}\n\n.irada-widget .ir-submit-button:disabled {\n    opacity: 0.6;\n    cursor: not-allowed;\n    transform: none;\n    box-shadow: none;\n}\n\n/* Dark theme overrides for submit button */\n.irada-widget[data-theme=\"dark\"] .ir-submit-button {\n    background: #ffffff;\n    color: #000000;\n    border: 1px solid #ffffff;\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-submit-button:hover:not(:disabled) {\n    background: #e5e5e5;\n    border-color: #e5e5e5;\n}\n\n/* Loading Spinner */\n.irada-widget .ir-loading-spinner {\n    animation: spin 1s linear infinite;\n}\n\n@keyframes spin {\n    from {\n        transform: rotate(0deg);\n    }\n\n    to {\n        transform: rotate(360deg);\n    }\n}\n\n/* Message Form Responsive Design */\n@media (max-width: 768px) {\n    .irada-widget.ir-message-form-widget {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-message-form-title {\n        font-size: var(--irada-font-size-xl);\n    }\n\n    .irada-widget .ir-submit-button {\n        max-width: 100%;\n    }\n}\n\n@media (max-width: 480px) {\n    .irada-widget.ir-message-form-widget {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-message-form-header {\n        margin-bottom: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-message-form-title {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-message-form-subtitle {\n        font-size: var(--irada-font-size-sm);\n    }\n}\n\n/* Featured Blogs Carousel Styles */\n.irada-widget.ir-irada-featured-carousel {\n    width: 100%;\n    max-width: var(--irada-max-width);\n    margin: 0 auto;\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel-container {\n    position: relative;\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel {\n    position: relative;\n    overflow: hidden;\n}\n\n.irada-widget .ir-carousel-inner {\n    display: flex;\n    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n\n}\n\n.irada-widget .ir-carousel-item {\n    min-width: 100%;\n    box-sizing: border-box;\n}\n\n/* Featured Blog Slide Styles */\n.irada-widget .ir-featured-blog-slide {\n    position: relative;\n    height: 60vh;\n    min-height: 500px;\n    display: block;\n    text-decoration: none;\n    color: inherit;\n    border-radius: var(--irada-radius-lg);\n    overflow: hidden;\n}\n\n.irada-widget .ir-featured-blog-image {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 1;\n}\n\n.irada-widget .ir-featured-blog-image img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    object-position: center;\n}\n\n.irada-widget .ir-featured-blog-overlay {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: linear-gradient(0deg,\n            rgba(0, 0, 0, 0.616) 50%,\n            rgba(0, 0, 0, 0) 100%);\n    z-index: 2;\n}\n\n.irada-widget .ir-featured-blog-content {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: var(--irada-spacing-xl);\n    z-index: 3;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    height: 100%;\n    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);\n}\n\n.irada-widget .ir-featured-blog-badges {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    margin-bottom: var(--irada-spacing-lg);\n    flex-wrap: wrap;\n}\n\n.irada-widget .ir-featured-blog-content .ir-featured-category-badge {\n    color: rgb(216, 216, 216);\n    font-size: 0.9rem;\n    font-weight: 400;\n    letter-spacing: 0.3px;\n    opacity: 0.9;\n}\n\n.irada-widget .ir-featured-badge-separator {\n    color: rgba(255, 255, 255, 0.5);\n    font-size: 0.8rem;\n    margin: 0 var(--irada-spacing-xs);\n    opacity: 0.7;\n}\n\n.irada-widget .ir-featured-blog-tags {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    flex-wrap: wrap;\n}\n\n.irada-widget .ir-featured-blog-tag {\n    background-color: rgba(255, 255, 255, 0.1);\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n    border: 1px solid rgba(255, 255, 255, 0.15);\n    color: rgba(255, 255, 255, 0.8);\n    font-size: 0.65rem;\n    font-weight: 400;\n    padding: 0.2rem 0.6rem;\n    border-radius: 9999px;\n    text-transform: none;\n    letter-spacing: 0.2px;\n    opacity: 0.8;\n}\n\n.irada-widget .ir-featured-blog-info {\n    color: white;\n}\n\n.irada-widget .ir-featured-blog-title {\n    font-size: 3rem;\n    font-weight: 700;\n    line-height: 1.1;\n    margin-bottom: var(--irada-spacing-md);\n    font-family: var(--irada-font-family-display);\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-meta {\n    font-size: var(--irada-font-size-lg);\n    line-height: 1.5;\n    margin-bottom: var(--irada-spacing-lg);\n    opacity: 0.9;\n    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-details {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: wrap;\n    gap: var(--irada-spacing-md);\n}\n\n.irada-widget .ir-featured-blog-author {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n}\n\n.irada-widget .ir-featured-blog-author .ir-author-name {\n    font-weight: 600;\n    font-size: var(--irada-font-size-sm);\n    color: white;\n    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);\n}\n\n.irada-widget .ir-featured-blog-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-md);\n    font-size: var(--irada-font-size-sm);\n    color: rgba(255, 255, 255, 0.8);\n}\n\n.irada-widget .ir-featured-blog-stats .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-xs);\n    font-weight: 500;\n\n    padding: 0.25rem 0.5rem;\n\n}\n\n.irada-widget .ir-publish-date {\n    font-weight: 500;\n    opacity: 0.8;\n    color: rgba(255, 255, 255, 0.8);\n    font-size: var(--irada-font-size-sm);\n\n    padding: 0.25rem 0.5rem;\n\n}\n\n/* Carousel Controls */\n.irada-widget .ir-carousel-controls {\n    position: absolute;\n    top: var(--irada-spacing-lg);\n    right: var(--irada-spacing-lg);\n    display: flex;\n    gap: var(--irada-spacing-sm);\n    z-index: 10;\n}\n\n.irada-widget .ir-carousel-control {\n    background-color: rgba(255, 255, 255, 0.1);\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    color: white;\n    width: 44px;\n    height: 44px;\n    border-radius: 50%;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: all 0.2s ease;\n    opacity: 0;\n    transform: scale(0.9);\n}\n\n.irada-widget .ir-carousel:hover .ir-carousel-control {\n    opacity: 1;\n    transform: scale(1);\n}\n\n.irada-widget .ir-carousel-control:hover {\n    background-color: rgba(255, 255, 255, 0.2);\n    border-color: rgba(255, 255, 255, 0.3);\n    transform: scale(1.05);\n}\n\n.irada-widget .ir-carousel-control:active {\n    transform: scale(0.95);\n}\n\n/* Carousel Pagination */\n.irada-widget .ir-carousel-pagination {\n    display: flex;\n    justify-content: center;\n    gap: var(--irada-spacing-sm);\n    padding: var(--irada-spacing-lg);\n    background-color: var(--irada-background);\n    border-top: 1px solid var(--irada-border);\n}\n\n.irada-widget .ir-carousel-dot {\n    width: 8px;\n    height: 8px;\n    background-color: rgba(0, 0, 0, 0.445);\n    border: none;\n    border-radius: 50%;\n    cursor: pointer;\n    transition: all 0.3s ease;\n    padding: 0;\n}\n\n.irada-widget .ir-carousel-dot.active {\n    background-color: var(--irada-primary);\n    width: 32px;\n    border-radius: 4px;\n}\n\n.irada-widget .ir-carousel-dot:hover {\n    background-color: var(--irada-primary);\n    opacity: 0.7;\n}\n\n/* Dark theme overrides for carousel dots */\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot {\n    background-color: rgba(255, 255, 255, 0.459);\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot.active {\n    background-color: var(--irada-primary);\n}\n\n.irada-widget[data-theme=\"dark\"] .ir-carousel-dot:hover {\n    background-color: var(--irada-primary);\n    opacity: 0.7;\n}\n\n/* Responsive Design for Featured Carousel */\n@media (max-width: 1024px) {\n    .irada-widget .ir-featured-blog-slide {\n        height: 60vh;\n        min-height: 450px;\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size);\n    }\n}\n\n@media (max-width: 768px) {\n    .irada-widget.ir-irada-featured-carousel {\n        padding: 0;\n    }\n\n    .irada-widget .ir-featured-blog-slide {\n        height: 60vh;\n        min-height: 500px;\n    }\n\n    .irada-widget .ir-featured-blog-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-xl);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size-sm);\n    }\n\n    .irada-widget .ir-featured-blog-details {\n        flex-direction: column;\n        align-items: flex-start;\n        gap: var(--irada-spacing-sm);\n    }\n\n    .irada-widget .ir-carousel-controls {\n        top: var(--irada-spacing);\n        right: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-carousel-control {\n        width: 40px;\n        height: 40px;\n        opacity: 1;\n        transform: scale(1);\n    }\n\n    .irada-widget .ir-carousel-pagination {\n        padding: var(--irada-spacing);\n    }\n}\n\n@media (max-width: 480px) {\n    .irada-widget.ir-irada-featured-carousel {\n        padding: 0;\n    }\n\n\n    .irada-widget .ir-featured-blog-slide {\n        height: 50vh;\n        min-height: 600px;\n    }\n\n    .irada-widget .ir-featured-blog-content {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-featured-blog-title {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-featured-blog-meta {\n        font-size: var(--irada-font-size-xs);\n    }\n\n    .irada-widget .ir-featured-blog-badges {\n        margin-bottom: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-carousel-controls {\n        top: var(--irada-spacing-xs);\n        right: var(--irada-spacing-xs);\n    }\n\n    .irada-widget .ir-carousel-control {\n        width: 36px;\n        height: 36px;\n    }\n\n    .irada-widget .ir-carousel-pagination {\n        padding: var(--irada-spacing-sm);\n    }\n}\n\n/* Responsive Design for Blog Reader */\n@media screen and (max-width: 768px) {\n    .irada-widget .ir-blog-title {\n        font-size: 2rem;\n    }\n\n    .irada-widget .ir-blog-subtitle {\n        font-size: var(--irada-font-size-lg);\n    }\n\n    .irada-widget .ir-hero-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-meta {\n        flex-direction: column;\n        align-items: flex-start;\n        gap: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-content-wrapper {\n        padding: 0 var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blog-footer {\n        flex-direction: column;\n        gap: var(--irada-spacing);\n        align-items: flex-start;\n    }\n}\n\n@media screen and (max-width: 640px) {\n    .irada-widget .ir-banner-container {\n        height: 40vh;\n    }\n\n    .irada-widget .ir-blog-title {\n        font-size: 1.75rem;\n    }\n\n    .irada-widget .ir-hero-content {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing);\n    }\n}\n\n/* Blogs page styles */\n.irada-widget .ir-recommended-blogs {\n    padding: var(--irada-spacing-xl);\n    background-color: var(--irada-background);\n}\n\n/* Enhanced Blogs Header */\n.irada-widget .ir-blogs-header {\n    margin-bottom: var(--irada-spacing-xl);\n    border-bottom: 1px solid var(--irada-border);\n    padding-bottom: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-blogs-header-content {\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    gap: var(--irada-spacing-xl);\n}\n\n.irada-widget .ir-blogs-title-section {\n    flex: 1;\n}\n\n.irada-widget .ir-blogs-main-title {\n    font-size: 2.25rem;\n    font-family: var(--irada-font-family-display);\n    font-weight: 800;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n    line-height: 1.1;\n    letter-spacing: -0.03em;\n}\n\n.irada-widget .ir-blogs-subtitle {\n    font-size: var(--irada-font-size-lg);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    margin: 0 0 var(--irada-spacing) 0;\n    line-height: 1.5;\n}\n\n.irada-widget .ir-blogs-stats {\n    display: flex;\n    align-items: center;\n    gap: var(--irada-spacing-sm);\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n}\n\n.irada-widget .ir-blogs-stats .ir-stat-item {\n    display: flex;\n    align-items: center;\n    gap: 0.25rem;\n}\n\n.irada-widget .ir-blogs-stats .ir-stat-item strong {\n    color: var(--irada-text);\n    font-weight: 600;\n}\n\n.irada-widget .ir-stat-divider {\n    opacity: 0.5;\n}\n\n/* Blogs Controls */\n.irada-widget .ir-blogs-controls {\n    display: flex;\n    align-items: center;\n    min-width: 400px;\n}\n\n.irada-widget .ir-search-container {\n    flex: 1;\n    position: relative;\n}\n\n.irada-widget .ir-search-input-wrapper {\n    position: relative;\n    display: flex;\n    align-items: center;\n}\n\n.irada-widget .ir-search-icon {\n    position: absolute;\n    left: var(--irada-spacing-sm);\n    color: var(--irada-text-secondary);\n    opacity: 0.7;\n    z-index: 2;\n}\n\n.irada-widget .ir-search-input {\n    width: 100%;\n    padding: var(--irada-spacing-sm) var(--irada-spacing-sm) var(--irada-spacing-sm) 2.5rem;\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n    background-color: var(--irada-background);\n    color: var(--irada-text);\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-search-input:focus {\n    outline: none;\n    border-color: var(--irada-border-hover);\n    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);\n}\n\n.irada-widget .ir-search-input::placeholder {\n    color: var(--irada-text-secondary);\n    opacity: 0.7;\n}\n\n.irada-widget .ir-clear-search {\n    position: absolute;\n    right: var(--irada-spacing-sm);\n    background: none;\n    border: none;\n    color: var(--irada-text-secondary);\n    cursor: pointer;\n    padding: 0.25rem;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    transition: var(--irada-transition);\n}\n\n.irada-widget .ir-clear-search:hover {\n    background-color: var(--irada-background-secondary);\n    color: var(--irada-text);\n}\n\n\n\n.irada-widget .ir-filters-content h3 {\n    font-size: var(--irada-font-size-lg);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-filters-content p {\n    color: var(--irada-text-secondary);\n    margin: 0;\n}\n\n/* Search Results Info */\n.irada-widget .ir-search-results-info {\n    margin-bottom: var(--irada-spacing-lg);\n    padding: var(--irada-spacing-sm) var(--irada-spacing);\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    border-radius: var(--irada-radius);\n}\n\n.irada-widget .ir-search-results-info p {\n    margin: 0;\n    font-size: var(--irada-font-size-sm);\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n}\n\n/* No Results */\n.irada-widget .ir-no-results {\n    padding: var(--irada-spacing-xl) 0;\n    text-align: center;\n}\n\n.irada-widget .ir-no-results-content {\n    max-width: 400px;\n    margin: 0 auto;\n}\n\n.irada-widget .ir-no-results-content svg {\n    color: var(--irada-text-secondary);\n    opacity: 0.5;\n    margin-bottom: var(--irada-spacing);\n}\n\n.irada-widget .ir-no-results-content h3 {\n    font-size: var(--irada-font-size-xl);\n    font-family: var(--irada-font-family);\n    font-weight: 600;\n    color: var(--irada-text);\n    margin: 0 0 var(--irada-spacing-sm) 0;\n}\n\n.irada-widget .ir-no-results-content p {\n    font-family: var(--irada-font-family);\n    color: var(--irada-text-secondary);\n    margin: 0;\n}\n\n.irada-widget .ir-recommended-blogs-list {\n    display: grid;\n    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));\n    gap: var(--irada-spacing-lg);\n    margin-top: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-loading-more {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    padding: var(--irada-spacing-xl);\n    margin-top: var(--irada-spacing-lg);\n}\n\n.irada-widget .ir-loading-more .ir-dot-spinner {\n    --uib-size: 2rem;\n    --uib-speed: 0.9s;\n}\n\n.irada-widget .ir-end-message {\n    text-align: center;\n    padding: var(--irada-spacing-xl);\n    margin-top: var(--irada-spacing-lg);\n    color: var(--irada-text-secondary);\n    font-family: var(--irada-font-family);\n    font-size: var(--irada-font-size-sm);\n    border-top: 1px solid var(--irada-border);\n}\n\n/* Loader styles */\n.irada-widget .ir-loader-div {\n    width: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: 100vh;\n    min-height: 100vh;\n    background-color: var(--irada-background);\n    position: relative;\n    z-index: 1000;\n}\n\n/* Ensure the widget container takes full height during loading */\n.irada-widget.irada-blogs-page {\n    min-height: 100vh;\n    width: 100%;\n}\n\n.irada-widget .ir-dot-spinner {\n    --uib-size: 3.5rem;\n    --uib-speed: 0.9s;\n    position: relative;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    height: var(--uib-size);\n    width: var(--uib-size);\n}\n\n.irada-widget .ir-dot-spinner__dot {\n    position: absolute;\n    top: 0;\n    left: 0;\n    display: flex;\n    align-items: center;\n    justify-content: flex-start;\n    height: 100%;\n    width: 100%;\n}\n\n.irada-widget .ir-dot-spinner__dot::before {\n    content: '';\n    height: 25%;\n    width: 25%;\n    border-radius: 50%;\n    background-color: var(--irada-text);\n    transform: scale(0);\n    opacity: 0.7;\n    animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(2) {\n    transform: rotate(45deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(2)::before {\n    animation-delay: calc(var(--uib-speed) * -0.875);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(3) {\n    transform: rotate(90deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(3)::before {\n    animation-delay: calc(var(--uib-speed) * -0.75);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(4) {\n    transform: rotate(135deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(4)::before {\n    animation-delay: calc(var(--uib-speed) * -0.625);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(5) {\n    transform: rotate(180deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(5)::before {\n    animation-delay: calc(var(--uib-speed) * -0.5);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(6) {\n    transform: rotate(225deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(6)::before {\n    animation-delay: calc(var(--uib-speed) * -0.375);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(7) {\n    transform: rotate(270deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(7)::before {\n    animation-delay: calc(var(--uib-speed) * -0.25);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(8) {\n    transform: rotate(315deg);\n}\n\n.irada-widget .ir-dot-spinner__dot:nth-child(8)::before {\n    animation-delay: calc(var(--uib-speed) * -0.125);\n}\n\n@keyframes pulse0112 {\n\n    0%,\n    100% {\n        transform: scale(0);\n        opacity: 0.5;\n    }\n\n    50% {\n        transform: scale(1);\n        opacity: 1;\n    }\n}\n\n/* Ghost loader */\n.irada-widget .ir-ghost-loader {\n    background-color: var(--irada-background-secondary);\n    border: 1px solid var(--irada-border);\n    animation: ghost-pulse 1.5s ease-in-out infinite;\n}\n\n@keyframes ghost-pulse {\n\n    0%,\n    100% {\n        opacity: 0.6;\n    }\n\n    50% {\n        opacity: 1;\n    }\n}\n\n/* Responsive design */\n@media screen and (max-width: 768px) {\n    .irada-widget .ir-blogs-header-content {\n        flex-direction: column;\n        gap: var(--irada-spacing-lg);\n    }\n\n    .irada-widget .ir-blogs-controls {\n        min-width: auto;\n        width: 100%;\n    }\n\n    .irada-widget .ir-blogs-main-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-recommended-blogs-list {\n        grid-template-columns: 1fr;\n        gap: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blogread-info {\n        padding: var(--irada-spacing) var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content {\n        padding: var(--irada-spacing) var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blogread-title {\n        font-size: var(--irada-font-size-2xl);\n    }\n\n    .irada-widget .ir-banner-container img {\n        height: 30vh;\n    }\n}\n\n@media (max-width: 640px) {\n    .irada-widget .ir-recommended-blogs {\n        padding: var(--irada-spacing);\n    }\n\n    .irada-widget .ir-blog-content img {\n        width: 100%;\n        height: auto;\n    }\n}",
+              "",
+            ]);
+          const l = o;
+        },
+        314: (e) => {
+          e.exports = function (e) {
+            var n = [];
+            return (
+              (n.toString = function () {
+                return this.map(function (n) {
+                  var r = "",
+                    t = void 0 !== n[5];
+                  return (
+                    n[4] && (r += "@supports (".concat(n[4], ") {")),
+                    n[2] && (r += "@media ".concat(n[2], " {")),
+                    t &&
+                      (r += "@layer".concat(
+                        n[5].length > 0 ? " ".concat(n[5]) : "",
+                        " {"
+                      )),
+                    (r += e(n)),
+                    t && (r += "}"),
+                    n[2] && (r += "}"),
+                    n[4] && (r += "}"),
+                    r
+                  );
+                }).join("");
+              }),
+              (n.i = function (e, r, t, a, i) {
+                "string" == typeof e && (e = [[null, e, void 0]]);
+                var o = {};
+                if (t)
+                  for (var l = 0; l < this.length; l++) {
+                    var d = this[l][0];
+                    null != d && (o[d] = !0);
+                  }
+                for (var s = 0; s < e.length; s++) {
+                  var c = [].concat(e[s]);
+                  (t && o[c[0]]) ||
+                    (void 0 !== i &&
+                      (void 0 === c[5] ||
+                        (c[1] = "@layer"
+                          .concat(c[5].length > 0 ? " ".concat(c[5]) : "", " {")
+                          .concat(c[1], "}")),
+                      (c[5] = i)),
+                    r &&
+                      (c[2]
+                        ? ((c[1] = "@media "
+                            .concat(c[2], " {")
+                            .concat(c[1], "}")),
+                          (c[2] = r))
+                        : (c[2] = r)),
+                    a &&
+                      (c[4]
+                        ? ((c[1] = "@supports ("
+                            .concat(c[4], ") {")
+                            .concat(c[1], "}")),
+                          (c[4] = a))
+                        : (c[4] = "".concat(a))),
+                    n.push(c));
+                }
+              }),
+              n
+            );
+          };
+        },
+        601: (e) => {
+          e.exports = function (e) {
+            return e[1];
+          };
+        },
+        72: (e) => {
+          var n = [];
+          function r(e) {
+            for (var r = -1, t = 0; t < n.length; t++)
+              if (n[t].identifier === e) {
+                r = t;
+                break;
+              }
+            return r;
+          }
+          function t(e, t) {
+            for (var i = {}, o = [], l = 0; l < e.length; l++) {
+              var d = e[l],
+                s = t.base ? d[0] + t.base : d[0],
+                c = i[s] || 0,
+                g = "".concat(s, " ").concat(c);
+              i[s] = c + 1;
+              var u = r(g),
+                m = {
+                  css: d[1],
+                  media: d[2],
+                  sourceMap: d[3],
+                  supports: d[4],
+                  layer: d[5],
+                };
+              if (-1 !== u) n[u].references++, n[u].updater(m);
+              else {
+                var f = a(m, t);
+                (t.byIndex = l),
+                  n.splice(l, 0, { identifier: g, updater: f, references: 1 });
+              }
+              o.push(g);
+            }
+            return o;
+          }
+          function a(e, n) {
+            var r = n.domAPI(n);
+            return (
+              r.update(e),
+              function (n) {
+                if (n) {
+                  if (
+                    n.css === e.css &&
+                    n.media === e.media &&
+                    n.sourceMap === e.sourceMap &&
+                    n.supports === e.supports &&
+                    n.layer === e.layer
+                  )
+                    return;
+                  r.update((e = n));
+                } else r.remove();
+              }
+            );
+          }
+          e.exports = function (e, a) {
+            var i = t((e = e || []), (a = a || {}));
+            return function (e) {
+              e = e || [];
+              for (var o = 0; o < i.length; o++) {
+                var l = r(i[o]);
+                n[l].references--;
+              }
+              for (var d = t(e, a), s = 0; s < i.length; s++) {
+                var c = r(i[s]);
+                0 === n[c].references && (n[c].updater(), n.splice(c, 1));
+              }
+              i = d;
+            };
+          };
+        },
+        659: (e) => {
+          var n = {};
+          e.exports = function (e, r) {
+            var t = (function (e) {
+              if (void 0 === n[e]) {
+                var r = document.querySelector(e);
+                if (
+                  window.HTMLIFrameElement &&
+                  r instanceof window.HTMLIFrameElement
+                )
+                  try {
+                    r = r.contentDocument.head;
+                  } catch (e) {
+                    r = null;
+                  }
+                n[e] = r;
+              }
+              return n[e];
+            })(e);
+            if (!t)
+              throw new Error(
+                "Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid."
+              );
+            t.appendChild(r);
+          };
+        },
+        540: (e) => {
+          e.exports = function (e) {
+            var n = document.createElement("style");
+            return e.setAttributes(n, e.attributes), e.insert(n, e.options), n;
+          };
+        },
+        56: (e, n, r) => {
+          e.exports = function (e) {
+            var n = r.nc;
+            n && e.setAttribute("nonce", n);
+          };
+        },
+        825: (e) => {
+          e.exports = function (e) {
+            if ("undefined" == typeof document)
+              return { update: function () {}, remove: function () {} };
+            var n = e.insertStyleElement(e);
+            return {
+              update: function (r) {
+                !(function (e, n, r) {
+                  var t = "";
+                  r.supports && (t += "@supports (".concat(r.supports, ") {")),
+                    r.media && (t += "@media ".concat(r.media, " {"));
+                  var a = void 0 !== r.layer;
+                  a &&
+                    (t += "@layer".concat(
+                      r.layer.length > 0 ? " ".concat(r.layer) : "",
+                      " {"
+                    )),
+                    (t += r.css),
+                    a && (t += "}"),
+                    r.media && (t += "}"),
+                    r.supports && (t += "}");
+                  var i = r.sourceMap;
+                  i &&
+                    "undefined" != typeof btoa &&
+                    (t +=
+                      "\n/*# sourceMappingURL=data:application/json;base64,".concat(
+                        btoa(unescape(encodeURIComponent(JSON.stringify(i)))),
+                        " */"
+                      )),
+                    n.styleTagTransform(t, e, n.options);
+                })(n, e, r);
+              },
+              remove: function () {
+                !(function (e) {
+                  if (null === e.parentNode) return !1;
+                  e.parentNode.removeChild(e);
+                })(n);
+              },
+            };
+          };
+        },
+        113: (e) => {
+          e.exports = function (e, n) {
+            if (n.styleSheet) n.styleSheet.cssText = e;
+            else {
+              for (; n.firstChild; ) n.removeChild(n.firstChild);
+              n.appendChild(document.createTextNode(e));
+            }
+          };
+        },
+        155: (n) => {
+          n.exports = e;
+        },
+        442: (e) => {
+          e.exports = n;
+        },
+      },
+      t = {};
+    function a(e) {
+      var n = t[e];
+      if (void 0 !== n) return n.exports;
+      var i = (t[e] = { id: e, exports: {} });
+      return r[e](i, i.exports, a), i.exports;
+    }
+    (a.n = (e) => {
+      var n = e && e.__esModule ? () => e.default : () => e;
+      return a.d(n, { a: n }), n;
+    }),
+      (a.d = (e, n) => {
+        for (var r in n)
+          a.o(n, r) &&
+            !a.o(e, r) &&
+            Object.defineProperty(e, r, { enumerable: !0, get: n[r] });
+      }),
+      (a.o = (e, n) => Object.prototype.hasOwnProperty.call(e, n)),
+      (a.r = (e) => {
+        "undefined" != typeof Symbol &&
+          Symbol.toStringTag &&
+          Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
+          Object.defineProperty(e, "__esModule", { value: !0 });
+      }),
+      (a.nc = void 0);
+    var i = {};
+    a.r(i),
+      a.d(i, {
+        IradaBlogCard: () => q,
+        IradaBlogsCarousel: () => R,
+        IradaBlogsPage: () => me,
+        IradaContactForm: () => C,
+      });
+    var o = a(72),
+      l = a.n(o),
+      d = a(825),
+      s = a.n(d),
+      c = a(659),
+      g = a.n(c),
+      u = a(56),
+      m = a.n(u),
+      f = a(540),
+      p = a.n(f),
+      h = a(113),
+      v = a.n(h),
+      b = a(626),
+      y = {};
+    (y.styleTagTransform = v()),
+      (y.setAttributes = m()),
+      (y.insert = g().bind(null, "head")),
+      (y.domAPI = s()),
+      (y.insertStyleElement = p()),
+      l()(b.A, y),
+      b.A && b.A.locals && b.A.locals;
+    var w = a(155),
+      x = a.n(w);
+    function E(e) {
+      return (
+        (E =
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+                return typeof e;
+              }
+            : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+        E(e)
+      );
+    }
+    function k() {
+      k = function () {
+        return n;
+      };
+      var e,
+        n = {},
+        r = Object.prototype,
+        t = r.hasOwnProperty,
+        a =
+          Object.defineProperty ||
+          function (e, n, r) {
+            e[n] = r.value;
+          },
+        i = "function" == typeof Symbol ? Symbol : {},
+        o = i.iterator || "@@iterator",
+        l = i.asyncIterator || "@@asyncIterator",
+        d = i.toStringTag || "@@toStringTag";
+      function s(e, n, r) {
+        return (
+          Object.defineProperty(e, n, {
+            value: r,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          }),
+          e[n]
+        );
+      }
+      try {
+        s({}, "");
+      } catch (e) {
+        s = function (e, n, r) {
+          return (e[n] = r);
+        };
+      }
+      function c(e, n, r, t) {
+        var i = n && n.prototype instanceof v ? n : v,
+          o = Object.create(i.prototype),
+          l = new A(t || []);
+        return a(o, "_invoke", { value: j(e, r, l) }), o;
+      }
+      function g(e, n, r) {
+        try {
+          return { type: "normal", arg: e.call(n, r) };
+        } catch (e) {
+          return { type: "throw", arg: e };
+        }
+      }
+      n.wrap = c;
+      var u = "suspendedStart",
+        m = "suspendedYield",
+        f = "executing",
+        p = "completed",
+        h = {};
+      function v() {}
+      function b() {}
+      function y() {}
+      var w = {};
+      s(w, o, function () {
+        return this;
+      });
+      var x = Object.getPrototypeOf,
+        N = x && x(x(P([])));
+      N && N !== r && t.call(N, o) && (w = N);
+      var z = (y.prototype = v.prototype = Object.create(w));
+      function S(e) {
+        ["next", "throw", "return"].forEach(function (n) {
+          s(e, n, function (e) {
+            return this._invoke(n, e);
+          });
+        });
+      }
+      function L(e, n) {
+        function r(a, i, o, l) {
+          var d = g(e[a], e, i);
+          if ("throw" !== d.type) {
+            var s = d.arg,
+              c = s.value;
+            return c && "object" == E(c) && t.call(c, "__await")
+              ? n.resolve(c.__await).then(
+                  function (e) {
+                    r("next", e, o, l);
+                  },
+                  function (e) {
+                    r("throw", e, o, l);
+                  }
+                )
+              : n.resolve(c).then(
+                  function (e) {
+                    (s.value = e), o(s);
+                  },
+                  function (e) {
+                    return r("throw", e, o, l);
+                  }
+                );
+          }
+          l(d.arg);
+        }
+        var i;
+        a(this, "_invoke", {
+          value: function (e, t) {
+            function a() {
+              return new n(function (n, a) {
+                r(e, t, n, a);
+              });
+            }
+            return (i = i ? i.then(a, a) : a());
+          },
+        });
+      }
+      function j(n, r, t) {
+        var a = u;
+        return function (i, o) {
+          if (a === f) throw Error("Generator is already running");
+          if (a === p) {
+            if ("throw" === i) throw o;
+            return { value: e, done: !0 };
+          }
+          for (t.method = i, t.arg = o; ; ) {
+            var l = t.delegate;
+            if (l) {
+              var d = _(l, t);
+              if (d) {
+                if (d === h) continue;
+                return d;
+              }
+            }
+            if ("next" === t.method) t.sent = t._sent = t.arg;
+            else if ("throw" === t.method) {
+              if (a === u) throw ((a = p), t.arg);
+              t.dispatchException(t.arg);
+            } else "return" === t.method && t.abrupt("return", t.arg);
+            a = f;
+            var s = g(n, r, t);
+            if ("normal" === s.type) {
+              if (((a = t.done ? p : m), s.arg === h)) continue;
+              return { value: s.arg, done: t.done };
+            }
+            "throw" === s.type &&
+              ((a = p), (t.method = "throw"), (t.arg = s.arg));
+          }
+        };
+      }
+      function _(n, r) {
+        var t = r.method,
+          a = n.iterator[t];
+        if (a === e)
+          return (
+            (r.delegate = null),
+            ("throw" === t &&
+              n.iterator.return &&
+              ((r.method = "return"),
+              (r.arg = e),
+              _(n, r),
+              "throw" === r.method)) ||
+              ("return" !== t &&
+                ((r.method = "throw"),
+                (r.arg = new TypeError(
+                  "The iterator does not provide a '" + t + "' method"
+                )))),
+            h
+          );
+        var i = g(a, n.iterator, r.arg);
+        if ("throw" === i.type)
+          return (r.method = "throw"), (r.arg = i.arg), (r.delegate = null), h;
+        var o = i.arg;
+        return o
+          ? o.done
+            ? ((r[n.resultName] = o.value),
+              (r.next = n.nextLoc),
+              "return" !== r.method && ((r.method = "next"), (r.arg = e)),
+              (r.delegate = null),
+              h)
+            : o
+          : ((r.method = "throw"),
+            (r.arg = new TypeError("iterator result is not an object")),
+            (r.delegate = null),
+            h);
+      }
+      function C(e) {
+        var n = { tryLoc: e[0] };
+        1 in e && (n.catchLoc = e[1]),
+          2 in e && ((n.finallyLoc = e[2]), (n.afterLoc = e[3])),
+          this.tryEntries.push(n);
+      }
+      function O(e) {
+        var n = e.completion || {};
+        (n.type = "normal"), delete n.arg, (e.completion = n);
+      }
+      function A(e) {
+        (this.tryEntries = [{ tryLoc: "root" }]),
+          e.forEach(C, this),
+          this.reset(!0);
+      }
+      function P(n) {
+        if (n || "" === n) {
+          var r = n[o];
+          if (r) return r.call(n);
+          if ("function" == typeof n.next) return n;
+          if (!isNaN(n.length)) {
+            var a = -1,
+              i = function r() {
+                for (; ++a < n.length; )
+                  if (t.call(n, a)) return (r.value = n[a]), (r.done = !1), r;
+                return (r.value = e), (r.done = !0), r;
+              };
+            return (i.next = i);
+          }
+        }
+        throw new TypeError(E(n) + " is not iterable");
+      }
+      return (
+        (b.prototype = y),
+        a(z, "constructor", { value: y, configurable: !0 }),
+        a(y, "constructor", { value: b, configurable: !0 }),
+        (b.displayName = s(y, d, "GeneratorFunction")),
+        (n.isGeneratorFunction = function (e) {
+          var n = "function" == typeof e && e.constructor;
+          return (
+            !!n &&
+            (n === b || "GeneratorFunction" === (n.displayName || n.name))
+          );
+        }),
+        (n.mark = function (e) {
+          return (
+            Object.setPrototypeOf
+              ? Object.setPrototypeOf(e, y)
+              : ((e.__proto__ = y), s(e, d, "GeneratorFunction")),
+            (e.prototype = Object.create(z)),
+            e
+          );
+        }),
+        (n.awrap = function (e) {
+          return { __await: e };
+        }),
+        S(L.prototype),
+        s(L.prototype, l, function () {
+          return this;
+        }),
+        (n.AsyncIterator = L),
+        (n.async = function (e, r, t, a, i) {
+          void 0 === i && (i = Promise);
+          var o = new L(c(e, r, t, a), i);
+          return n.isGeneratorFunction(r)
+            ? o
+            : o.next().then(function (e) {
+                return e.done ? e.value : o.next();
+              });
+        }),
+        S(z),
+        s(z, d, "Generator"),
+        s(z, o, function () {
+          return this;
+        }),
+        s(z, "toString", function () {
+          return "[object Generator]";
+        }),
+        (n.keys = function (e) {
+          var n = Object(e),
+            r = [];
+          for (var t in n) r.push(t);
+          return (
+            r.reverse(),
+            function e() {
+              for (; r.length; ) {
+                var t = r.pop();
+                if (t in n) return (e.value = t), (e.done = !1), e;
+              }
+              return (e.done = !0), e;
+            }
+          );
+        }),
+        (n.values = P),
+        (A.prototype = {
+          constructor: A,
+          reset: function (n) {
+            if (
+              ((this.prev = 0),
+              (this.next = 0),
+              (this.sent = this._sent = e),
+              (this.done = !1),
+              (this.delegate = null),
+              (this.method = "next"),
+              (this.arg = e),
+              this.tryEntries.forEach(O),
+              !n)
+            )
+              for (var r in this)
+                "t" === r.charAt(0) &&
+                  t.call(this, r) &&
+                  !isNaN(+r.slice(1)) &&
+                  (this[r] = e);
+          },
+          stop: function () {
+            this.done = !0;
+            var e = this.tryEntries[0].completion;
+            if ("throw" === e.type) throw e.arg;
+            return this.rval;
+          },
+          dispatchException: function (n) {
+            if (this.done) throw n;
+            var r = this;
+            function a(t, a) {
+              return (
+                (l.type = "throw"),
+                (l.arg = n),
+                (r.next = t),
+                a && ((r.method = "next"), (r.arg = e)),
+                !!a
+              );
+            }
+            for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+              var o = this.tryEntries[i],
+                l = o.completion;
+              if ("root" === o.tryLoc) return a("end");
+              if (o.tryLoc <= this.prev) {
+                var d = t.call(o, "catchLoc"),
+                  s = t.call(o, "finallyLoc");
+                if (d && s) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                } else if (d) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                } else {
+                  if (!s) throw Error("try statement without catch or finally");
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                }
+              }
+            }
+          },
+          abrupt: function (e, n) {
+            for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+              var a = this.tryEntries[r];
+              if (
+                a.tryLoc <= this.prev &&
+                t.call(a, "finallyLoc") &&
+                this.prev < a.finallyLoc
+              ) {
+                var i = a;
+                break;
+              }
+            }
+            i &&
+              ("break" === e || "continue" === e) &&
+              i.tryLoc <= n &&
+              n <= i.finallyLoc &&
+              (i = null);
+            var o = i ? i.completion : {};
+            return (
+              (o.type = e),
+              (o.arg = n),
+              i
+                ? ((this.method = "next"), (this.next = i.finallyLoc), h)
+                : this.complete(o)
+            );
+          },
+          complete: function (e, n) {
+            if ("throw" === e.type) throw e.arg;
+            return (
+              "break" === e.type || "continue" === e.type
+                ? (this.next = e.arg)
+                : "return" === e.type
+                ? ((this.rval = this.arg = e.arg),
+                  (this.method = "return"),
+                  (this.next = "end"))
+                : "normal" === e.type && n && (this.next = n),
+              h
+            );
+          },
+          finish: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.finallyLoc === e)
+                return this.complete(r.completion, r.afterLoc), O(r), h;
+            }
+          },
+          catch: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.tryLoc === e) {
+                var t = r.completion;
+                if ("throw" === t.type) {
+                  var a = t.arg;
+                  O(r);
+                }
+                return a;
+              }
+            }
+            throw Error("illegal catch attempt");
+          },
+          delegateYield: function (n, r, t) {
+            return (
+              (this.delegate = { iterator: P(n), resultName: r, nextLoc: t }),
+              "next" === this.method && (this.arg = e),
+              h
+            );
+          },
+        }),
+        n
+      );
+    }
+    function N(e, n, r, t, a, i, o) {
+      try {
+        var l = e[i](o),
+          d = l.value;
+      } catch (e) {
+        return void r(e);
+      }
+      l.done ? n(d) : Promise.resolve(d).then(t, a);
+    }
+    function z(e, n) {
+      var r = Object.keys(e);
+      if (Object.getOwnPropertySymbols) {
+        var t = Object.getOwnPropertySymbols(e);
+        n &&
+          (t = t.filter(function (n) {
+            return Object.getOwnPropertyDescriptor(e, n).enumerable;
+          })),
+          r.push.apply(r, t);
+      }
+      return r;
+    }
+    function S(e) {
+      for (var n = 1; n < arguments.length; n++) {
+        var r = null != arguments[n] ? arguments[n] : {};
+        n % 2
+          ? z(Object(r), !0).forEach(function (n) {
+              L(e, n, r[n]);
+            })
+          : Object.getOwnPropertyDescriptors
+          ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
+          : z(Object(r)).forEach(function (n) {
+              Object.defineProperty(
+                e,
+                n,
+                Object.getOwnPropertyDescriptor(r, n)
+              );
+            });
+      }
+      return e;
+    }
+    function L(e, n, r) {
+      return (
+        (n = (function (e) {
+          var n = (function (e) {
+            if ("object" != E(e) || !e) return e;
+            var n = e[Symbol.toPrimitive];
+            if (void 0 !== n) {
+              var r = n.call(e, "string");
+              if ("object" != E(r)) return r;
+              throw new TypeError(
+                "@@toPrimitive must return a primitive value."
+              );
+            }
+            return String(e);
+          })(e);
+          return "symbol" == E(n) ? n : n + "";
+        })(n)) in e
+          ? Object.defineProperty(e, n, {
+              value: r,
+              enumerable: !0,
+              configurable: !0,
+              writable: !0,
+            })
+          : (e[n] = r),
+        e
+      );
+    }
+    function j(e, n) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return e;
+        })(e) ||
+        (function (e, n) {
+          var r =
+            null == e
+              ? null
+              : ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                e["@@iterator"];
+          if (null != r) {
+            var t,
+              a,
+              i,
+              o,
+              l = [],
+              d = !0,
+              s = !1;
+            try {
+              if (((i = (r = r.call(e)).next), 0 === n)) {
+                if (Object(r) !== r) return;
+                d = !1;
+              } else
+                for (
+                  ;
+                  !(d = (t = i.call(r)).done) &&
+                  (l.push(t.value), l.length !== n);
+                  d = !0
+                );
+            } catch (e) {
+              (s = !0), (a = e);
+            } finally {
+              try {
+                if (
+                  !d &&
+                  null != r.return &&
+                  ((o = r.return()), Object(o) !== o)
+                )
+                  return;
+              } finally {
+                if (s) throw a;
+              }
+            }
+            return l;
+          }
+        })(e, n) ||
+        (function (e, n) {
+          if (e) {
+            if ("string" == typeof e) return _(e, n);
+            var r = {}.toString.call(e).slice(8, -1);
+            return (
+              "Object" === r && e.constructor && (r = e.constructor.name),
+              "Map" === r || "Set" === r
+                ? Array.from(e)
+                : "Arguments" === r ||
+                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+                ? _(e, n)
+                : void 0
+            );
+          }
+        })(e, n) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function _(e, n) {
+      (null == n || n > e.length) && (n = e.length);
+      for (var r = 0, t = Array(n); r < n; r++) t[r] = e[r];
+      return t;
+    }
+    const C = function (e) {
+      var n = e.theme,
+        r = void 0 === n ? "light" : n,
+        t = e.apiKey,
+        a = e.heading,
+        i = void 0 === a ? "Get in Touch" : a,
+        o = e.subheading,
+        l =
+          void 0 === o
+            ? "Send us a message and we'll get back to you as soon as possible."
+            : o,
+        d = e.placeholderName,
+        s = void 0 === d ? "Your name" : d,
+        c = e.placeholderEmail,
+        g = void 0 === c ? "Your email" : c,
+        u = e.placeholderMessage,
+        m = void 0 === u ? "Your message..." : u,
+        f = e.buttonText,
+        p = void 0 === f ? "Send Message" : f,
+        h = e.onSuccess,
+        v = e.onError,
+        b = j((0, w.useState)({ name: "", email: "", message: "" }), 2),
+        y = b[0],
+        E = b[1],
+        z = j((0, w.useState)(!1), 2),
+        _ = z[0],
+        C = z[1],
+        O = j((0, w.useState)({}), 2),
+        A = O[0],
+        P = O[1],
+        T = function (e) {
+          var n = e.target,
+            r = n.name,
+            t = n.value;
+          E(function (e) {
+            return S(S({}, e), {}, L({}, r, t));
+          }),
+            A[r] &&
+              P(function (e) {
+                return S(S({}, e), {}, L({}, r, ""));
+              });
+        },
+        B = (function () {
+          var e,
+            n =
+              ((e = k().mark(function e(n) {
+                var r, a;
+                return k().wrap(
+                  function (e) {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          if (
+                            (n.preventDefault(),
+                            (i = void 0),
+                            (i = {}),
+                            y.name.trim() || (i.name = "Name is required"),
+                            y.email.trim()
+                              ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(y.email) ||
+                                (i.email = "Please enter a valid email")
+                              : (i.email = "Email is required"),
+                            y.message.trim()
+                              ? y.message.trim().length < 10 &&
+                                (i.message =
+                                  "Message must be at least 10 characters")
+                              : (i.message = "Message is required"),
+                            P(i),
+                            0 === Object.keys(i).length)
+                          ) {
+                            e.next = 3;
+                            break;
+                          }
+                          return e.abrupt("return");
+                        case 3:
+                          if (t) {
+                            e.next = 7;
+                            break;
+                          }
+                          return (
+                            console.error("API key and endpoint are required"),
+                            v && v("Configuration error"),
+                            e.abrupt("return")
+                          );
+                        case 7:
+                          return (
+                            C(!0),
+                            (e.prev = 8),
+                            (e.next = 11),
+                            fetch(
+                              "".concat(
+                                "https://iradaapi.sohaibaftab.dev",
+                                "/api/messages"
+                              ),
+                              {
+                                method: "POST",
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  "x-api-key": t,
+                                },
+                                body: JSON.stringify({
+                                  senderEmail: y.email.trim(),
+                                  name: y.name.trim(),
+                                  message: y.message.trim(),
+                                }),
+                              }
+                            )
+                          );
+                        case 11:
+                          if ((r = e.sent).ok) {
+                            e.next = 14;
+                            break;
+                          }
+                          throw new Error(
+                            "HTTP error! status: ".concat(r.status)
+                          );
+                        case 14:
+                          return (e.next = 16), r.json();
+                        case 16:
+                          (a = e.sent),
+                            E({ name: "", email: "", message: "" }),
+                            P({}),
+                            h && h(a),
+                            (e.next = 26);
+                          break;
+                        case 22:
+                          (e.prev = 22),
+                            (e.t0 = e.catch(8)),
+                            console.error("Failed to send message:", e.t0),
+                            v && v(e.t0.message || "Failed to send message");
+                        case 26:
+                          return (e.prev = 26), C(!1), e.finish(26);
+                        case 29:
+                        case "end":
+                          return e.stop();
+                      }
+                    var i;
+                  },
+                  e,
+                  null,
+                  [[8, 22, 26, 29]]
+                );
+              })),
+              function () {
+                var n = this,
+                  r = arguments;
+                return new Promise(function (t, a) {
+                  var i = e.apply(n, r);
+                  function o(e) {
+                    N(i, t, a, o, l, "next", e);
+                  }
+                  function l(e) {
+                    N(i, t, a, o, l, "throw", e);
+                  }
+                  o(void 0);
+                });
+              });
+          return function (e) {
+            return n.apply(this, arguments);
+          };
+        })();
+      return x().createElement(
+        "div",
+        { className: "irada-widget ir-irada-message-form", "data-theme": r },
+        x().createElement(
+          "div",
+          { className: "ir-message-form-container" },
+          (i || l) &&
+            x().createElement(
+              "div",
+              { className: "ir-message-form-header" },
+              i &&
+                x().createElement(
+                  "h2",
+                  { className: "ir-message-form-title" },
+                  i
+                ),
+              l &&
+                x().createElement(
+                  "p",
+                  { className: "ir-message-form-subtitle" },
+                  l
+                )
+            ),
+          x().createElement(
+            "form",
+            { className: "ir-message-form", onSubmit: B },
+            x().createElement(
+              "div",
+              { className: "ir-form-row" },
+              x().createElement(
+                "div",
+                { className: "ir-form-field" },
+                x().createElement(
+                  "label",
+                  { htmlFor: "name", className: "ir-form-label" },
+                  "Name"
+                ),
+                x().createElement("input", {
+                  type: "text",
+                  id: "name",
+                  name: "name",
+                  value: y.name,
+                  onChange: T,
+                  placeholder: s,
+                  className: "ir-form-input ".concat(A.name ? "error" : ""),
+                  disabled: _,
+                }),
+                A.name &&
+                  x().createElement(
+                    "span",
+                    { className: "ir-error-message" },
+                    A.name
+                  )
+              ),
+              x().createElement(
+                "div",
+                { className: "ir-form-field" },
+                x().createElement(
+                  "label",
+                  { htmlFor: "email", className: "ir-form-label" },
+                  "Email"
+                ),
+                x().createElement("input", {
+                  type: "email",
+                  id: "email",
+                  name: "email",
+                  value: y.email,
+                  onChange: T,
+                  placeholder: g,
+                  className: "ir-form-input ".concat(A.email ? "error" : ""),
+                  disabled: _,
+                }),
+                A.email &&
+                  x().createElement(
+                    "span",
+                    { className: "ir-error-message" },
+                    A.email
+                  )
+              )
+            ),
+            x().createElement(
+              "div",
+              { className: "ir-form-field" },
+              x().createElement(
+                "label",
+                { htmlFor: "message", className: "ir-form-label" },
+                "Message"
+              ),
+              x().createElement("textarea", {
+                id: "message",
+                name: "message",
+                value: y.message,
+                onChange: T,
+                placeholder: m,
+                className: "ir-form-textarea ".concat(A.message ? "error" : ""),
+                rows: 5,
+                disabled: _,
+              }),
+              A.message &&
+                x().createElement(
+                  "span",
+                  { className: "ir-error-message" },
+                  A.message
+                )
+            ),
+            x().createElement(
+              "button",
+              { type: "submit", className: "ir-submit-button", disabled: _ },
+              _
+                ? x().createElement(
+                    "div",
+                    { className: "ir-loading-spinner" },
+                    x().createElement(
+                      "svg",
+                      {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      x().createElement("path", {
+                        d: "M21 12a9 9 0 11-6.219-8.56",
+                      })
+                    )
+                  )
+                : x().createElement(
+                    x().Fragment,
+                    null,
+                    p,
+                    x().createElement(
+                      "svg",
+                      {
+                        width: "16",
+                        height: "16",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      x().createElement("path", { d: "M22 2L11 13" }),
+                      x().createElement("path", {
+                        d: "M22 2L15 22L11 13L2 9L22 2Z",
+                      })
+                    )
+                  )
+            )
+          )
+        )
+      );
+    };
+    var O = a(442);
+    const A = function (e) {
+      var n = e.width,
+        r = e.height,
+        t = e.radius;
+      return (
+        e.theme,
+        x().createElement("div", {
+          style: {
+            width: n,
+            height: r,
+            borderRadius: t || "var(--irada-radius)",
+          },
+          className: "ir-ghost-loader",
+        })
+      );
+    };
+    function P(e) {
+      return (
+        (P =
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+                return typeof e;
+              }
+            : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+        P(e)
+      );
+    }
+    function T() {
+      T = function () {
+        return n;
+      };
+      var e,
+        n = {},
+        r = Object.prototype,
+        t = r.hasOwnProperty,
+        a =
+          Object.defineProperty ||
+          function (e, n, r) {
+            e[n] = r.value;
+          },
+        i = "function" == typeof Symbol ? Symbol : {},
+        o = i.iterator || "@@iterator",
+        l = i.asyncIterator || "@@asyncIterator",
+        d = i.toStringTag || "@@toStringTag";
+      function s(e, n, r) {
+        return (
+          Object.defineProperty(e, n, {
+            value: r,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          }),
+          e[n]
+        );
+      }
+      try {
+        s({}, "");
+      } catch (e) {
+        s = function (e, n, r) {
+          return (e[n] = r);
+        };
+      }
+      function c(e, n, r, t) {
+        var i = n && n.prototype instanceof v ? n : v,
+          o = Object.create(i.prototype),
+          l = new C(t || []);
+        return a(o, "_invoke", { value: S(e, r, l) }), o;
+      }
+      function g(e, n, r) {
+        try {
+          return { type: "normal", arg: e.call(n, r) };
+        } catch (e) {
+          return { type: "throw", arg: e };
+        }
+      }
+      n.wrap = c;
+      var u = "suspendedStart",
+        m = "suspendedYield",
+        f = "executing",
+        p = "completed",
+        h = {};
+      function v() {}
+      function b() {}
+      function y() {}
+      var w = {};
+      s(w, o, function () {
+        return this;
+      });
+      var x = Object.getPrototypeOf,
+        E = x && x(x(O([])));
+      E && E !== r && t.call(E, o) && (w = E);
+      var k = (y.prototype = v.prototype = Object.create(w));
+      function N(e) {
+        ["next", "throw", "return"].forEach(function (n) {
+          s(e, n, function (e) {
+            return this._invoke(n, e);
+          });
+        });
+      }
+      function z(e, n) {
+        function r(a, i, o, l) {
+          var d = g(e[a], e, i);
+          if ("throw" !== d.type) {
+            var s = d.arg,
+              c = s.value;
+            return c && "object" == P(c) && t.call(c, "__await")
+              ? n.resolve(c.__await).then(
+                  function (e) {
+                    r("next", e, o, l);
+                  },
+                  function (e) {
+                    r("throw", e, o, l);
+                  }
+                )
+              : n.resolve(c).then(
+                  function (e) {
+                    (s.value = e), o(s);
+                  },
+                  function (e) {
+                    return r("throw", e, o, l);
+                  }
+                );
+          }
+          l(d.arg);
+        }
+        var i;
+        a(this, "_invoke", {
+          value: function (e, t) {
+            function a() {
+              return new n(function (n, a) {
+                r(e, t, n, a);
+              });
+            }
+            return (i = i ? i.then(a, a) : a());
+          },
+        });
+      }
+      function S(n, r, t) {
+        var a = u;
+        return function (i, o) {
+          if (a === f) throw Error("Generator is already running");
+          if (a === p) {
+            if ("throw" === i) throw o;
+            return { value: e, done: !0 };
+          }
+          for (t.method = i, t.arg = o; ; ) {
+            var l = t.delegate;
+            if (l) {
+              var d = L(l, t);
+              if (d) {
+                if (d === h) continue;
+                return d;
+              }
+            }
+            if ("next" === t.method) t.sent = t._sent = t.arg;
+            else if ("throw" === t.method) {
+              if (a === u) throw ((a = p), t.arg);
+              t.dispatchException(t.arg);
+            } else "return" === t.method && t.abrupt("return", t.arg);
+            a = f;
+            var s = g(n, r, t);
+            if ("normal" === s.type) {
+              if (((a = t.done ? p : m), s.arg === h)) continue;
+              return { value: s.arg, done: t.done };
+            }
+            "throw" === s.type &&
+              ((a = p), (t.method = "throw"), (t.arg = s.arg));
+          }
+        };
+      }
+      function L(n, r) {
+        var t = r.method,
+          a = n.iterator[t];
+        if (a === e)
+          return (
+            (r.delegate = null),
+            ("throw" === t &&
+              n.iterator.return &&
+              ((r.method = "return"),
+              (r.arg = e),
+              L(n, r),
+              "throw" === r.method)) ||
+              ("return" !== t &&
+                ((r.method = "throw"),
+                (r.arg = new TypeError(
+                  "The iterator does not provide a '" + t + "' method"
+                )))),
+            h
+          );
+        var i = g(a, n.iterator, r.arg);
+        if ("throw" === i.type)
+          return (r.method = "throw"), (r.arg = i.arg), (r.delegate = null), h;
+        var o = i.arg;
+        return o
+          ? o.done
+            ? ((r[n.resultName] = o.value),
+              (r.next = n.nextLoc),
+              "return" !== r.method && ((r.method = "next"), (r.arg = e)),
+              (r.delegate = null),
+              h)
+            : o
+          : ((r.method = "throw"),
+            (r.arg = new TypeError("iterator result is not an object")),
+            (r.delegate = null),
+            h);
+      }
+      function j(e) {
+        var n = { tryLoc: e[0] };
+        1 in e && (n.catchLoc = e[1]),
+          2 in e && ((n.finallyLoc = e[2]), (n.afterLoc = e[3])),
+          this.tryEntries.push(n);
+      }
+      function _(e) {
+        var n = e.completion || {};
+        (n.type = "normal"), delete n.arg, (e.completion = n);
+      }
+      function C(e) {
+        (this.tryEntries = [{ tryLoc: "root" }]),
+          e.forEach(j, this),
+          this.reset(!0);
+      }
+      function O(n) {
+        if (n || "" === n) {
+          var r = n[o];
+          if (r) return r.call(n);
+          if ("function" == typeof n.next) return n;
+          if (!isNaN(n.length)) {
+            var a = -1,
+              i = function r() {
+                for (; ++a < n.length; )
+                  if (t.call(n, a)) return (r.value = n[a]), (r.done = !1), r;
+                return (r.value = e), (r.done = !0), r;
+              };
+            return (i.next = i);
+          }
+        }
+        throw new TypeError(P(n) + " is not iterable");
+      }
+      return (
+        (b.prototype = y),
+        a(k, "constructor", { value: y, configurable: !0 }),
+        a(y, "constructor", { value: b, configurable: !0 }),
+        (b.displayName = s(y, d, "GeneratorFunction")),
+        (n.isGeneratorFunction = function (e) {
+          var n = "function" == typeof e && e.constructor;
+          return (
+            !!n &&
+            (n === b || "GeneratorFunction" === (n.displayName || n.name))
+          );
+        }),
+        (n.mark = function (e) {
+          return (
+            Object.setPrototypeOf
+              ? Object.setPrototypeOf(e, y)
+              : ((e.__proto__ = y), s(e, d, "GeneratorFunction")),
+            (e.prototype = Object.create(k)),
+            e
+          );
+        }),
+        (n.awrap = function (e) {
+          return { __await: e };
+        }),
+        N(z.prototype),
+        s(z.prototype, l, function () {
+          return this;
+        }),
+        (n.AsyncIterator = z),
+        (n.async = function (e, r, t, a, i) {
+          void 0 === i && (i = Promise);
+          var o = new z(c(e, r, t, a), i);
+          return n.isGeneratorFunction(r)
+            ? o
+            : o.next().then(function (e) {
+                return e.done ? e.value : o.next();
+              });
+        }),
+        N(k),
+        s(k, d, "Generator"),
+        s(k, o, function () {
+          return this;
+        }),
+        s(k, "toString", function () {
+          return "[object Generator]";
+        }),
+        (n.keys = function (e) {
+          var n = Object(e),
+            r = [];
+          for (var t in n) r.push(t);
+          return (
+            r.reverse(),
+            function e() {
+              for (; r.length; ) {
+                var t = r.pop();
+                if (t in n) return (e.value = t), (e.done = !1), e;
+              }
+              return (e.done = !0), e;
+            }
+          );
+        }),
+        (n.values = O),
+        (C.prototype = {
+          constructor: C,
+          reset: function (n) {
+            if (
+              ((this.prev = 0),
+              (this.next = 0),
+              (this.sent = this._sent = e),
+              (this.done = !1),
+              (this.delegate = null),
+              (this.method = "next"),
+              (this.arg = e),
+              this.tryEntries.forEach(_),
+              !n)
+            )
+              for (var r in this)
+                "t" === r.charAt(0) &&
+                  t.call(this, r) &&
+                  !isNaN(+r.slice(1)) &&
+                  (this[r] = e);
+          },
+          stop: function () {
+            this.done = !0;
+            var e = this.tryEntries[0].completion;
+            if ("throw" === e.type) throw e.arg;
+            return this.rval;
+          },
+          dispatchException: function (n) {
+            if (this.done) throw n;
+            var r = this;
+            function a(t, a) {
+              return (
+                (l.type = "throw"),
+                (l.arg = n),
+                (r.next = t),
+                a && ((r.method = "next"), (r.arg = e)),
+                !!a
+              );
+            }
+            for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+              var o = this.tryEntries[i],
+                l = o.completion;
+              if ("root" === o.tryLoc) return a("end");
+              if (o.tryLoc <= this.prev) {
+                var d = t.call(o, "catchLoc"),
+                  s = t.call(o, "finallyLoc");
+                if (d && s) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                } else if (d) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                } else {
+                  if (!s) throw Error("try statement without catch or finally");
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                }
+              }
+            }
+          },
+          abrupt: function (e, n) {
+            for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+              var a = this.tryEntries[r];
+              if (
+                a.tryLoc <= this.prev &&
+                t.call(a, "finallyLoc") &&
+                this.prev < a.finallyLoc
+              ) {
+                var i = a;
+                break;
+              }
+            }
+            i &&
+              ("break" === e || "continue" === e) &&
+              i.tryLoc <= n &&
+              n <= i.finallyLoc &&
+              (i = null);
+            var o = i ? i.completion : {};
+            return (
+              (o.type = e),
+              (o.arg = n),
+              i
+                ? ((this.method = "next"), (this.next = i.finallyLoc), h)
+                : this.complete(o)
+            );
+          },
+          complete: function (e, n) {
+            if ("throw" === e.type) throw e.arg;
+            return (
+              "break" === e.type || "continue" === e.type
+                ? (this.next = e.arg)
+                : "return" === e.type
+                ? ((this.rval = this.arg = e.arg),
+                  (this.method = "return"),
+                  (this.next = "end"))
+                : "normal" === e.type && n && (this.next = n),
+              h
+            );
+          },
+          finish: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.finallyLoc === e)
+                return this.complete(r.completion, r.afterLoc), _(r), h;
+            }
+          },
+          catch: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.tryLoc === e) {
+                var t = r.completion;
+                if ("throw" === t.type) {
+                  var a = t.arg;
+                  _(r);
+                }
+                return a;
+              }
+            }
+            throw Error("illegal catch attempt");
+          },
+          delegateYield: function (n, r, t) {
+            return (
+              (this.delegate = { iterator: O(n), resultName: r, nextLoc: t }),
+              "next" === this.method && (this.arg = e),
+              h
+            );
+          },
+        }),
+        n
+      );
+    }
+    function B(e, n, r, t, a, i, o) {
+      try {
+        var l = e[i](o),
+          d = l.value;
+      } catch (e) {
+        return void r(e);
+      }
+      l.done ? n(d) : Promise.resolve(d).then(t, a);
+    }
+    function M(e, n) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return e;
+        })(e) ||
+        (function (e, n) {
+          var r =
+            null == e
+              ? null
+              : ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                e["@@iterator"];
+          if (null != r) {
+            var t,
+              a,
+              i,
+              o,
+              l = [],
+              d = !0,
+              s = !1;
+            try {
+              if (((i = (r = r.call(e)).next), 0 === n)) {
+                if (Object(r) !== r) return;
+                d = !1;
+              } else
+                for (
+                  ;
+                  !(d = (t = i.call(r)).done) &&
+                  (l.push(t.value), l.length !== n);
+                  d = !0
+                );
+            } catch (e) {
+              (s = !0), (a = e);
+            } finally {
+              try {
+                if (
+                  !d &&
+                  null != r.return &&
+                  ((o = r.return()), Object(o) !== o)
+                )
+                  return;
+              } finally {
+                if (s) throw a;
+              }
+            }
+            return l;
+          }
+        })(e, n) ||
+        (function (e, n) {
+          if (e) {
+            if ("string" == typeof e) return I(e, n);
+            var r = {}.toString.call(e).slice(8, -1);
+            return (
+              "Object" === r && e.constructor && (r = e.constructor.name),
+              "Map" === r || "Set" === r
+                ? Array.from(e)
+                : "Arguments" === r ||
+                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+                ? I(e, n)
+                : void 0
+            );
+          }
+        })(e, n) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function I(e, n) {
+      (null == n || n > e.length) && (n = e.length);
+      for (var r = 0, t = Array(n); r < n; r++) t[r] = e[r];
+      return t;
+    }
+    var F = function (e) {
+        return e
+          ? e >= 1e6
+            ? "".concat((e / 1e6).toFixed(1), "M")
+            : e >= 1e3
+            ? "".concat((e / 1e3).toFixed(1), "K")
+            : e.toString()
+          : "0";
+      },
+      G = function (e) {
+        var n,
+          r,
+          t = e.blog,
+          a = M((0, w.useState)(!0), 2),
+          i = a[0],
+          o = a[1];
+        return x().createElement(
+          O.Link,
+          {
+            to: "/blogs/blog/".concat(t.slug),
+            className: "ir-featured-blog-slide",
+          },
+          x().createElement(
+            "div",
+            { className: "ir-featured-blog-image" },
+            i &&
+              x().createElement(A, {
+                width: "100%",
+                height: "100%",
+                radius: "0",
+                theme: "dark",
+              }),
+            x().createElement("img", {
+              onLoad: function () {
+                o(!1);
+              },
+              style: { display: i ? "none" : "block" },
+              src: t.banner,
+              alt: t.title,
+            }),
+            x().createElement("div", { className: "ir-featured-blog-overlay" })
+          ),
+          x().createElement(
+            "div",
+            { className: "ir-featured-blog-content" },
+            x().createElement(
+              "div",
+              { className: "ir-featured-blog-badges" },
+              x().createElement(
+                "div",
+                { className: "ir-featured-category-badge" },
+                t.category
+              ),
+              t.tags &&
+                t.tags.length > 0 &&
+                x().createElement(
+                  x().Fragment,
+                  null,
+                  x().createElement(
+                    "span",
+                    { className: "ir-featured-badge-separator" },
+                    "•"
+                  ),
+                  x().createElement(
+                    "div",
+                    { className: "ir-featured-blog-tags" },
+                    t.tags.slice(0, 3).map(function (e, n) {
+                      return x().createElement(
+                        "span",
+                        { key: n, className: "ir-featured-blog-tag" },
+                        e
+                      );
+                    })
+                  )
+                )
+            ),
+            x().createElement(
+              "div",
+              { className: "ir-featured-blog-info" },
+              x().createElement(
+                "h2",
+                { className: "ir-featured-blog-title" },
+                t.title
+              ),
+              x().createElement(
+                "p",
+                { className: "ir-featured-blog-meta" },
+                t.meta
+              ),
+              x().createElement(
+                "div",
+                { className: "ir-featured-blog-details" },
+                x().createElement(
+                  "div",
+                  { className: "ir-featured-blog-author" },
+                  x().createElement(
+                    "span",
+                    { className: "ir-author-name" },
+                    "@",
+                    (null === (n = t.author) || void 0 === n
+                      ? void 0
+                      : n.username) || "Anonymous"
+                  )
+                ),
+                x().createElement(
+                  "div",
+                  { className: "ir-featured-blog-stats" },
+                  x().createElement(
+                    "div",
+                    { className: "ir-stat-item" },
+                    x().createElement(
+                      "svg",
+                      {
+                        width: "14",
+                        height: "14",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      x().createElement("path", {
+                        d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
+                      }),
+                      x().createElement("circle", {
+                        cx: "12",
+                        cy: "12",
+                        r: "3",
+                      })
+                    ),
+                    F(t.viewsCount || 0)
+                  ),
+                  x().createElement(
+                    "div",
+                    { className: "ir-stat-item" },
+                    x().createElement(
+                      "svg",
+                      {
+                        width: "14",
+                        height: "14",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      x().createElement("path", {
+                        d: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+                      })
+                    ),
+                    F(t.likesCount || 0)
+                  ),
+                  x().createElement(
+                    "span",
+                    { className: "ir-publish-date" },
+                    (r = t.publishedAt)
+                      ? new Date(r).toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })
+                      : ""
+                  )
+                )
+              )
+            )
+          )
+        );
+      };
+    const R = function (e) {
+        var n = e.theme,
+          r = e.apiKey,
+          t = "https://iradaapi.sohaibaftab.dev",
+          a = M((0, w.useState)([]), 2),
+          i = a[0],
+          o = a[1],
+          l = M((0, w.useState)(!0), 2),
+          d = l[0],
+          s = l[1],
+          c = M((0, w.useState)(0), 2),
+          g = c[0],
+          u = c[1],
+          m = M((0, w.useState)(!1), 2),
+          f = m[0],
+          p = m[1],
+          h = (0, w.useRef)(0),
+          v = (0, w.useRef)(0),
+          b = (0, w.useRef)(null);
+        (0, w.useEffect)(
+          function () {
+            var e = (function () {
+              var e,
+                n =
+                  ((e = T().mark(function e() {
+                    var n, a, i;
+                    return T().wrap(
+                      function (e) {
+                        for (;;)
+                          switch ((e.prev = e.next)) {
+                            case 0:
+                              if (r) {
+                                e.next = 4;
+                                break;
+                              }
+                              return (
+                                console.error(
+                                  "API key is required to fetch featured blogs"
+                                ),
+                                s(!1),
+                                e.abrupt("return")
+                              );
+                            case 4:
+                              return (
+                                (e.prev = 4),
+                                s(!0),
+                                (e.next = 8),
+                                fetch(
+                                  "".concat(
+                                    t,
+                                    "/api/token/blogs?featured=true"
+                                  ),
+                                  {
+                                    method: "GET",
+                                    headers: {
+                                      "x-api-key": r,
+                                      "Content-Type": "application/json",
+                                    },
+                                  }
+                                )
+                              );
+                            case 8:
+                              if ((n = e.sent).ok) {
+                                e.next = 11;
+                                break;
+                              }
+                              throw new Error(
+                                "HTTP error! status: ".concat(n.status)
+                              );
+                            case 11:
+                              return (e.next = 13), n.json();
+                            case 13:
+                              (a = e.sent),
+                                (i = a.data || {}),
+                                o(i.blogs || []),
+                                (e.next = 21);
+                              break;
+                            case 18:
+                              (e.prev = 18),
+                                (e.t0 = e.catch(4)),
+                                console.error(
+                                  "Failed to fetch featured blogs:",
+                                  e.t0
+                                );
+                            case 21:
+                              return (e.prev = 21), s(!1), e.finish(21);
+                            case 24:
+                            case "end":
+                              return e.stop();
+                          }
+                      },
+                      e,
+                      null,
+                      [[4, 18, 21, 24]]
+                    );
+                  })),
+                  function () {
+                    var n = this,
+                      r = arguments;
+                    return new Promise(function (t, a) {
+                      var i = e.apply(n, r);
+                      function o(e) {
+                        B(i, t, a, o, l, "next", e);
+                      }
+                      function l(e) {
+                        B(i, t, a, o, l, "throw", e);
+                      }
+                      o(void 0);
+                    });
+                  });
+              return function () {
+                return n.apply(this, arguments);
+              };
+            })();
+            e();
+          },
+          [r, t]
+        ),
+          (0, w.useEffect)(
+            function () {
+              return (
+                !f &&
+                  i.length > 1 &&
+                  (b.current = setInterval(function () {
+                    u(function (e) {
+                      return (e + 1) % i.length;
+                    });
+                  }, 5e3)),
+                function () {
+                  b.current && clearInterval(b.current);
+                }
+              );
+            },
+            [f, i.length]
+          );
+        var y = function () {
+            u((g + 1) % i.length);
+          },
+          E = function () {
+            u((g - 1 + i.length) % i.length);
+          };
+        return d
+          ? x().createElement(
+              "div",
+              {
+                className: "irada-widget ir-irada-featured-carousel",
+                "data-theme": n,
+              },
+              x().createElement(
+                "div",
+                { className: "ir-carousel-container" },
+                x().createElement(
+                  "div",
+                  { className: "ir-carousel-container" },
+                  x().createElement(
+                    "div",
+                    { className: "ir-loading-skeleton" },
+                    x().createElement("div", {
+                      className: "ir-skeleton-card",
+                      style: { height: "400px" },
+                    })
+                  )
+                )
+              )
+            )
+          : i && 0 !== i.length
+          ? x().createElement(
+              "div",
+              {
+                className: "irada-widget ir-irada-featured-carousel",
+                "data-theme": n,
+              },
+              x().createElement(
+                "div",
+                { className: "ir-carousel-container" },
+                x().createElement(
+                  "div",
+                  {
+                    className: "ir-carousel",
+                    onTouchStart: function (e) {
+                      p(!0), (h.current = e.touches[0].clientX);
+                    },
+                    onTouchMove: function (e) {
+                      v.current = e.touches[0].clientX;
+                    },
+                    onTouchEnd: function () {
+                      var e = h.current - v.current;
+                      e > 60 ? y() : e < -60 && E(), p(!1);
+                    },
+                    onMouseEnter: function () {
+                      p(!0), b.current && clearInterval(b.current);
+                    },
+                    onMouseLeave: function () {
+                      p(!1);
+                    },
+                  },
+                  x().createElement(
+                    "div",
+                    {
+                      className: "ir-carousel-inner",
+                      style: {
+                        transform: "translateX(-".concat(100 * g, "%)"),
+                      },
+                    },
+                    i.map(function (e, n) {
+                      return x().createElement(
+                        "div",
+                        { className: "ir-carousel-item", key: e._id || n },
+                        x().createElement(G, { blog: e })
+                      );
+                    })
+                  ),
+                  i.length > 1 &&
+                    x().createElement(
+                      "div",
+                      { className: "ir-carousel-controls" },
+                      x().createElement(
+                        "button",
+                        { className: "ir-carousel-control prev", onClick: E },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "20",
+                            height: "20",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            strokeWidth: "2",
+                          },
+                          x().createElement("polyline", {
+                            points: "15,18 9,12 15,6",
+                          })
+                        )
+                      ),
+                      x().createElement(
+                        "button",
+                        { className: "ir-carousel-control next", onClick: y },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "20",
+                            height: "20",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            strokeWidth: "2",
+                          },
+                          x().createElement("polyline", {
+                            points: "9,18 15,12 9,6",
+                          })
+                        )
+                      )
+                    )
+                ),
+                i.length > 1 &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-carousel-pagination" },
+                    i.map(function (e, n) {
+                      return x().createElement("button", {
+                        key: n,
+                        className: "ir-carousel-dot ".concat(
+                          n === g ? "active" : ""
+                        ),
+                        onClick: function () {
+                          return (function (e) {
+                            u(e);
+                          })(n);
+                        },
+                        "aria-label": "Go to slide ".concat(n + 1),
+                      });
+                    })
+                  )
+              )
+            )
+          : x().createElement(
+              "div",
+              {
+                className: "irada-widget ir-irada-featured-carousel",
+                "data-theme": n,
+              },
+              x().createElement(
+                "div",
+                { className: "ir-carousel-container" },
+                x().createElement(
+                  "div",
+                  { className: "ir-carousel-container" },
+                  x().createElement(
+                    "div",
+                    { style: { padding: "2rem", textAlign: "center" } },
+                    x().createElement("p", null, "No featured blogs available.")
+                  )
+                )
+              )
+            );
+      },
+      D = function (e) {
+        return (
+          e.theme,
+          x().createElement(
+            "div",
+            {
+              className: "ir-loader-div",
+              style: { width: "100%", height: "100vh" },
+            },
+            x().createElement(
+              "div",
+              { style: { textAlign: "center" } },
+              x().createElement(
+                "div",
+                { className: "ir-dot-spinner" },
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" }),
+                x().createElement("div", { className: "ir-dot-spinner__dot" })
+              ),
+              x().createElement(
+                "p",
+                {
+                  style: {
+                    marginTop: "1rem",
+                    color: "var(--irada-text)",
+                    fontSize: "1rem",
+                    fontFamily: "var(--irada-font-family)",
+                    opacity: 0.8,
+                  },
+                },
+                "Loading..."
+              )
+            )
+          )
+        );
+      };
+    function W(e, n) {
+      (null == n || n > e.length) && (n = e.length);
+      for (var r = 0, t = Array(n); r < n; r++) t[r] = e[r];
+      return t;
+    }
+    var H = function (e, n) {
+        return e
+          ? (null == e ? void 0 : e.length) > n
+            ? e.substr(0, n - 1) + "..."
+            : e
+          : "";
+      },
+      U = function (e) {
+        return e >= 1e6
+          ? "".concat((e / 1e6).toFixed(1), "M")
+          : e >= 1e3
+          ? "".concat((e / 1e3).toFixed(1), "K")
+          : e.toString();
+      };
+    const q = function (e) {
+      var n,
+        r,
+        t,
+        a,
+        i,
+        o,
+        l,
+        d = e.blog,
+        s = e.theme,
+        c =
+          ((o = (0, w.useState)(!0)),
+          (l = 2),
+          (function (e) {
+            if (Array.isArray(e)) return e;
+          })(o) ||
+            (function (e, n) {
+              var r =
+                null == e
+                  ? null
+                  : ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                    e["@@iterator"];
+              if (null != r) {
+                var t,
+                  a,
+                  i,
+                  o,
+                  l = [],
+                  d = !0,
+                  s = !1;
+                try {
+                  if (((i = (r = r.call(e)).next), 0 === n)) {
+                    if (Object(r) !== r) return;
+                    d = !1;
+                  } else
+                    for (
+                      ;
+                      !(d = (t = i.call(r)).done) &&
+                      (l.push(t.value), l.length !== n);
+                      d = !0
+                    );
+                } catch (e) {
+                  (s = !0), (a = e);
+                } finally {
+                  try {
+                    if (
+                      !d &&
+                      null != r.return &&
+                      ((o = r.return()), Object(o) !== o)
+                    )
+                      return;
+                  } finally {
+                    if (s) throw a;
+                  }
+                }
+                return l;
+              }
+            })(o, l) ||
+            (function (e, n) {
+              if (e) {
+                if ("string" == typeof e) return W(e, n);
+                var r = {}.toString.call(e).slice(8, -1);
+                return (
+                  "Object" === r && e.constructor && (r = e.constructor.name),
+                  "Map" === r || "Set" === r
+                    ? Array.from(e)
+                    : "Arguments" === r ||
+                      /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+                    ? W(e, n)
+                    : void 0
+                );
+              }
+            })(o, l) ||
+            (function () {
+              throw new TypeError(
+                "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+              );
+            })()),
+        g = c[0],
+        u = c[1],
+        m = (0, O.useLocation)();
+      return x().createElement(
+        O.Link,
+        {
+          to:
+            ((i = m.pathname),
+            i.endsWith("/blogs")
+              ? "".concat(i, "/blog/").concat(null == d ? void 0 : d.slug)
+              : "/blog/".concat(null == d ? void 0 : d.slug)),
+          key: d._id,
+          className: "ir-recommended-blog",
+        },
+        g && x().createElement(A, { width: "100%", height: "200px", theme: s }),
+        x().createElement("img", {
+          onLoad: function () {
+            u(!1);
+          },
+          style: { display: g ? "none" : "block" },
+          src: null == d ? void 0 : d.banner,
+          alt: (null == d ? void 0 : d.title) || "Blog image",
+        }),
+        x().createElement(
+          "div",
+          { className: "ir-blog-text" },
+          x().createElement(
+            "div",
+            { className: "ir-blog-header" },
+            x().createElement(
+              "span",
+              { className: "ir-blog-category" },
+              null == d ? void 0 : d.category
+            )
+          ),
+          x().createElement(
+            "h3",
+            { className: "ir-blog-title" },
+            H(d.title, 60)
+          ),
+          x().createElement("p", null, H(d.meta, 100)),
+          (null == d ? void 0 : d.tags) &&
+            d.tags.length > 0 &&
+            x().createElement(
+              "div",
+              { className: "ir-blog-tags" },
+              d.tags.slice(0, 3).map(function (e, n) {
+                return x().createElement(
+                  "span",
+                  { key: n, className: "ir-blog-tag" },
+                  e
+                );
+              }),
+              d.tags.length > 3 &&
+                x().createElement(
+                  "span",
+                  { className: "ir-blog-tag-more" },
+                  "+",
+                  d.tags.length - 3
+                )
+            )
+        ),
+        x().createElement(
+          "div",
+          { className: "ir-details" },
+          x().createElement(
+            "div",
+            { className: "ir-blog-stats" },
+            x().createElement(
+              "span",
+              { className: "ir-stat-item" },
+              x().createElement(
+                "svg",
+                {
+                  width: "14",
+                  height: "14",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                },
+                x().createElement("path", {
+                  d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
+                }),
+                x().createElement("circle", { cx: "12", cy: "12", r: "3" })
+              ),
+              U((null == d ? void 0 : d.viewsCount) || 0)
+            ),
+            x().createElement(
+              "span",
+              { className: "ir-stat-item" },
+              x().createElement(
+                "svg",
+                {
+                  width: "14",
+                  height: "14",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "2",
+                },
+                x().createElement("path", {
+                  d: "M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z",
+                })
+              ),
+              U((null == d ? void 0 : d.likesCount) || 0)
+            )
+          ),
+          x().createElement(
+            "span",
+            { className: "ir-blog-date" },
+            ((n =
+              (null == d ? void 0 : d.updatedAt) ||
+              (null == d ? void 0 : d.publishedAt)),
+            (r = new Date(n)),
+            (t = new Date()),
+            (a = Math.floor((t - r) / 1e3)) < 60
+              ? "Just now"
+              : a < 3600
+              ? "".concat(Math.floor(a / 60), "m ago")
+              : a < 86400
+              ? "".concat(Math.floor(a / 3600), "h ago")
+              : a < 2592e3
+              ? "".concat(Math.floor(a / 86400), "d ago")
+              : a < 31536e3
+              ? "".concat(Math.floor(a / 2592e3), "mo ago")
+              : "".concat(Math.floor(a / 31536e3), "y ago"))
+          )
+        )
+      );
+    };
+    function Y(e) {
+      return (
+        (Y =
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+                return typeof e;
+              }
+            : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+        Y(e)
+      );
+    }
+    function K() {
+      K = function () {
+        return n;
+      };
+      var e,
+        n = {},
+        r = Object.prototype,
+        t = r.hasOwnProperty,
+        a =
+          Object.defineProperty ||
+          function (e, n, r) {
+            e[n] = r.value;
+          },
+        i = "function" == typeof Symbol ? Symbol : {},
+        o = i.iterator || "@@iterator",
+        l = i.asyncIterator || "@@asyncIterator",
+        d = i.toStringTag || "@@toStringTag";
+      function s(e, n, r) {
+        return (
+          Object.defineProperty(e, n, {
+            value: r,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          }),
+          e[n]
+        );
+      }
+      try {
+        s({}, "");
+      } catch (e) {
+        s = function (e, n, r) {
+          return (e[n] = r);
+        };
+      }
+      function c(e, n, r, t) {
+        var i = n && n.prototype instanceof v ? n : v,
+          o = Object.create(i.prototype),
+          l = new C(t || []);
+        return a(o, "_invoke", { value: S(e, r, l) }), o;
+      }
+      function g(e, n, r) {
+        try {
+          return { type: "normal", arg: e.call(n, r) };
+        } catch (e) {
+          return { type: "throw", arg: e };
+        }
+      }
+      n.wrap = c;
+      var u = "suspendedStart",
+        m = "suspendedYield",
+        f = "executing",
+        p = "completed",
+        h = {};
+      function v() {}
+      function b() {}
+      function y() {}
+      var w = {};
+      s(w, o, function () {
+        return this;
+      });
+      var x = Object.getPrototypeOf,
+        E = x && x(x(O([])));
+      E && E !== r && t.call(E, o) && (w = E);
+      var k = (y.prototype = v.prototype = Object.create(w));
+      function N(e) {
+        ["next", "throw", "return"].forEach(function (n) {
+          s(e, n, function (e) {
+            return this._invoke(n, e);
+          });
+        });
+      }
+      function z(e, n) {
+        function r(a, i, o, l) {
+          var d = g(e[a], e, i);
+          if ("throw" !== d.type) {
+            var s = d.arg,
+              c = s.value;
+            return c && "object" == Y(c) && t.call(c, "__await")
+              ? n.resolve(c.__await).then(
+                  function (e) {
+                    r("next", e, o, l);
+                  },
+                  function (e) {
+                    r("throw", e, o, l);
+                  }
+                )
+              : n.resolve(c).then(
+                  function (e) {
+                    (s.value = e), o(s);
+                  },
+                  function (e) {
+                    return r("throw", e, o, l);
+                  }
+                );
+          }
+          l(d.arg);
+        }
+        var i;
+        a(this, "_invoke", {
+          value: function (e, t) {
+            function a() {
+              return new n(function (n, a) {
+                r(e, t, n, a);
+              });
+            }
+            return (i = i ? i.then(a, a) : a());
+          },
+        });
+      }
+      function S(n, r, t) {
+        var a = u;
+        return function (i, o) {
+          if (a === f) throw Error("Generator is already running");
+          if (a === p) {
+            if ("throw" === i) throw o;
+            return { value: e, done: !0 };
+          }
+          for (t.method = i, t.arg = o; ; ) {
+            var l = t.delegate;
+            if (l) {
+              var d = L(l, t);
+              if (d) {
+                if (d === h) continue;
+                return d;
+              }
+            }
+            if ("next" === t.method) t.sent = t._sent = t.arg;
+            else if ("throw" === t.method) {
+              if (a === u) throw ((a = p), t.arg);
+              t.dispatchException(t.arg);
+            } else "return" === t.method && t.abrupt("return", t.arg);
+            a = f;
+            var s = g(n, r, t);
+            if ("normal" === s.type) {
+              if (((a = t.done ? p : m), s.arg === h)) continue;
+              return { value: s.arg, done: t.done };
+            }
+            "throw" === s.type &&
+              ((a = p), (t.method = "throw"), (t.arg = s.arg));
+          }
+        };
+      }
+      function L(n, r) {
+        var t = r.method,
+          a = n.iterator[t];
+        if (a === e)
+          return (
+            (r.delegate = null),
+            ("throw" === t &&
+              n.iterator.return &&
+              ((r.method = "return"),
+              (r.arg = e),
+              L(n, r),
+              "throw" === r.method)) ||
+              ("return" !== t &&
+                ((r.method = "throw"),
+                (r.arg = new TypeError(
+                  "The iterator does not provide a '" + t + "' method"
+                )))),
+            h
+          );
+        var i = g(a, n.iterator, r.arg);
+        if ("throw" === i.type)
+          return (r.method = "throw"), (r.arg = i.arg), (r.delegate = null), h;
+        var o = i.arg;
+        return o
+          ? o.done
+            ? ((r[n.resultName] = o.value),
+              (r.next = n.nextLoc),
+              "return" !== r.method && ((r.method = "next"), (r.arg = e)),
+              (r.delegate = null),
+              h)
+            : o
+          : ((r.method = "throw"),
+            (r.arg = new TypeError("iterator result is not an object")),
+            (r.delegate = null),
+            h);
+      }
+      function j(e) {
+        var n = { tryLoc: e[0] };
+        1 in e && (n.catchLoc = e[1]),
+          2 in e && ((n.finallyLoc = e[2]), (n.afterLoc = e[3])),
+          this.tryEntries.push(n);
+      }
+      function _(e) {
+        var n = e.completion || {};
+        (n.type = "normal"), delete n.arg, (e.completion = n);
+      }
+      function C(e) {
+        (this.tryEntries = [{ tryLoc: "root" }]),
+          e.forEach(j, this),
+          this.reset(!0);
+      }
+      function O(n) {
+        if (n || "" === n) {
+          var r = n[o];
+          if (r) return r.call(n);
+          if ("function" == typeof n.next) return n;
+          if (!isNaN(n.length)) {
+            var a = -1,
+              i = function r() {
+                for (; ++a < n.length; )
+                  if (t.call(n, a)) return (r.value = n[a]), (r.done = !1), r;
+                return (r.value = e), (r.done = !0), r;
+              };
+            return (i.next = i);
+          }
+        }
+        throw new TypeError(Y(n) + " is not iterable");
+      }
+      return (
+        (b.prototype = y),
+        a(k, "constructor", { value: y, configurable: !0 }),
+        a(y, "constructor", { value: b, configurable: !0 }),
+        (b.displayName = s(y, d, "GeneratorFunction")),
+        (n.isGeneratorFunction = function (e) {
+          var n = "function" == typeof e && e.constructor;
+          return (
+            !!n &&
+            (n === b || "GeneratorFunction" === (n.displayName || n.name))
+          );
+        }),
+        (n.mark = function (e) {
+          return (
+            Object.setPrototypeOf
+              ? Object.setPrototypeOf(e, y)
+              : ((e.__proto__ = y), s(e, d, "GeneratorFunction")),
+            (e.prototype = Object.create(k)),
+            e
+          );
+        }),
+        (n.awrap = function (e) {
+          return { __await: e };
+        }),
+        N(z.prototype),
+        s(z.prototype, l, function () {
+          return this;
+        }),
+        (n.AsyncIterator = z),
+        (n.async = function (e, r, t, a, i) {
+          void 0 === i && (i = Promise);
+          var o = new z(c(e, r, t, a), i);
+          return n.isGeneratorFunction(r)
+            ? o
+            : o.next().then(function (e) {
+                return e.done ? e.value : o.next();
+              });
+        }),
+        N(k),
+        s(k, d, "Generator"),
+        s(k, o, function () {
+          return this;
+        }),
+        s(k, "toString", function () {
+          return "[object Generator]";
+        }),
+        (n.keys = function (e) {
+          var n = Object(e),
+            r = [];
+          for (var t in n) r.push(t);
+          return (
+            r.reverse(),
+            function e() {
+              for (; r.length; ) {
+                var t = r.pop();
+                if (t in n) return (e.value = t), (e.done = !1), e;
+              }
+              return (e.done = !0), e;
+            }
+          );
+        }),
+        (n.values = O),
+        (C.prototype = {
+          constructor: C,
+          reset: function (n) {
+            if (
+              ((this.prev = 0),
+              (this.next = 0),
+              (this.sent = this._sent = e),
+              (this.done = !1),
+              (this.delegate = null),
+              (this.method = "next"),
+              (this.arg = e),
+              this.tryEntries.forEach(_),
+              !n)
+            )
+              for (var r in this)
+                "t" === r.charAt(0) &&
+                  t.call(this, r) &&
+                  !isNaN(+r.slice(1)) &&
+                  (this[r] = e);
+          },
+          stop: function () {
+            this.done = !0;
+            var e = this.tryEntries[0].completion;
+            if ("throw" === e.type) throw e.arg;
+            return this.rval;
+          },
+          dispatchException: function (n) {
+            if (this.done) throw n;
+            var r = this;
+            function a(t, a) {
+              return (
+                (l.type = "throw"),
+                (l.arg = n),
+                (r.next = t),
+                a && ((r.method = "next"), (r.arg = e)),
+                !!a
+              );
+            }
+            for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+              var o = this.tryEntries[i],
+                l = o.completion;
+              if ("root" === o.tryLoc) return a("end");
+              if (o.tryLoc <= this.prev) {
+                var d = t.call(o, "catchLoc"),
+                  s = t.call(o, "finallyLoc");
+                if (d && s) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                } else if (d) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                } else {
+                  if (!s) throw Error("try statement without catch or finally");
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                }
+              }
+            }
+          },
+          abrupt: function (e, n) {
+            for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+              var a = this.tryEntries[r];
+              if (
+                a.tryLoc <= this.prev &&
+                t.call(a, "finallyLoc") &&
+                this.prev < a.finallyLoc
+              ) {
+                var i = a;
+                break;
+              }
+            }
+            i &&
+              ("break" === e || "continue" === e) &&
+              i.tryLoc <= n &&
+              n <= i.finallyLoc &&
+              (i = null);
+            var o = i ? i.completion : {};
+            return (
+              (o.type = e),
+              (o.arg = n),
+              i
+                ? ((this.method = "next"), (this.next = i.finallyLoc), h)
+                : this.complete(o)
+            );
+          },
+          complete: function (e, n) {
+            if ("throw" === e.type) throw e.arg;
+            return (
+              "break" === e.type || "continue" === e.type
+                ? (this.next = e.arg)
+                : "return" === e.type
+                ? ((this.rval = this.arg = e.arg),
+                  (this.method = "return"),
+                  (this.next = "end"))
+                : "normal" === e.type && n && (this.next = n),
+              h
+            );
+          },
+          finish: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.finallyLoc === e)
+                return this.complete(r.completion, r.afterLoc), _(r), h;
+            }
+          },
+          catch: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.tryLoc === e) {
+                var t = r.completion;
+                if ("throw" === t.type) {
+                  var a = t.arg;
+                  _(r);
+                }
+                return a;
+              }
+            }
+            throw Error("illegal catch attempt");
+          },
+          delegateYield: function (n, r, t) {
+            return (
+              (this.delegate = { iterator: O(n), resultName: r, nextLoc: t }),
+              "next" === this.method && (this.arg = e),
+              h
+            );
+          },
+        }),
+        n
+      );
+    }
+    function V(e) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return Z(e);
+        })(e) ||
+        (function (e) {
+          if (
+            ("undefined" != typeof Symbol && null != e[Symbol.iterator]) ||
+            null != e["@@iterator"]
+          )
+            return Array.from(e);
+        })(e) ||
+        X(e) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function $(e, n, r, t, a, i, o) {
+      try {
+        var l = e[i](o),
+          d = l.value;
+      } catch (e) {
+        return void r(e);
+      }
+      l.done ? n(d) : Promise.resolve(d).then(t, a);
+    }
+    function J(e, n) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return e;
+        })(e) ||
+        (function (e, n) {
+          var r =
+            null == e
+              ? null
+              : ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                e["@@iterator"];
+          if (null != r) {
+            var t,
+              a,
+              i,
+              o,
+              l = [],
+              d = !0,
+              s = !1;
+            try {
+              if (((i = (r = r.call(e)).next), 0 === n)) {
+                if (Object(r) !== r) return;
+                d = !1;
+              } else
+                for (
+                  ;
+                  !(d = (t = i.call(r)).done) &&
+                  (l.push(t.value), l.length !== n);
+                  d = !0
+                );
+            } catch (e) {
+              (s = !0), (a = e);
+            } finally {
+              try {
+                if (
+                  !d &&
+                  null != r.return &&
+                  ((o = r.return()), Object(o) !== o)
+                )
+                  return;
+              } finally {
+                if (s) throw a;
+              }
+            }
+            return l;
+          }
+        })(e, n) ||
+        X(e, n) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function X(e, n) {
+      if (e) {
+        if ("string" == typeof e) return Z(e, n);
+        var r = {}.toString.call(e).slice(8, -1);
+        return (
+          "Object" === r && e.constructor && (r = e.constructor.name),
+          "Map" === r || "Set" === r
+            ? Array.from(e)
+            : "Arguments" === r ||
+              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+            ? Z(e, n)
+            : void 0
+        );
+      }
+    }
+    function Z(e, n) {
+      (null == n || n > e.length) && (n = e.length);
+      for (var r = 0, t = Array(n); r < n; r++) t[r] = e[r];
+      return t;
+    }
+    const Q = function (e) {
+      var n = e.apiKey,
+        r = e.theme,
+        t = e.heading,
+        a = void 0 === t ? "Discover Our Blog" : t,
+        i = e.subheading,
+        o =
+          void 0 === i
+            ? "Explore insights, tutorials, and stories from our community"
+            : i,
+        l = e.homeRoute,
+        d = void 0 === l ? "/" : l,
+        s = J((0, w.useState)(!0), 2),
+        c = s[0],
+        g = s[1],
+        u = J((0, w.useState)(!1), 2),
+        m = u[0],
+        f = u[1],
+        p = J((0, w.useState)([]), 2),
+        h = p[0],
+        v = p[1],
+        b = J((0, w.useState)(null), 2),
+        y = b[0],
+        E = b[1],
+        k = J((0, w.useState)(""), 2),
+        N = k[0],
+        z = k[1],
+        S = J(
+          (0, w.useState)({
+            currentPage: 1,
+            totalPages: 1,
+            totalBlogs: 0,
+            limit: 10,
+            hasNextPage: !1,
+            hasPrevPage: !1,
+          }),
+          2
+        ),
+        L = S[0],
+        j = S[1],
+        _ = (0, w.useRef)(),
+        C =
+          ((0, w.useRef)(),
+          (function () {
+            var e,
+              r =
+                ((e = K().mark(function e() {
+                  var r,
+                    t,
+                    a,
+                    i,
+                    o,
+                    l = arguments;
+                  return K().wrap(
+                    function (e) {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            if (
+                              ((r = l.length > 0 && void 0 !== l[0] ? l[0] : 1),
+                              (t = l.length > 1 && void 0 !== l[1] && l[1]),
+                              n)
+                            ) {
+                              e.next = 6;
+                              break;
+                            }
+                            return (
+                              console.error(
+                                "API key is required to fetch blogs"
+                              ),
+                              g(!1),
+                              e.abrupt("return")
+                            );
+                          case 6:
+                            return (
+                              (e.prev = 6),
+                              1 === r ? g(!0) : f(!0),
+                              (e.next = 11),
+                              fetch(
+                                ""
+                                  .concat(
+                                    "https://iradaapi.sohaibaftab.dev",
+                                    "/api/token/blogs?page="
+                                  )
+                                  .concat(r),
+                                {
+                                  method: "GET",
+                                  headers: {
+                                    "x-api-key": n,
+                                    "Content-Type": "application/json",
+                                  },
+                                }
+                              )
+                            );
+                          case 11:
+                            if ((a = e.sent).ok) {
+                              e.next = 14;
+                              break;
+                            }
+                            throw new Error(
+                              "HTTP error! status: ".concat(a.status)
+                            );
+                          case 14:
+                            return (e.next = 16), a.json();
+                          case 16:
+                            (i = e.sent),
+                              (o = i.data || {}),
+                              v(
+                                t
+                                  ? function (e) {
+                                      return [].concat(V(e), V(o.blogs || []));
+                                    }
+                                  : o.blogs || []
+                              ),
+                              j(
+                                o.pagination || {
+                                  currentPage: 1,
+                                  totalPages: 1,
+                                  totalBlogs: 0,
+                                  limit: 10,
+                                  hasNextPage: !1,
+                                  hasPrevPage: !1,
+                                }
+                              ),
+                              E(null),
+                              (e.next = 27);
+                            break;
+                          case 23:
+                            (e.prev = 23),
+                              (e.t0 = e.catch(6)),
+                              console.error("Failed to fetch blogs:", e.t0),
+                              E(
+                                "Failed to load blogs. Please try again later."
+                              );
+                          case 27:
+                            return (e.prev = 27), g(!1), f(!1), e.finish(27);
+                          case 31:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[6, 23, 27, 31]]
+                  );
+                })),
+                function () {
+                  var n = this,
+                    r = arguments;
+                  return new Promise(function (t, a) {
+                    var i = e.apply(n, r);
+                    function o(e) {
+                      $(i, t, a, o, l, "next", e);
+                    }
+                    function l(e) {
+                      $(i, t, a, o, l, "throw", e);
+                    }
+                    o(void 0);
+                  });
+                });
+            return function () {
+              return r.apply(this, arguments);
+            };
+          })()),
+        A = (0, w.useCallback)(
+          function (e) {
+            c ||
+              m ||
+              (_.current && _.current.disconnect(),
+              (_.current = new IntersectionObserver(
+                function (e) {
+                  e[0].isIntersecting &&
+                    L.hasNextPage &&
+                    C(L.currentPage + 1, !0);
+                },
+                { rootMargin: "100px" }
+              )),
+              e && _.current.observe(e));
+          },
+          [c, m, L.hasNextPage, L.currentPage]
+        );
+      (0, w.useEffect)(
+        function () {
+          return (
+            n && C(1, !1),
+            function () {
+              _.current && _.current.disconnect();
+            }
+          );
+        },
+        [n]
+      );
+      var P = h.filter(function (e) {
+        return (
+          e.title.toLowerCase().includes(N.toLowerCase()) ||
+          e.meta.toLowerCase().includes(N.toLowerCase()) ||
+          e.category.toLowerCase().includes(N.toLowerCase()) ||
+          (e.tags &&
+            e.tags.some(function (e) {
+              return e.toLowerCase().includes(N.toLowerCase());
+            }))
+        );
+      });
+      return c
+        ? x().createElement(
+            "div",
+            { className: "irada-widget irada-blogs-page", "data-theme": r },
+            x().createElement(D, { theme: r })
+          )
+        : y
+        ? x().createElement(
+            "div",
+            {
+              style: {
+                padding: "var(--irada-spacing-xl)",
+                textAlign: "center",
+                color: "var(--irada-text)",
+              },
+            },
+            x().createElement("p", null, y)
+          )
+        : x().createElement(
+            "div",
+            { className: "irada-widget irada-blogs-page", "data-theme": r },
+            x().createElement(
+              "div",
+              { id: "blogs" },
+              x().createElement(
+                "div",
+                { className: "ir-recommended-blogs" },
+                d &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-back-to-home-container" },
+                    x().createElement(
+                      O.Link,
+                      { to: d, className: "ir-back-to-home-link" },
+                      x().createElement(
+                        "svg",
+                        {
+                          width: "16",
+                          height: "16",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          strokeWidth: "2",
+                        },
+                        x().createElement("line", {
+                          x1: "19",
+                          y1: "12",
+                          x2: "5",
+                          y2: "12",
+                        }),
+                        x().createElement("polyline", {
+                          points: "12,19 5,12 12,5",
+                        })
+                      ),
+                      "Back to Home"
+                    )
+                  ),
+                x().createElement(
+                  "div",
+                  { className: "ir-blogs-header" },
+                  x().createElement(
+                    "div",
+                    { className: "ir-blogs-header-content" },
+                    x().createElement(
+                      "div",
+                      { className: "ir-blogs-title-section" },
+                      x().createElement(
+                        "h1",
+                        { className: "ir-blogs-main-title" },
+                        a
+                      ),
+                      x().createElement(
+                        "p",
+                        { className: "ir-blogs-subtitle" },
+                        o
+                      ),
+                      x().createElement(
+                        "div",
+                        { className: "ir-blogs-stats" },
+                        x().createElement(
+                          "span",
+                          { className: "ir-stat-item" },
+                          x().createElement("strong", null, L.totalBlogs),
+                          " articles"
+                        ),
+                        x().createElement(
+                          "span",
+                          { className: "ir-stat-divider" },
+                          "•"
+                        ),
+                        x().createElement(
+                          "span",
+                          { className: "ir-stat-item" },
+                          x().createElement("strong", null, L.totalPages),
+                          " pages"
+                        )
+                      )
+                    ),
+                    x().createElement(
+                      "div",
+                      { className: "ir-blogs-controls" },
+                      x().createElement(
+                        "div",
+                        { className: "ir-search-container" },
+                        x().createElement(
+                          "div",
+                          { className: "ir-search-input-wrapper" },
+                          x().createElement(
+                            "svg",
+                            {
+                              className: "ir-search-icon",
+                              width: "16",
+                              height: "16",
+                              viewBox: "0 0 24 24",
+                              fill: "none",
+                              stroke: "currentColor",
+                              strokeWidth: "2",
+                            },
+                            x().createElement("circle", {
+                              cx: "11",
+                              cy: "11",
+                              r: "8",
+                            }),
+                            x().createElement("path", { d: "m21 21-4.35-4.35" })
+                          ),
+                          x().createElement("input", {
+                            type: "text",
+                            placeholder:
+                              "Search articles, tags, or categories...",
+                            value: N,
+                            onChange: function (e) {
+                              return z(e.target.value);
+                            },
+                            className: "ir-search-input",
+                          }),
+                          N &&
+                            x().createElement(
+                              "button",
+                              {
+                                onClick: function () {
+                                  return z("");
+                                },
+                                className: "ir-clear-search",
+                              },
+                              x().createElement(
+                                "svg",
+                                {
+                                  width: "14",
+                                  height: "14",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  strokeWidth: "2",
+                                },
+                                x().createElement("line", {
+                                  x1: "18",
+                                  y1: "6",
+                                  x2: "6",
+                                  y2: "18",
+                                }),
+                                x().createElement("line", {
+                                  x1: "6",
+                                  y1: "6",
+                                  x2: "18",
+                                  y2: "18",
+                                })
+                              )
+                            )
+                        )
+                      )
+                    )
+                  )
+                ),
+                N &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-search-results-info" },
+                    x().createElement(
+                      "p",
+                      null,
+                      "Showing ",
+                      P.length,
+                      " of ",
+                      h.length,
+                      ' results for "',
+                      N,
+                      '"'
+                    )
+                  ),
+                x().createElement(
+                  "div",
+                  { className: "ir-recommended-blogs-list" },
+                  P.map(function (e, n) {
+                    var t = n === P.length - 1;
+                    return x().createElement(
+                      "div",
+                      { key: e._id, ref: t ? A : null },
+                      x().createElement(q, { theme: r, blog: e })
+                    );
+                  })
+                ),
+                m &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-loading-more" },
+                    x().createElement(
+                      "div",
+                      { className: "ir-dot-spinner" },
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-dot-spinner__dot",
+                      })
+                    )
+                  ),
+                !L.hasNextPage &&
+                  P.length > 0 &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-end-message" },
+                    x().createElement(
+                      "p",
+                      null,
+                      "You've reached the end of all blogs"
+                    )
+                  ),
+                0 === P.length &&
+                  !c &&
+                  x().createElement(
+                    "div",
+                    { className: "ir-no-results" },
+                    x().createElement(
+                      "div",
+                      { className: "ir-no-results-content" },
+                      x().createElement(
+                        "svg",
+                        {
+                          width: "48",
+                          height: "48",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          strokeWidth: "1.5",
+                        },
+                        x().createElement("circle", {
+                          cx: "11",
+                          cy: "11",
+                          r: "8",
+                        }),
+                        x().createElement("path", { d: "m21 21-4.35-4.35" })
+                      ),
+                      x().createElement("h3", null, "No results found"),
+                      x().createElement(
+                        "p",
+                        null,
+                        "Try adjusting your search terms"
+                      )
+                    )
+                  )
+              )
+            )
+          );
+    };
+    function ee(e) {
+      return (
+        (ee =
+          "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+            ? function (e) {
+                return typeof e;
+              }
+            : function (e) {
+                return e &&
+                  "function" == typeof Symbol &&
+                  e.constructor === Symbol &&
+                  e !== Symbol.prototype
+                  ? "symbol"
+                  : typeof e;
+              }),
+        ee(e)
+      );
+    }
+    function ne(e) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return le(e);
+        })(e) ||
+        (function (e) {
+          if (
+            ("undefined" != typeof Symbol && null != e[Symbol.iterator]) ||
+            null != e["@@iterator"]
+          )
+            return Array.from(e);
+        })(e) ||
+        oe(e) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function re() {
+      re = function () {
+        return n;
+      };
+      var e,
+        n = {},
+        r = Object.prototype,
+        t = r.hasOwnProperty,
+        a =
+          Object.defineProperty ||
+          function (e, n, r) {
+            e[n] = r.value;
+          },
+        i = "function" == typeof Symbol ? Symbol : {},
+        o = i.iterator || "@@iterator",
+        l = i.asyncIterator || "@@asyncIterator",
+        d = i.toStringTag || "@@toStringTag";
+      function s(e, n, r) {
+        return (
+          Object.defineProperty(e, n, {
+            value: r,
+            enumerable: !0,
+            configurable: !0,
+            writable: !0,
+          }),
+          e[n]
+        );
+      }
+      try {
+        s({}, "");
+      } catch (e) {
+        s = function (e, n, r) {
+          return (e[n] = r);
+        };
+      }
+      function c(e, n, r, t) {
+        var i = n && n.prototype instanceof v ? n : v,
+          o = Object.create(i.prototype),
+          l = new C(t || []);
+        return a(o, "_invoke", { value: S(e, r, l) }), o;
+      }
+      function g(e, n, r) {
+        try {
+          return { type: "normal", arg: e.call(n, r) };
+        } catch (e) {
+          return { type: "throw", arg: e };
+        }
+      }
+      n.wrap = c;
+      var u = "suspendedStart",
+        m = "suspendedYield",
+        f = "executing",
+        p = "completed",
+        h = {};
+      function v() {}
+      function b() {}
+      function y() {}
+      var w = {};
+      s(w, o, function () {
+        return this;
+      });
+      var x = Object.getPrototypeOf,
+        E = x && x(x(O([])));
+      E && E !== r && t.call(E, o) && (w = E);
+      var k = (y.prototype = v.prototype = Object.create(w));
+      function N(e) {
+        ["next", "throw", "return"].forEach(function (n) {
+          s(e, n, function (e) {
+            return this._invoke(n, e);
+          });
+        });
+      }
+      function z(e, n) {
+        function r(a, i, o, l) {
+          var d = g(e[a], e, i);
+          if ("throw" !== d.type) {
+            var s = d.arg,
+              c = s.value;
+            return c && "object" == ee(c) && t.call(c, "__await")
+              ? n.resolve(c.__await).then(
+                  function (e) {
+                    r("next", e, o, l);
+                  },
+                  function (e) {
+                    r("throw", e, o, l);
+                  }
+                )
+              : n.resolve(c).then(
+                  function (e) {
+                    (s.value = e), o(s);
+                  },
+                  function (e) {
+                    return r("throw", e, o, l);
+                  }
+                );
+          }
+          l(d.arg);
+        }
+        var i;
+        a(this, "_invoke", {
+          value: function (e, t) {
+            function a() {
+              return new n(function (n, a) {
+                r(e, t, n, a);
+              });
+            }
+            return (i = i ? i.then(a, a) : a());
+          },
+        });
+      }
+      function S(n, r, t) {
+        var a = u;
+        return function (i, o) {
+          if (a === f) throw Error("Generator is already running");
+          if (a === p) {
+            if ("throw" === i) throw o;
+            return { value: e, done: !0 };
+          }
+          for (t.method = i, t.arg = o; ; ) {
+            var l = t.delegate;
+            if (l) {
+              var d = L(l, t);
+              if (d) {
+                if (d === h) continue;
+                return d;
+              }
+            }
+            if ("next" === t.method) t.sent = t._sent = t.arg;
+            else if ("throw" === t.method) {
+              if (a === u) throw ((a = p), t.arg);
+              t.dispatchException(t.arg);
+            } else "return" === t.method && t.abrupt("return", t.arg);
+            a = f;
+            var s = g(n, r, t);
+            if ("normal" === s.type) {
+              if (((a = t.done ? p : m), s.arg === h)) continue;
+              return { value: s.arg, done: t.done };
+            }
+            "throw" === s.type &&
+              ((a = p), (t.method = "throw"), (t.arg = s.arg));
+          }
+        };
+      }
+      function L(n, r) {
+        var t = r.method,
+          a = n.iterator[t];
+        if (a === e)
+          return (
+            (r.delegate = null),
+            ("throw" === t &&
+              n.iterator.return &&
+              ((r.method = "return"),
+              (r.arg = e),
+              L(n, r),
+              "throw" === r.method)) ||
+              ("return" !== t &&
+                ((r.method = "throw"),
+                (r.arg = new TypeError(
+                  "The iterator does not provide a '" + t + "' method"
+                )))),
+            h
+          );
+        var i = g(a, n.iterator, r.arg);
+        if ("throw" === i.type)
+          return (r.method = "throw"), (r.arg = i.arg), (r.delegate = null), h;
+        var o = i.arg;
+        return o
+          ? o.done
+            ? ((r[n.resultName] = o.value),
+              (r.next = n.nextLoc),
+              "return" !== r.method && ((r.method = "next"), (r.arg = e)),
+              (r.delegate = null),
+              h)
+            : o
+          : ((r.method = "throw"),
+            (r.arg = new TypeError("iterator result is not an object")),
+            (r.delegate = null),
+            h);
+      }
+      function j(e) {
+        var n = { tryLoc: e[0] };
+        1 in e && (n.catchLoc = e[1]),
+          2 in e && ((n.finallyLoc = e[2]), (n.afterLoc = e[3])),
+          this.tryEntries.push(n);
+      }
+      function _(e) {
+        var n = e.completion || {};
+        (n.type = "normal"), delete n.arg, (e.completion = n);
+      }
+      function C(e) {
+        (this.tryEntries = [{ tryLoc: "root" }]),
+          e.forEach(j, this),
+          this.reset(!0);
+      }
+      function O(n) {
+        if (n || "" === n) {
+          var r = n[o];
+          if (r) return r.call(n);
+          if ("function" == typeof n.next) return n;
+          if (!isNaN(n.length)) {
+            var a = -1,
+              i = function r() {
+                for (; ++a < n.length; )
+                  if (t.call(n, a)) return (r.value = n[a]), (r.done = !1), r;
+                return (r.value = e), (r.done = !0), r;
+              };
+            return (i.next = i);
+          }
+        }
+        throw new TypeError(ee(n) + " is not iterable");
+      }
+      return (
+        (b.prototype = y),
+        a(k, "constructor", { value: y, configurable: !0 }),
+        a(y, "constructor", { value: b, configurable: !0 }),
+        (b.displayName = s(y, d, "GeneratorFunction")),
+        (n.isGeneratorFunction = function (e) {
+          var n = "function" == typeof e && e.constructor;
+          return (
+            !!n &&
+            (n === b || "GeneratorFunction" === (n.displayName || n.name))
+          );
+        }),
+        (n.mark = function (e) {
+          return (
+            Object.setPrototypeOf
+              ? Object.setPrototypeOf(e, y)
+              : ((e.__proto__ = y), s(e, d, "GeneratorFunction")),
+            (e.prototype = Object.create(k)),
+            e
+          );
+        }),
+        (n.awrap = function (e) {
+          return { __await: e };
+        }),
+        N(z.prototype),
+        s(z.prototype, l, function () {
+          return this;
+        }),
+        (n.AsyncIterator = z),
+        (n.async = function (e, r, t, a, i) {
+          void 0 === i && (i = Promise);
+          var o = new z(c(e, r, t, a), i);
+          return n.isGeneratorFunction(r)
+            ? o
+            : o.next().then(function (e) {
+                return e.done ? e.value : o.next();
+              });
+        }),
+        N(k),
+        s(k, d, "Generator"),
+        s(k, o, function () {
+          return this;
+        }),
+        s(k, "toString", function () {
+          return "[object Generator]";
+        }),
+        (n.keys = function (e) {
+          var n = Object(e),
+            r = [];
+          for (var t in n) r.push(t);
+          return (
+            r.reverse(),
+            function e() {
+              for (; r.length; ) {
+                var t = r.pop();
+                if (t in n) return (e.value = t), (e.done = !1), e;
+              }
+              return (e.done = !0), e;
+            }
+          );
+        }),
+        (n.values = O),
+        (C.prototype = {
+          constructor: C,
+          reset: function (n) {
+            if (
+              ((this.prev = 0),
+              (this.next = 0),
+              (this.sent = this._sent = e),
+              (this.done = !1),
+              (this.delegate = null),
+              (this.method = "next"),
+              (this.arg = e),
+              this.tryEntries.forEach(_),
+              !n)
+            )
+              for (var r in this)
+                "t" === r.charAt(0) &&
+                  t.call(this, r) &&
+                  !isNaN(+r.slice(1)) &&
+                  (this[r] = e);
+          },
+          stop: function () {
+            this.done = !0;
+            var e = this.tryEntries[0].completion;
+            if ("throw" === e.type) throw e.arg;
+            return this.rval;
+          },
+          dispatchException: function (n) {
+            if (this.done) throw n;
+            var r = this;
+            function a(t, a) {
+              return (
+                (l.type = "throw"),
+                (l.arg = n),
+                (r.next = t),
+                a && ((r.method = "next"), (r.arg = e)),
+                !!a
+              );
+            }
+            for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+              var o = this.tryEntries[i],
+                l = o.completion;
+              if ("root" === o.tryLoc) return a("end");
+              if (o.tryLoc <= this.prev) {
+                var d = t.call(o, "catchLoc"),
+                  s = t.call(o, "finallyLoc");
+                if (d && s) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                } else if (d) {
+                  if (this.prev < o.catchLoc) return a(o.catchLoc, !0);
+                } else {
+                  if (!s) throw Error("try statement without catch or finally");
+                  if (this.prev < o.finallyLoc) return a(o.finallyLoc);
+                }
+              }
+            }
+          },
+          abrupt: function (e, n) {
+            for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+              var a = this.tryEntries[r];
+              if (
+                a.tryLoc <= this.prev &&
+                t.call(a, "finallyLoc") &&
+                this.prev < a.finallyLoc
+              ) {
+                var i = a;
+                break;
+              }
+            }
+            i &&
+              ("break" === e || "continue" === e) &&
+              i.tryLoc <= n &&
+              n <= i.finallyLoc &&
+              (i = null);
+            var o = i ? i.completion : {};
+            return (
+              (o.type = e),
+              (o.arg = n),
+              i
+                ? ((this.method = "next"), (this.next = i.finallyLoc), h)
+                : this.complete(o)
+            );
+          },
+          complete: function (e, n) {
+            if ("throw" === e.type) throw e.arg;
+            return (
+              "break" === e.type || "continue" === e.type
+                ? (this.next = e.arg)
+                : "return" === e.type
+                ? ((this.rval = this.arg = e.arg),
+                  (this.method = "return"),
+                  (this.next = "end"))
+                : "normal" === e.type && n && (this.next = n),
+              h
+            );
+          },
+          finish: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.finallyLoc === e)
+                return this.complete(r.completion, r.afterLoc), _(r), h;
+            }
+          },
+          catch: function (e) {
+            for (var n = this.tryEntries.length - 1; n >= 0; --n) {
+              var r = this.tryEntries[n];
+              if (r.tryLoc === e) {
+                var t = r.completion;
+                if ("throw" === t.type) {
+                  var a = t.arg;
+                  _(r);
+                }
+                return a;
+              }
+            }
+            throw Error("illegal catch attempt");
+          },
+          delegateYield: function (n, r, t) {
+            return (
+              (this.delegate = { iterator: O(n), resultName: r, nextLoc: t }),
+              "next" === this.method && (this.arg = e),
+              h
+            );
+          },
+        }),
+        n
+      );
+    }
+    function te(e, n, r, t, a, i, o) {
+      try {
+        var l = e[i](o),
+          d = l.value;
+      } catch (e) {
+        return void r(e);
+      }
+      l.done ? n(d) : Promise.resolve(d).then(t, a);
+    }
+    function ae(e) {
+      return function () {
+        var n = this,
+          r = arguments;
+        return new Promise(function (t, a) {
+          var i = e.apply(n, r);
+          function o(e) {
+            te(i, t, a, o, l, "next", e);
+          }
+          function l(e) {
+            te(i, t, a, o, l, "throw", e);
+          }
+          o(void 0);
+        });
+      };
+    }
+    function ie(e, n) {
+      return (
+        (function (e) {
+          if (Array.isArray(e)) return e;
+        })(e) ||
+        (function (e, n) {
+          var r =
+            null == e
+              ? null
+              : ("undefined" != typeof Symbol && e[Symbol.iterator]) ||
+                e["@@iterator"];
+          if (null != r) {
+            var t,
+              a,
+              i,
+              o,
+              l = [],
+              d = !0,
+              s = !1;
+            try {
+              if (((i = (r = r.call(e)).next), 0 === n)) {
+                if (Object(r) !== r) return;
+                d = !1;
+              } else
+                for (
+                  ;
+                  !(d = (t = i.call(r)).done) &&
+                  (l.push(t.value), l.length !== n);
+                  d = !0
+                );
+            } catch (e) {
+              (s = !0), (a = e);
+            } finally {
+              try {
+                if (
+                  !d &&
+                  null != r.return &&
+                  ((o = r.return()), Object(o) !== o)
+                )
+                  return;
+              } finally {
+                if (s) throw a;
+              }
+            }
+            return l;
+          }
+        })(e, n) ||
+        oe(e, n) ||
+        (function () {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })()
+      );
+    }
+    function oe(e, n) {
+      if (e) {
+        if ("string" == typeof e) return le(e, n);
+        var r = {}.toString.call(e).slice(8, -1);
+        return (
+          "Object" === r && e.constructor && (r = e.constructor.name),
+          "Map" === r || "Set" === r
+            ? Array.from(e)
+            : "Arguments" === r ||
+              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)
+            ? le(e, n)
+            : void 0
+        );
+      }
+    }
+    function le(e, n) {
+      (null == n || n > e.length) && (n = e.length);
+      for (var r = 0, t = Array(n); r < n; r++) t[r] = e[r];
+      return t;
+    }
+    var de = function (e) {
+        return e
+          ? new Date(e).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          : "";
+      },
+      se = function (e) {
+        return e
+          ? e >= 1e6
+            ? "".concat((e / 1e6).toFixed(1), "M")
+            : e >= 1e3
+            ? "".concat((e / 1e3).toFixed(1), "K")
+            : e.toString()
+          : "0";
+      },
+      ce = function (e) {
+        if (!e) return [];
+        var n = document.createElement("div");
+        n.innerHTML = e;
+        var r = n.querySelectorAll("h1, h2, h3, h4, h5, h6"),
+          t = [];
+        return (
+          r.forEach(function (e, n) {
+            var r = e.textContent.trim(),
+              a = e.tagName.toLowerCase(),
+              i = r
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, ""),
+              o = e.id || "heading-".concat(i, "-").concat(n);
+            t.push({
+              id: o,
+              text: r,
+              level: parseInt(e.tagName.charAt(1)),
+              tagName: a,
+            });
+          }),
+          t
+        );
+      },
+      ge = function (e, n) {
+        if (!e || !n.length) return e;
+        var r = document.createElement("div");
+        return (
+          (r.innerHTML = e),
+          r.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function (e, r) {
+            var t = n.find(function (n) {
+              return (
+                n.text === e.textContent.trim() &&
+                n.tagName === e.tagName.toLowerCase()
+              );
+            });
+            t && !e.id && (e.id = t.id);
+          }),
+          r.innerHTML
+        );
+      };
+    const ue = function (e) {
+      var n,
+        r,
+        t,
+        a,
+        i = e.theme,
+        o = e.apiKey,
+        l = e.homeRoute,
+        d = void 0 === l ? "/" : l,
+        s = "https://iradaapi.sohaibaftab.dev",
+        c = (0, O.useParams)().slug,
+        g = (0, O.useLocation)(),
+        u = ie((0, w.useState)(null), 2),
+        m = u[0],
+        f = u[1],
+        p = ie((0, w.useState)(!0), 2),
+        h = p[0],
+        v = p[1],
+        b = ie((0, w.useState)(!0), 2),
+        y = b[0],
+        E = b[1],
+        k = ie((0, w.useState)(!1), 2),
+        N = k[0],
+        z = k[1],
+        S = ie((0, w.useState)([]), 2),
+        L = S[0],
+        j = S[1],
+        _ = ie((0, w.useState)(!1), 2),
+        C = _[0],
+        P = _[1],
+        T = ie((0, w.useState)(""), 2),
+        B = T[0],
+        M = T[1],
+        I = ie((0, w.useState)([]), 2),
+        F = I[0],
+        G = I[1],
+        R = ie((0, w.useState)(!1), 2),
+        W = R[0],
+        H = R[1],
+        U = function () {
+          return g.pathname.includes("/blogs/") ? "/blogs" : "/";
+        },
+        q = (function () {
+          var e = ae(
+            re().mark(function e() {
+              var n, r, t, a, i;
+              return re().wrap(
+                function (e) {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        if (o) {
+                          e.next = 4;
+                          break;
+                        }
+                        return (
+                          console.error(
+                            "API key is required to fetch blog details"
+                          ),
+                          v(!1),
+                          e.abrupt("return")
+                        );
+                      case 4:
+                        return (
+                          (e.prev = 4),
+                          (e.next = 7),
+                          fetch("".concat(s, "/api/blogs/").concat(c), {
+                            method: "GET",
+                            headers: {
+                              Authorization: "Bearer ".concat(o),
+                              "Content-Type": "application/json",
+                            },
+                          })
+                        );
+                      case 7:
+                        if ((n = e.sent).ok) {
+                          e.next = 10;
+                          break;
+                        }
+                        throw new Error(
+                          "HTTP error! status: ".concat(n.status)
+                        );
+                      case 10:
+                        return (e.next = 12), n.json();
+                      case 12:
+                        (r = e.sent),
+                          (t = r.data || {}),
+                          console.log(t),
+                          f(t),
+                          t.content &&
+                            ((a = ce(t.content)),
+                            console.log("Generated TOC:", a),
+                            j(a),
+                            (i = ge(t.content, a)),
+                            console.log("Processed content length:", i.length),
+                            M(i)),
+                          v(!1),
+                          (e.next = 24);
+                        break;
+                      case 20:
+                        (e.prev = 20),
+                          (e.t0 = e.catch(4)),
+                          console.error("Failed to fetch blog details:", e.t0),
+                          v(!1);
+                      case 24:
+                      case "end":
+                        return e.stop();
+                    }
+                },
+                e,
+                null,
+                [[4, 20]]
+              );
+            })
+          );
+          return function () {
+            return e.apply(this, arguments);
+          };
+        })(),
+        Y = (function () {
+          var e = ae(
+            re().mark(function e() {
+              var n, r, t, a, i, l, d, g, u, f, p, h;
+              return re().wrap(
+                function (e) {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        if (o && m) {
+                          e.next = 2;
+                          break;
+                        }
+                        return e.abrupt("return");
+                      case 2:
+                        return (
+                          H(!0),
+                          (e.prev = 3),
+                          (n = new URLSearchParams()).append("limit", "10"),
+                          n.append("category", m.category),
+                          (e.next = 9),
+                          fetch(
+                            "".concat(s, "/api/blogs?").concat(n.toString()),
+                            {
+                              method: "GET",
+                              headers: {
+                                Authorization: "Bearer ".concat(o),
+                                "Content-Type": "application/json",
+                              },
+                            }
+                          )
+                        );
+                      case 9:
+                        if (((r = e.sent), (t = []), !r.ok)) {
+                          e.next = 18;
+                          break;
+                        }
+                        return (e.next = 14), r.json();
+                      case 14:
+                        (i = e.sent),
+                          (l =
+                            (null === (a = i.data) || void 0 === a
+                              ? void 0
+                              : a.blogs) || []),
+                          (d = l.filter(function (e) {
+                            return e.slug !== c;
+                          })),
+                          (t = ne(d));
+                      case 18:
+                        if (!(t.length < 5 && m.tags && m.tags.length >= 2)) {
+                          e.next = 35;
+                          break;
+                        }
+                        return (
+                          (e.prev = 19),
+                          (e.next = 22),
+                          fetch("".concat(s, "/api/blogs?limit=20"), {
+                            method: "GET",
+                            headers: {
+                              Authorization: "Bearer ".concat(o),
+                              "Content-Type": "application/json",
+                            },
+                          })
+                        );
+                      case 22:
+                        if (!(g = e.sent).ok) {
+                          e.next = 30;
+                          break;
+                        }
+                        return (e.next = 26), g.json();
+                      case 26:
+                        (f = e.sent),
+                          (p =
+                            (null === (u = f.data) || void 0 === u
+                              ? void 0
+                              : u.blogs) || []),
+                          (h = p.filter(function (e) {
+                            return (
+                              e.slug !== c &&
+                              e.category !== m.category &&
+                              !(!e.tags || !m.tags) &&
+                              e.tags.filter(function (e) {
+                                return m.tags.includes(e);
+                              }).length >= 2
+                            );
+                          })),
+                          (t = [].concat(ne(t), ne(h)));
+                      case 30:
+                        e.next = 35;
+                        break;
+                      case 32:
+                        (e.prev = 32),
+                          (e.t0 = e.catch(19)),
+                          console.error("Failed to fetch blogs by tags:", e.t0);
+                      case 35:
+                        G(t.slice(0, 5)), (e.next = 41);
+                        break;
+                      case 38:
+                        (e.prev = 38),
+                          (e.t1 = e.catch(3)),
+                          console.error("Failed to fetch similar blogs:", e.t1);
+                      case 41:
+                        return (e.prev = 41), H(!1), e.finish(41);
+                      case 44:
+                      case "end":
+                        return e.stop();
+                    }
+                },
+                e,
+                null,
+                [
+                  [3, 38, 41, 44],
+                  [19, 32],
+                ]
+              );
+            })
+          );
+          return function () {
+            return e.apply(this, arguments);
+          };
+        })();
+      (0, w.useEffect)(
+        function () {
+          c && o && q();
+        },
+        [c, o]
+      ),
+        (0, w.useEffect)(
+          function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          },
+          [c]
+        ),
+        (0, w.useEffect)(
+          function () {
+            m && Y();
+          },
+          [m]
+        );
+      var K = function (e) {
+        var n = window.location.href,
+          r = (null == m ? void 0 : m.title) || "",
+          t = (null == m || m.meta, "");
+        switch (e) {
+          case "twitter":
+            t = "https://twitter.com/intent/tweet?text="
+              .concat(encodeURIComponent(r), "&url=")
+              .concat(encodeURIComponent(n));
+            break;
+          case "linkedin":
+            t = "https://www.linkedin.com/sharing/share-offsite/?url=".concat(
+              encodeURIComponent(n)
+            );
+            break;
+          case "facebook":
+            t = "https://www.facebook.com/sharer/sharer.php?u=".concat(
+              encodeURIComponent(n)
+            );
+            break;
+          case "copy":
+            return navigator.clipboard.writeText(n), void z(!1);
+          default:
+            return;
+        }
+        window.open(t, "_blank", "width=600,height=400"), z(!1);
+      };
+      if (h)
+        return x().createElement(
+          "div",
+          { className: "irada-widget irada-blogs-page", "data-theme": i },
+          x().createElement(D, { theme: i })
+        );
+      if (!m)
+        return x().createElement(
+          "div",
+          { className: "irada-widget irada-blogs-page", "data-theme": i },
+          x().createElement(
+            "div",
+            { className: "ir-blog-error" },
+            x().createElement(
+              "div",
+              { className: "ir-blog-error-content" },
+              x().createElement(
+                "svg",
+                {
+                  width: "64",
+                  height: "64",
+                  viewBox: "0 0 24 24",
+                  fill: "none",
+                  stroke: "currentColor",
+                  strokeWidth: "1.5",
+                },
+                x().createElement("circle", { cx: "12", cy: "12", r: "10" }),
+                x().createElement("line", {
+                  x1: "15",
+                  y1: "9",
+                  x2: "9",
+                  y2: "15",
+                }),
+                x().createElement("line", {
+                  x1: "9",
+                  y1: "9",
+                  x2: "15",
+                  y2: "15",
+                })
+              ),
+              x().createElement("h2", null, "Blog Not Found"),
+              x().createElement(
+                "p",
+                null,
+                "The blog post you're looking for doesn't exist or has been removed."
+              ),
+              x().createElement(
+                O.Link,
+                { to: U(), className: "ir-back-link" },
+                "← Back to Blogs"
+              )
+            )
+          )
+        );
+      var V = (function (e) {
+          if (!e) return 0;
+          var n = e.replace(/<[^>]*>/g, "").split(/\s+/).length;
+          return Math.ceil(n / 200);
+        })(null == m ? void 0 : m.content),
+        $ = de(null == m ? void 0 : m.publishedAt),
+        J =
+          (de(null == m ? void 0 : m.updatedAt),
+          (null == m ? void 0 : m.updatedAt) &&
+            (null == m ? void 0 : m.publishedAt) &&
+            new Date(m.updatedAt) > new Date(m.publishedAt));
+      return x().createElement(
+        "div",
+        { className: "irada-widget irada-blogs-page", "data-theme": i },
+        x().createElement(
+          "div",
+          { id: "blog-read" },
+          d &&
+            x().createElement(
+              "div",
+              { className: "ir-back-to-home-container" },
+              x().createElement(
+                O.Link,
+                { to: d, className: "ir-back-to-home-link" },
+                x().createElement(
+                  "svg",
+                  {
+                    width: "16",
+                    height: "16",
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    stroke: "currentColor",
+                    strokeWidth: "2",
+                  },
+                  x().createElement("line", {
+                    x1: "19",
+                    y1: "12",
+                    x2: "5",
+                    y2: "12",
+                  }),
+                  x().createElement("polyline", { points: "12,19 5,12 12,5" })
+                ),
+                "Back to Home"
+              )
+            ),
+          x().createElement(
+            "div",
+            { className: "ir-blog-banner" },
+            y &&
+              x().createElement(A, {
+                width: "100%",
+                height: "50vh",
+                radius: "0",
+                theme: i,
+              }),
+            x().createElement("img", {
+              style: { display: y ? "none" : "block" },
+              onLoad: function () {
+                E(!1);
+              },
+              src: null == m ? void 0 : m.banner,
+              alt: (null == m ? void 0 : m.title) || "Blog banner",
+            })
+          ),
+          x().createElement(
+            "div",
+            { className: "ir-blog-header-section" },
+            x().createElement(
+              "div",
+              { className: "ir-blog-header-content" },
+              x().createElement(
+                "div",
+                { className: "ir-blog-header-badges" },
+                x().createElement(
+                  "div",
+                  { className: "ir-blog-category-badge" },
+                  null == m ? void 0 : m.category
+                ),
+                x().createElement(
+                  "div",
+                  { className: "ir-blog-views-badge" },
+                  x().createElement(
+                    "svg",
+                    {
+                      width: "14",
+                      height: "14",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "2",
+                    },
+                    x().createElement("path", {
+                      d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
+                    }),
+                    x().createElement("circle", { cx: "12", cy: "12", r: "3" })
+                  ),
+                  se((null == m ? void 0 : m.viewsCount) || 0),
+                  " views"
+                )
+              ),
+              x().createElement(
+                "h1",
+                { className: "ir-blog-title" },
+                null == m ? void 0 : m.title
+              ),
+              x().createElement(
+                "p",
+                { className: "ir-blog-subtitle" },
+                null == m ? void 0 : m.meta
+              ),
+              x().createElement(
+                "div",
+                { className: "ir-blog-meta" },
+                x().createElement(
+                  "div",
+                  { className: "ir-author-info" },
+                  (null == m || null === (n = m.author) || void 0 === n
+                    ? void 0
+                    : n.profileImageUrl) &&
+                    x().createElement("img", {
+                      src:
+                        null == m || null === (r = m.author) || void 0 === r
+                          ? void 0
+                          : r.profileImageUrl,
+                      alt:
+                        (null == m || null === (t = m.author) || void 0 === t
+                          ? void 0
+                          : t.username) || "Author",
+                      className: "ir-author-avatar",
+                    }),
+                  x().createElement(
+                    "div",
+                    { className: "ir-author-details" },
+                    x().createElement(
+                      "span",
+                      { className: "ir-author-name" },
+                      "@",
+                      (null == m || null === (a = m.author) || void 0 === a
+                        ? void 0
+                        : a.username) || "Anonymous"
+                    ),
+                    x().createElement(
+                      "div",
+                      { className: "ir-publish-info" },
+                      x().createElement(
+                        "span",
+                        { className: "ir-publish-date" },
+                        $
+                      ),
+                      J &&
+                        x().createElement(
+                          "span",
+                          { className: "ir-update-info" },
+                          " ",
+                          "· Updated ",
+                          (function (e) {
+                            if (!e) return "";
+                            var n = new Date(e),
+                              r = new Date(),
+                              t = Math.floor((r - n) / 1e3);
+                            return t < 60
+                              ? "Just now"
+                              : t < 3600
+                              ? "".concat(Math.floor(t / 60), "m ago")
+                              : t < 86400
+                              ? "".concat(Math.floor(t / 3600), "h ago")
+                              : t < 2592e3
+                              ? "".concat(Math.floor(t / 86400), "d ago")
+                              : t < 31536e3
+                              ? "".concat(Math.floor(t / 2592e3), "mo ago")
+                              : "".concat(Math.floor(t / 31536e3), "y ago");
+                          })(null == m ? void 0 : m.updatedAt)
+                        ),
+                      x().createElement(
+                        "span",
+                        { className: "ir-reading-time" },
+                        " ",
+                        "· ",
+                        V,
+                        " min read"
+                      )
+                    )
+                  )
+                ),
+                x().createElement(
+                  "div",
+                  { className: "ir-share-container" },
+                  x().createElement(
+                    "button",
+                    {
+                      className: "ir-share-button",
+                      onClick: function () {
+                        return z(!N);
+                      },
+                    },
+                    x().createElement(
+                      "svg",
+                      {
+                        width: "20",
+                        height: "20",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "currentColor",
+                        strokeWidth: "2",
+                      },
+                      x().createElement("circle", {
+                        cx: "18",
+                        cy: "5",
+                        r: "3",
+                      }),
+                      x().createElement("circle", {
+                        cx: "6",
+                        cy: "12",
+                        r: "3",
+                      }),
+                      x().createElement("circle", {
+                        cx: "18",
+                        cy: "19",
+                        r: "3",
+                      }),
+                      x().createElement("line", {
+                        x1: "8.59",
+                        y1: "13.51",
+                        x2: "15.42",
+                        y2: "17.49",
+                      }),
+                      x().createElement("line", {
+                        x1: "15.41",
+                        y1: "6.51",
+                        x2: "8.59",
+                        y2: "10.49",
+                      })
+                    ),
+                    "Share"
+                  ),
+                  N &&
+                    x().createElement(
+                      "div",
+                      { className: "ir-share-menu" },
+                      x().createElement(
+                        "button",
+                        {
+                          onClick: function () {
+                            return K("twitter");
+                          },
+                          className: "ir-share-option",
+                        },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 24 24",
+                            fill: "currentColor",
+                          },
+                          x().createElement("path", {
+                            d: "M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z",
+                          })
+                        ),
+                        "Twitter"
+                      ),
+                      x().createElement(
+                        "button",
+                        {
+                          onClick: function () {
+                            return K("linkedin");
+                          },
+                          className: "ir-share-option",
+                        },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 24 24",
+                            fill: "currentColor",
+                          },
+                          x().createElement("path", {
+                            d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+                          })
+                        ),
+                        "LinkedIn"
+                      ),
+                      x().createElement(
+                        "button",
+                        {
+                          onClick: function () {
+                            return K("facebook");
+                          },
+                          className: "ir-share-option",
+                        },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 24 24",
+                            fill: "currentColor",
+                          },
+                          x().createElement("path", {
+                            d: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+                          })
+                        ),
+                        "Facebook"
+                      ),
+                      x().createElement(
+                        "button",
+                        {
+                          onClick: function () {
+                            return K("copy");
+                          },
+                          className: "ir-share-option",
+                        },
+                        x().createElement(
+                          "svg",
+                          {
+                            width: "16",
+                            height: "16",
+                            viewBox: "0 0 24 24",
+                            fill: "none",
+                            stroke: "currentColor",
+                            strokeWidth: "2",
+                          },
+                          x().createElement("rect", {
+                            x: "9",
+                            y: "9",
+                            width: "13",
+                            height: "13",
+                            rx: "2",
+                            ry: "2",
+                          }),
+                          x().createElement("path", {
+                            d: "M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1",
+                          })
+                        ),
+                        "Copy Link"
+                      )
+                    )
+                )
+              )
+            )
+          ),
+          x().createElement(
+            "div",
+            { className: "ir-blog-content-wrapper" },
+            x().createElement(
+              "div",
+              { className: "ir-blog-content-container" },
+              (null == m ? void 0 : m.tags) &&
+                m.tags.length > 0 &&
+                x().createElement(
+                  "div",
+                  { className: "ir-blog-tags-section" },
+                  m.tags.map(function (e, n) {
+                    return x().createElement(
+                      "span",
+                      { key: n, className: "ir-blog-tag" },
+                      e
+                    );
+                  })
+                ),
+              L.length > 0 &&
+                x().createElement(
+                  "div",
+                  { className: "ir-blog-toc-section" },
+                  x().createElement(
+                    "div",
+                    { className: "ir-toc-header" },
+                    x().createElement(
+                      "h3",
+                      { className: "ir-toc-title" },
+                      "Table of Contents"
+                    ),
+                    x().createElement(
+                      "button",
+                      {
+                        className: "ir-toc-toggle",
+                        onClick: function () {
+                          return P(!C);
+                        },
+                      },
+                      x().createElement(
+                        "svg",
+                        {
+                          width: "16",
+                          height: "16",
+                          viewBox: "0 0 24 24",
+                          fill: "none",
+                          stroke: "currentColor",
+                          strokeWidth: "2",
+                          style: {
+                            transform: C ? "rotate(180deg)" : "rotate(0deg)",
+                            transition: "transform 0.2s ease",
+                          },
+                        },
+                        x().createElement("polyline", {
+                          points: "6,9 12,15 18,9",
+                        })
+                      )
+                    )
+                  ),
+                  C &&
+                    x().createElement(
+                      "nav",
+                      { className: "ir-toc-nav" },
+                      x().createElement(
+                        "ul",
+                        { className: "ir-toc-list" },
+                        L.map(function (e, n) {
+                          return x().createElement(
+                            "li",
+                            {
+                              key: n,
+                              className: "ir-toc-item ir-toc-level-".concat(
+                                e.level
+                              ),
+                            },
+                            x().createElement(
+                              "a",
+                              {
+                                href: "#".concat(e.id),
+                                className: "ir-toc-link",
+                                onClick: function (n) {
+                                  n.preventDefault();
+                                  var r = document.getElementById(e.id);
+                                  if (
+                                    (console.log(
+                                      "TOC click:",
+                                      e.id,
+                                      "Element found:",
+                                      !!r
+                                    ),
+                                    r)
+                                  )
+                                    r.scrollIntoView({
+                                      behavior: "smooth",
+                                      block: "start",
+                                    });
+                                  else {
+                                    console.log(
+                                      "Element not found for ID:",
+                                      e.id
+                                    );
+                                    var t = document.querySelectorAll(
+                                        "h1, h2, h3, h4, h5, h6"
+                                      ),
+                                      a = Array.from(t).find(function (n) {
+                                        return n.textContent.trim() === e.text;
+                                      });
+                                    a &&
+                                      (console.log(
+                                        "Found by text content, scrolling to:",
+                                        a
+                                      ),
+                                      a.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start",
+                                      }));
+                                  }
+                                },
+                              },
+                              e.text
+                            )
+                          );
+                        })
+                      )
+                    )
+                ),
+              x().createElement("div", {
+                className: "ir-blog-content",
+                dangerouslySetInnerHTML: {
+                  __html: B || (null == m ? void 0 : m.content),
+                },
+              })
+            )
+          ),
+          x().createElement(
+            "div",
+            { className: "ir-similar-blogs-section" },
+            x().createElement(
+              "div",
+              { className: "ir-similar-blogs-container" },
+              x().createElement(
+                "h2",
+                { className: "ir-similar-blogs-title" },
+                "Similar Articles"
+              ),
+              W
+                ? x().createElement(
+                    "div",
+                    { className: "ir-similar-blogs-loading" },
+                    x().createElement(
+                      "div",
+                      { className: "ir-loading-skeleton" },
+                      x().createElement("div", {
+                        className: "ir-skeleton-card",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-skeleton-card",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-skeleton-card",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-skeleton-card",
+                      }),
+                      x().createElement("div", {
+                        className: "ir-skeleton-card",
+                      })
+                    )
+                  )
+                : F.length > 0
+                ? x().createElement(
+                    "div",
+                    { className: "ir-similar-blogs-grid" },
+                    F.map(function (e, n) {
+                      var r;
+                      return x().createElement(
+                        O.Link,
+                        {
+                          key: e._id || n,
+                          to: "".concat(U(), "/blog/").concat(e.slug),
+                          className: "ir-similar-blog-card",
+                        },
+                        x().createElement(
+                          "div",
+                          { className: "ir-similar-blog-content" },
+                          x().createElement(
+                            "div",
+                            { className: "ir-similar-blog-header" },
+                            x().createElement(
+                              "div",
+                              { className: "ir-similar-blog-category" },
+                              e.category
+                            ),
+                            x().createElement(
+                              "div",
+                              { className: "ir-similar-blog-views" },
+                              x().createElement(
+                                "svg",
+                                {
+                                  width: "12",
+                                  height: "12",
+                                  viewBox: "0 0 24 24",
+                                  fill: "none",
+                                  stroke: "currentColor",
+                                  strokeWidth: "2",
+                                },
+                                x().createElement("path", {
+                                  d: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z",
+                                }),
+                                x().createElement("circle", {
+                                  cx: "12",
+                                  cy: "12",
+                                  r: "3",
+                                })
+                              ),
+                              se(e.viewsCount || 0)
+                            )
+                          ),
+                          x().createElement(
+                            "h3",
+                            { className: "ir-similar-blog-title" },
+                            e.title
+                          ),
+                          x().createElement(
+                            "p",
+                            { className: "ir-similar-blog-meta" },
+                            e.meta
+                          ),
+                          x().createElement(
+                            "div",
+                            { className: "ir-similar-blog-meta-info" },
+                            x().createElement(
+                              "span",
+                              { className: "ir-similar-blog-author" },
+                              "@",
+                              (null === (r = e.author) || void 0 === r
+                                ? void 0
+                                : r.username) || "Anonymous"
+                            ),
+                            x().createElement(
+                              "span",
+                              { className: "ir-similar-blog-date" },
+                              de(e.publishedAt)
+                            )
+                          )
+                        )
+                      );
+                    })
+                  )
+                : x().createElement(
+                    "div",
+                    { className: "ir-no-similar-blogs" },
+                    x().createElement("p", null, "No similar articles found.")
+                  ),
+              x().createElement(
+                "div",
+                { className: "ir-similar-blogs-footer" },
+                x().createElement(
+                  O.Link,
+                  { to: U(), className: "ir-back-to-blogs" },
+                  x().createElement(
+                    "svg",
+                    {
+                      width: "16",
+                      height: "16",
+                      viewBox: "0 0 24 24",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeWidth: "2",
+                    },
+                    x().createElement("line", {
+                      x1: "19",
+                      y1: "12",
+                      x2: "5",
+                      y2: "12",
+                    }),
+                    x().createElement("polyline", { points: "12,19 5,12 12,5" })
+                  ),
+                  "Back to Blogs"
+                )
+              )
+            )
+          )
+        )
+      );
+    };
+    function me(e) {
+      var n = e.apiKey,
+        r = e.theme,
+        t = void 0 === r ? "light" : r,
+        a = e.heading,
+        i = void 0 === a ? "Discover Our Blog" : a,
+        o = e.subheading,
+        l =
+          void 0 === o
+            ? "Explore insights, tutorials, and stories from our community"
+            : o,
+        d = e.homeRoute,
+        s = void 0 === d ? "/" : d;
+      if (!n) return x().createElement("div", null, "API key is required");
+      var c = "https://iradaapi.sohaibaftab.dev";
+      return x().createElement(
+        O.Routes,
+        null,
+        x().createElement(O.Route, {
+          index: !0,
+          path: "/",
+          element: x().createElement(Q, {
+            heading: i,
+            subheading: l,
+            apiKey: n,
+            theme: t,
+            apiEndpoint: c,
+            homeRoute: s,
+          }),
+        }),
+        x().createElement(O.Route, {
+          path: "blog/:slug",
+          element: x().createElement(ue, {
+            theme: t,
+            apiKey: n,
+            apiEndpoint: c,
+            homeRoute: s,
+          }),
+        })
+      );
+    }
+    return i;
+  })()
+);

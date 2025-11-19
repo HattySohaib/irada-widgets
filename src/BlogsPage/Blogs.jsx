@@ -10,7 +10,7 @@ function Blogs({
   subheading = "Explore insights, tutorials, and stories from our community",
   homeRoute = "/",
 }) {
-  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
+  const apiEndpoint = "https://iradaapi.sohaibaftab.dev";
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [blogs, setBlogs] = useState([]);

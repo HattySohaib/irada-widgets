@@ -111,7 +111,7 @@ const processContentWithIds = (content, toc) => {
 };
 
 function BlogRead({ theme, apiKey, homeRoute = "/" }) {
-  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
+  const apiEndpoint = "https://iradaapi.sohaibaftab.dev";
   const { slug } = useParams();
   const location = useLocation();
 

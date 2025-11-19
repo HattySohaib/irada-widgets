@@ -12,7 +12,7 @@ const MessageForm = ({
   onSuccess,
   onError,
 }) => {
-  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
+  const apiEndpoint = "https://iradaapi.sohaibaftab.dev";
   const [formData, setFormData] = useState({
     name: "",
     email: "",

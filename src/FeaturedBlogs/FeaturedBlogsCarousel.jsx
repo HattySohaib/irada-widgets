@@ -22,7 +22,7 @@ const formatNumber = (num) => {
 };
 
 const FeaturedBlogsCarousel = ({ theme, apiKey }) => {
-  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
+  const apiEndpoint = "https://iradaapi.sohaibaftab.dev";
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);

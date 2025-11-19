@@ -13,7 +13,7 @@ function IradaBlogsPage({
 }) {
   if (!apiKey) return <div>API key is required</div>;
 
-  const apiEndpoint = "https://bloggestapi.sohaibaftab.me";
+  const apiEndpoint = "https://iradaapi.sohaibaftab.dev";
 
   return (
     <Routes>
